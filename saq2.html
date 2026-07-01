@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 3: Graphical & Diagrammatic Data Analyzer | Nexus Academic Portal</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0f0a18;
+            --bg-sidebar: #181124;
+            --bg-card: #221a30;
+            --accent-purple: #8b5cf6;
+            --accent-purple-hover: #7c3aed;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-purple: #372a4d;
+            --correct-green: #10b981;
+            --utility-purple: #1e1233;
+            --graph-grid: #2d243d;
+            --graph-axis: #ffffff;
+            --graph-line: #38bdf8;
+            --graph-accent: #f43f5e;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #global-utility-bar {
+            background-color: var(--utility-purple);
+            border-bottom: 1px solid var(--border-purple);
+            padding: 8px 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .utility-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-purple);
+            color: var(--text-main);
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        #portal-layout {
+            display: flex;
+            flex: 1;
+        }
+
+        #portal-sidebar {
+            width: 260px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-purple);
+            padding: 24px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: calc(100vh - 35px);
+            overflow-y: auto;
+        }
+
+        .sidebar-brand {
+            margin-bottom: 24px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .brand-logo .highlight {
+            color: #a78bfa;
+        }
+
+        .brand-tagline {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 4px 0 0 0;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin: 16px 0 8px 0;
+            font-weight: 600;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin-bottom: 4px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(139, 92, 246, 0.15);
+            color: #ffffff;
+        }
+
+        .sidebar-footer-card {
+            margin-top: auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-purple);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        .status-indicator-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .status-dot.online {
+            width: 8px;
+            height: 8px;
+            background-color: var(--correct-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--correct-green);
+        }
+
+        .portal-main {
+            margin-left: 260px;
+            flex-grow: 1;
+            padding: 40px;
+            max-width: 1000px;
+            box-sizing: border-box;
+        }
+
+        #dashboard-header {
+            margin-bottom: 30px;
+        }
+
+        .header-search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-purple);
+            border-radius: 8px;
+            padding: 8px 14px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .header-search-box input {
+            background: none;
+            border: none;
+            color: white;
+            margin-left: 10px;
+            width: 100%;
+            outline: none;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .module-banner {
+            background: linear-gradient(90deg, #1e3a8a 0%, #1e1233 100%);
+            border-left: 4px solid #38bdf8;
+            padding: 12px 20px;
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .saq-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-purple);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .q-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #38bdf8;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .q-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        /* DATA VIZ CANVAS ARCHITECTURE */
+        .diagram-wrapper {
+            background-color: #0d0814;
+            border: 1px solid var(--border-purple);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .graph-canvas {
+            background-color: #0b0610;
+            border-radius: 4px;
+            max-width: 100%;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+
+        .data-table th, .data-table td {
+            border: 1px solid var(--border-purple);
+            padding: 8px 12px;
+            text-align: center;
+        }
+
+        .data-table th {
+            background-color: var(--utility-purple);
+            color: #a78bfa;
+        }
+
+        .working-space {
+            width: 100%;
+            min-height: 100px;
+            background-color: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-purple);
+            border-radius: 8px;
+            padding: 12px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            resize: vertical;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+            outline: none;
+        }
+
+        .working-space:focus {
+            border-color: #38bdf8;
+        }
+
+        .control-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-submit {
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #0369a1;
+        }
+
+        .marking-criteria-panel {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .select-mark {
+            background-color: #181124;
+            border: 1px solid var(--border-purple);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .solution-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(56, 189, 248, 0.04);
+            border: 1px solid var(--border-purple);
+            border-left: 4px solid var(--correct-green);
+            border-radius: 8px;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .solution-title {
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+
+        #live-summary-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #111827, #1f2937);
+            border: 1px solid #38bdf8;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .summary-score {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .summary-score span {
+            color: #38bdf8;
+        }
+
+        .footer-nav {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-purple);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .exit-dashboard-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-purple);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* ANIMATED FULL OVERLAY SHIELD FOR INTERSTITIAL */
+        #exit-animation-shield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #0f0a18;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #exit-animation-shield.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .portal-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(139, 92, 246, 0.1);
+            border-top: 4px solid var(--accent-purple);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="exit-animation-shield">
+        <div class="portal-spinner"></div>
+        <h2 style="font-weight: 700; letter-spacing: 0.5px;">Closing Assessment Engine...</h2>
+        <p style="color: var(--text-muted); font-size: 14px;">Syncing matrix diagnostics back to Dashboard Hub</p>
+    </div>
+
+    <div id="global-utility-bar">
+        <div class="utility-container">
+            <span>NESA Year 11 Preliminary Syllabus Portal — Graphical & Diagrammatic Data Analyzer</span>
+            <div class="utility-controls">
+                <button id="theme-toggle-btn">Toggle Theme</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="portal-layout">
+        <aside id="portal-sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <span>🌌</span>
+                    <span class="brand-name">Nexus<span class="highlight">Sci</span></span>
+                </div>
+                <p class="brand-tagline">NSW Curriculum Mastery</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Core Directory</div>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span class="nav-text">Portal Home</span></a></li>
+                </ul>
+
+                <div class="nav-section-label">Physics Syllabus Modules</div>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="mod1.html" class="nav-link"><span class="nav-icon">🏃‍♂️</span><span class="nav-text">Module 1: Kinematics</span></a></li>
+                    <li class="nav-item"><a href="mod2.html" class="nav-link"><span class="nav-icon">⚙️</span><span class="nav-text">Module 2: Dynamics</span></a></li>
+                    <li class="nav-item"><a href="mod3.html" class="nav-link"><span class="nav-icon">🌊</span><span class="nav-text">Module 3: Waves / Temp</span></a></li>
+                    <li class="nav-item"><a href="mod4.html" class="nav-link"><span class="nav-icon">⚡</span><span class="nav-text">Module 4: Electricity</span></a></li>
+                </ul>
+
+                <div class="nav-section-label">Evaluation Engine</div>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="exam.html" class="nav-link"><span class="nav-icon">📝</span><span class="nav-text">Final Physics Exam</span></a></li>
+                    <li class="nav-item"><a href="saq1.html" class="nav-link"><span class="nav-icon">🖋️</span><span class="nav-text">SAQ Tracker 1</span></a></li>
+                    <li class="nav-item"><a href="saq2.html" class="nav-link active"><span class="nav-icon">📊</span><span class="nav-text">SAQ Tracker 2</span></a></li>
+                    <li class="nav-item"><a href="results.html" class="nav-link"><span class="nav-icon">🏆</span><span class="nav-text">Analytics & Results</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer-card">
+                <div class="status-indicator-group">
+                    <span class="status-dot online"></span>
+                    <span class="status-label">Syllabus Engine: Active</span>
+                </div>
+                <div class="version-tag">v2.4.0-Prelim</div>
+            </div>
+        </aside>
+
+        <main id="main-content" class="portal-main">
+            <header id="dashboard-header">
+                <div class="header-search-box">
+                    <span>🔍</span>
+                    <input type="search" placeholder="Search chart vectors, tables, schemas...">
+                </div>
+            </header>
+
+            <h1>Section 3: Graphical Data Analysis & Sketches (SAQ2)</h1>
+            <p style="color: var(--text-muted); margin-bottom: 40px;">
+                Analyze the graphs, datasets, and schematic canvas models below. Complete your verification calculations or execute layout blueprints where requested.
+            </p>
+
+            <div id="live-summary-bar">
+                <div class="summary-score">Total Marks: <span id="running-score">0</span> / 76</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Self-Assigned Matrix Score</div>
+            </div>
+
+            <div class="module-banner">Module 1: Kinematics (Questions 1-5)</div>
+
+            <div class="saq-card" id="q1">
+                <div class="q-meta"><span>Question 1</span><span>Module 1 &bull; Graph Extraction &bull; 3 Marks</span></div>
+                <div class="q-text">A test runner moves according to the multi-stage displacement-time graph below. Determine the instantaneous velocity at $t = 3.0\text{ s}$ and find the overall average speed across the complete $5.0\text{ s}$ path window.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q1" class="graph-canvas" width="500" height="260"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Extract values from the coordinates and calculate gradients..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(1)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Graph Solution:</div>
+                    <strong>1. Instantaneous Velocity at $t = 3.0\text{ s}$:</strong> This time lies on the linear segment from $t = 2.0\text{ s}$ to $t = 4.0\text{ s}$.<br>
+                    $\text{Gradient} = \frac{x_2 - x_1}{t_2 - t_1} = \frac{30.0 - 10.0}{4.0 - 2.0} = \frac{20.0}{2.0} = 10.0\text{ m s}^{-1}$.<br>
+                    <strong>2. Average Speed for total path ($t = 0$ to $5\text{ s}$):</strong><br>
+                    Total Distance covered = $10.0\text{ m}$ (first stage) + $20.0\text{ m}$ (second stage) + $10.0\text{ m}$ (final return stage) = $40.0\text{ m}$.<br>
+                    $\text{Average Speed} = \frac{\text{Total Distance}}{\text{Total Time}} = \frac{40.0\text{ m}}{5.0\text{ s}} = 8.00\text{ m s}^{-1}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q2">
+                <div class="q-meta"><span>Question 2</span><span>Module 1 &bull; Complex Graph Analysis &bull; 4 Marks</span></div>
+                <div class="q-text">The velocity-time graph below documents a vehicle's motion as it passes a tracking datum, showcasing a deceleration phase that drops below zero. Determine the total net displacement and the total path distance traveled over the entire $6.0\text{ s}$ tracking window.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q2" class="graph-canvas" width="500" height="280"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Calculate positive and negative bounds using area tracking equations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(2)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Graph Solution:</div>
+                    The area under a velocity-time graph equals displacement.<br>
+                    <strong>Area 1 (Positive Bounds, $t=0$ to $t=4.0\text{ s}$):</strong> Triangle layout base $= 4.0\text{ s}$, peak height $= 20\text{ m s}^{-1}$.<br>
+                    $A_1 = \frac{1}{2} \times 4.0 \times 20 = +40.0\text{ m}$.<br>
+                    <strong>Area 2 (Negative Bounds, $t=4.0$ to $t=6.0\text{ s}$):</strong> Triangle layout base $= 2.0\text{ s}$, depth height $= -10\text{ m s}^{-1}$.<br>
+                    $A_2 = \frac{1}{2} \times 2.0 \times (-10) = -10.0\text{ m}$.<br><br>
+                    &bull; <strong>Net Displacement</strong> $= A_1 + A_2 = 40.0 - 10.0 = +30.0\text{ m}$.<br>
+                    &bull; <strong>Total Distance Traveled</strong> $= |A_1| + |A_2| = 40.0 + 10.0 = 50.0\text{ m}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q3">
+                <div class="q-meta"><span>Question 3</span><span>Module 1 &bull; Skills &amp; Error Data Table &bull; 3 Marks</span></div>
+                <div class="q-text">Review the raw velocity values recorded by an optical gate sensor over multiple automated trial loops. Assess whether the system contains any obvious anomalous outliers, and calculate the most accurate value for acceleration if the corresponding time delta is exactly $2.50\text{ s}$ from rest.</div>
+                <table class="data-table">
+                    <tr><th>Trial Number</th><th>Trial 1</th><th>Trial 2</th><th>Trial 3</th><th>Trial 4</th><th>Trial 5</th></tr>
+                    <tr><td>Final Velocity ($m/s$)</td><td>12.1</td><td>11.9</td><td>15.8</td><td>12.0</td><td>12.2</td></tr>
+                </table>
+                <textarea class="working-space" placeholder="Identify outliers, perform averaging on matching reliable sets..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(3)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solution Matrix:</div>
+                    <strong>1. Outlier Identification:</strong> Trial 3 ($15.8\text{ m s}^{-1}$) is significantly higher than the clustered readings ($\approx 12.0\text{ m s}^{-1}$), indicating an anomaly.<br>
+                    <strong>2. Average Calculation (Excluding Outlier):</strong><br>
+                    $v_{\text{avg}} = \frac{12.1 + 11.9 + 12.0 + 12.2}{4} = \frac{48.2}{4} = 12.05\text{ m s}^{-1}$.<br>
+                    <strong>3. Acceleration Calculation:</strong><br>
+                    $a = \frac{v - u}{t} = \frac{12.05 - 0}{2.50\text{ s}} = 4.82\text{ m s}^{-2}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q4">
+                <div class="q-meta"><span>Question 4</span><span>Module 1 &bull; Vector Graph Reconstruction &bull; 3 Marks</span></div>
+                <div class="q-text">A vessel changes position along the paths shown below. Compute the magnitude of the net resultant vector displacement from the origin point $(0,0)$.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q4" class="graph-canvas" width="400" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Sum vector components and resolve using Pythagoras..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(4)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    The path contains two consecutive vector legs:<br>
+                    &bull; Leg 1: Move due East by $30.0\text{ m} \implies \vec{d}_1 = (30, 0)$<br>
+                    &bull; Leg 2: Move due North by $40.0\text{ m} \implies \vec{d}_2 = (0, 40)$<br>
+                    The resultant vector displacement connects the start directly to the end coordinate position $(30, 40)$.<br>
+                    $R = \sqrt{\Delta x^2 + \Delta y^2} = \sqrt{30.0^2 + 40.0^2} = \sqrt{900 + 1600} = 50.0\text{ m}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q5">
+                <div class="q-meta"><span>Question 5</span><span>Module 1 &bull; Acceleration Slope Extraction &bull; 3 Marks</span></div>
+                <div class="q-text">Determine the magnitude of acceleration for the vehicle during the first two seconds of its journey, using the velocity-time graph metrics provided below.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q5" class="graph-canvas" width="480" height="220"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Calculate gradient of velocity curve from initial boundaries..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(5)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    The slope or gradient of a velocity-time graph equals acceleration.<br>
+                    At $t = 0\text{ s}$, $v = 4.0\text{ m s}^{-1}$. At $t = 2.0\text{ s}$, $v = 16.0\text{ m s}^{-1}$.<br>
+                    $\text{Acceleration } a = \frac{\Delta v}{\Delta t} = \frac{16.0 - 4.0}{2.0 - 0} = \frac{12.0}{2.0} = 6.00\text{ m s}^{-2}$.
+                </div>
+            </div>
+
+            <div class="module-banner">Module 2: Dynamics (Questions 6-10)</div>
+
+            <div class="saq-card" id="q6">
+                <div class="q-meta"><span>Question 6</span><span>Module 2 &bull; Force-Time Impulse Graphs &bull; 3 Marks</span></div>
+                <div class="q-text">A hockey stick strikes a puck, exerting a variable contact force profile as shown below. Determine the total impulse delivered to the puck and find its exit velocity if its mass is $0.160\text{ kg}$ and it was initially stationary.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q6" class="graph-canvas" width="480" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Calculate triangular graph area, map to change in momentum equations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(6)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    The area under a Force-Time graph equals total Impulse.<br>
+                    $\text{Impulse (Area)} = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1;2} \times 0.080\text{ s} \times 150\text{ N} = 6.00\text{ N s}$.<br><br>
+                    By the Impulse-Momentum Theorem:<br>
+                    $\text{Impulse} = \Delta p = m(v_f - v_i) \implies 6.00 = 0.160 \times (v_f - 0)$<br>
+                    $v_f = \frac{6.00}{0.160} = 37.5\text{ m s}^{-1}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q7">
+                <div class="q-meta"><span>Question 7</span><span>Module 2 &bull; Free-Body Vector Layouts &bull; 4 Marks</span></div>
+                <div class="q-text">A cargo container is pulled up an inclined structural ramp by an external tension cable. Using the diagram below, resolve the components of the gravitational force parallel and perpendicular to the ramp surface, and calculate the net accelerating force.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q7" class="graph-canvas" width="460" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Deconstruct mass values into trigonometric component axes..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(7)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    Mass $m = 40.0\text{ kg}$, Ramp Angle $\theta = 30^\circ$, Tension $T = 300\text{ N}$.<br>
+                    &bull; <strong>Gravity component pulling down parallel to the ramp:</strong><br>
+                    $F_{g,\parallel} = m g \sin(\theta) = 40.0 \times 9.80 \times \sin(30^\circ) = 392 \times 0.5 = 196\text{ N}$ down the ramp.<br>
+                    &bull; <strong>Gravity component perpendicular to the ramp:</strong><br>
+                    $F_{g,\perp} = m g \cos(\theta) = 40.0 \times 9.80 \times \cos(30^\circ) = 392 \times 0.866 = 339.5\text{ N}$.<br><br>
+                    &bull; <strong>Net Force acting along the ramp surface line:</strong><br>
+                    $F_{\text{net}} = T - F_{g,\parallel} = 300\text{ N} - 196\text{ N} = +104\text{ N}$ directed up the ramp structure.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q8">
+                <div class="q-meta"><span>Question 8</span><span>Module 2 &bull; Hooke's Law Linear Plots &bull; 3 Marks</span></div>
+                <div class="q-text">Review the experimental force-extension data plotted for a structural spring. Calculate the spring constant ($k$) using the gradient of the graph, and determine the elastic potential energy stored at an extension of $0.40\text{ m}$.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q8" class="graph-canvas" width="480" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Extract graph gradient values, calculate area under Hooke's slope lines..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(8)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>1. Find the Spring Constant ($k$):</strong> Select coordinate point $(0.40\text{ m}, 20\text{ N})$.<br>
+                    $k = \text{Gradient} = \frac{\Delta F}{\Delta x} = \frac{20\text{ N}}{0.40\text{ m}} = 50.0\text{ N m}^{-1}$.<br><br>
+                    <strong>2. Determine the Stored Elastic Potential Energy ($U_s$):</strong> This matches the area under the linear curve up to $x = 0.40\text{ m}$.<br>
+                    $U_s = \frac{1}{2} k x^2 = \frac{1}{2} \times 50.0 \times (0.40)^2 = 25.0 \times 0.16 = 4.00\text{ J}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q9">
+                <div class="q-meta"><span>Question 9</span><span>Module 2 &bull; Work-Energy Graphs &bull; 3 Marks</span></div>
+                <div class="q-text">A system exerts a variable horizontal force on an object over a distance, as plotted below. Calculate the total work done on the object across the entire $8.0\text{ m}$ displacement path.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q9" class="graph-canvas" width="480" height="220"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Break the shape into rectangular and triangular blocks to find total work..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(9)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    Work done equals the total area under the Force-Displacement graph.<br>
+                    &bull; <strong>Segment 1 (Rectangular block from $0$ to $4.0\text{ m}$):</strong><br>
+                    $\text{Area}_1 = \text{width} \times \text{height} = 4.0\text{ m} \times 30\text{ N} = 120\text{ J}$.<br>
+                    &bull; <strong>Segment 2 (Triangular block from $4.0$ to $8.0\text{ m}$):</strong><br>
+                    $\text{Area}_2 = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times 4.0\text{ m} \times 30\text{ N} = 60\text{ J}$.<br><br>
+                    $\text{Total Work Done} = 120\text{ J} + 60\text{ J} = 180\text{ J}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q10">
+                <div class="q-meta"><span>Question 10</span><span>Module 2 &bull; Momentum Collision Vectors &bull; 3 Marks</span></div>
+                <div class="q-text">Review the vector diagram below, which illustrates a perpendicular collision where two components lock together. Determine the magnitude of their combined momentum vector immediately after impact.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q10" class="graph-canvas" width="400" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Sum momentum vectors using right-angle triangle methods..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(10)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    Momentum is a vector quantity and is conserved independently along both the x and y axes.<br>
+                    &bull; $p_x = 12.0\text{ kg m s}^{-1}$ eastward.<br>
+                    &bull; $p_y = 5.0\text{ kg m s}^{-1}$ northward.<br><br>
+                    Using the Pythagorean theorem to find the total combined momentum magnitude:<br>
+                    $p_{\text{total}} = \sqrt{p_x^2 + p_y^2} = \sqrt{12.0^2 + 5.0^2} = \sqrt{144 + 25} = \sqrt{169} = 13.0\text{ kg m s}^{-1}$.
+                </div>
+            </div>
+
+            <div class="module-banner">Module 3: Waves and Thermodynamics (Questions 11-15)</div>
+
+            <div class="saq-card" id="q11">
+                <div class="q-meta"><span>Question 11</span><span>Module 3 &bull; Displacement-Distance Plots &bull; 3 Marks</span></div>
+                <div class="q-text">A transverse mechanical wave travels through a test string as shown below. Determine the amplitude and wavelength of the wave from the graph, and calculate its wave speed if the operating source frequency is $f = 10.0\text{ Hz}$.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q11" class="graph-canvas" width="480" height="220"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Extract values for peak displacement and wavelength boundaries..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(11)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    &bull; <strong>Amplitude:</strong> The maximum displacement from the equilibrium line is $4.0\text{ cm} = 0.040\text{ m}$.<br>
+                    &bull; <strong>Wavelength ($\lambda$):</strong> One full wave cycle spans from $x = 0$ to $x = 0.20\text{ m}$. Therefore, $\lambda = 0.20\text{ m}$.<br><br>
+                    Using the wave equation to find speed ($v$):<br>
+                    $v = f \lambda = 10.0\text{ Hz} \times 0.20\text{ m} = 2.00\text{ m s}^{-1}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q12">
+                <div class="q-meta"><span>Question 12</span><span>Module 3 &bull; Heating Curves &bull; 4 Marks</span></div>
+                <div class="q-text">The heating curve below tracks the temperature change of a $0.50\text{ kg}$ substance as heat is added uniformly over time. Determine the melting point of the substance and calculate its latent heat of fusion ($L_f$).</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q12" class="graph-canvas" width="480" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Analyze phase change plateau regions to isolate required energy values..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(12)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>1. Melting Point:</strong> The flat plateau section represents the solid-to-liquid phase change, which occurs at a constant temperature of $40^\circ\text{C}$.<br><br>
+                    <strong>2. Calculate Latent Heat of Fusion ($L_f$):</strong><br>
+                    The phase change plateau occurs between $Q = 20\text{ kJ}$ and $Q = 80\text{ kJ}$.<br>
+                    $\Delta Q_{\text{fusion}} = 80 - 20 = 60\text{ kJ} = 60000\text{ J}$.<br>
+                    Using the phase change formula:<br>
+                    $Q = m L_f \implies 60000\text{ J} = 0.50\text{ kg} \times L_f$<br>
+                    $L_f = \frac{60000}{0.50} = 120000\text{ J kg}^{-1}$ (or $1.20 \times 10^5\text{ J kg}^{-1}$).
+                </div>
+            </div>
+
+            <div class="saq-card" id="q13">
+                <div class="q-meta"><span>Question 13</span><span>Module 3 &bull; Snell's Ray Trajectories &bull; 3 Marks</span></div>
+                <div class="q-text">A ray of monochromatic light passes across a boundary interface from Medium 1 into Medium 2, as shown below. Determine the refractive index of Medium 2 if Medium 1 is air ($n_1 = 1.00$).</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q13" class="graph-canvas" width="400" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Measure angles relative to the normal line and apply Snell's Law..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(13)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    Angles must always be measured relative to the normal line.<br>
+                    &bull; Angle of incidence ($\theta_1$) $= 90^\circ - 30^\circ = 60^\circ$.<br>
+                    &bull; Angle of refraction ($\theta_2$) $= 90^\circ - 55^\circ = 35^\circ$.<br><br>
+                    Applying Snell's Law ($n_1 \sin\theta_1 = n_2 \sin\theta_2$):<br>
+                    $1.00 \times \sin(60^\circ) = n_2 \times \sin(35^\circ)$<br>
+                    $0.8660 = n_2 \times 0.5736$<br>
+                    $n_2 = \frac{0.8660}{0.5736} = 1.51$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q14">
+                <div class="q-meta"><span>Question 14</span><span>Module 3 &bull; Wave Displacement-Time &bull; 3 Marks</span></div>
+                <div class="q-text">The graph below tracks the displacement over time for a single point in a medium as a wave passes through it. Determine the wave's operational period and frequency.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q14" class="graph-canvas" width="480" height="220"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Extract cycle period time boundaries, invert to solve for frequency..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(14)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    &bull; <strong>Period ($T$):</strong> Looking at the time axis, one complete wave cycle takes exactly $0.040\text{ s}$.<br><br>
+                    &bull; <strong>Frequency ($f$):</strong> Calculated as the reciprocal of the period:<br>
+                    $f = \frac{1}{T} = \frac{1}{0.040\text{ s}} = 25.0\text{ Hz}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q15">
+                <div class="q-meta"><span>Question 15</span><span>Module 3 &bull; Superposition Interface &bull; 3 Marks</span></div>
+                <div class="q-text">Two wave pulses move toward each other through a string medium at a speed of $1.0\text{ m s}^{-1}$, as shown in the diagram. Sketch or describe the combined wave shape at $t = 2.0\text{ s}$ when their positions fully overlap.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q15" class="graph-canvas" width="460" height="200"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Apply the principle of superposition by adding the amplitudes at the point of overlap..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(15)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Sketch Blueprint:</div>
+                    After $2.0\text{ s}$, both pulses travel exactly $2.0\text{ m}$ toward the center, bringing them into perfect alignment at the $x = 4.0\text{ m}$ coordinate.<br>
+                    &bull; Pulse 1 has a peak amplitude of $+3.0\text{ cm}$.<br>
+                    &bull; Pulse 2 has a peak amplitude of $+3.0\text{ cm}$.<br><br>
+                    By the Principle of Superposition, the displacements add together during overlap:<br>
+                    $y_{\text{net}} = y_1 + y_2 = 3.0\text{ cm} + 3.0\text{ cm} = +6.0\text{ cm}$.<br>
+                    This creates a single combined pulse with a peak height of $6.0\text{ cm}$ at the center, demonstrating constructive interference.
+                </div>
+            </div>
+
+            <div class="module-banner">Module 4: Electricity and Magnetism (Questions 16-20)</div>
+
+            <div class="saq-card" id="q16">
+                <div class="q-meta"><span>Question 16</span><span>Module 4 &bull; Circuit Schematic Completion &bull; 3 Marks</span></div>
+                <div class="q-text">Complete the schematic circuit diagram below by adding an ammeter positioned to measure the total circuit current, and a voltmeter configured to isolate the potential drop across Resistor 2 ($R_2$).</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q16" class="graph-canvas" width="440" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Describe the structural positions where the meters must be placed..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(16)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Circuit Solution:</div>
+                    The metric instruments must be integrated using correct topology rules:<br>
+                    1. <strong>Ammeter (A):</strong> Must be placed in series within the main circuit loop (either directly before or after the parallel branch components) so that the entire current flows through it.<br>
+                    2. <strong>Voltmeter (V):</strong> Must be wired in parallel directly across the terminals of Resistor $R_2$ to measure its specific voltage drop without diverting current.<br>
+                    *(Clicking submit draws the correct instrument locations on the diagram in green).*
+                </div>
+            </div>
+
+            <div class="saq-card" id="q17">
+                <div class="q-meta"><span>Question 17</span><span>Module 4 &bull; Electric Field Mapping &bull; 3 Marks</span></div>
+                <div class="q-text">The canvas diagram below shows two isolated, oppositely charged point sources. Sketch the electric field line configuration produced around this pair, including directional arrows.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q17" class="graph-canvas" width="400" height="200"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Describe the shape and direction of the field lines from charge to charge..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(17)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Electric Field Vector Mapping:</div>
+                    Electric field lines trace the path a positive test charge would take. Therefore, the field lines must:<br>
+                    1. Begin on the positive charge ($+q$) and curve smoothly to end on the negative charge ($-q$).<br>
+                    2. Enter and leave the surface of each charge perpendicular to its boundary.<br>
+                    3. Never cross or intersect one another.<br>
+                    The arrows must point **away from the positive charge** and **toward the negative charge**.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q18">
+                <div class="q-meta"><span>Question 18</span><span>Module 4 &bull; Magnetic Solenoid Polarities &bull; 3 Marks</span></div>
+                <div class="q-text">A direct current flows through a wire coil wrapped around an iron core, as shown below. Use the Right-Hand Grip Rule to determine which end of the solenoid acts as the magnetic North pole.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q18" class="graph-canvas" width="440" height="200"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Apply the Right-Hand Grip Rule based on the direction of the current loops..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(18)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    According to the Right-Hand Grip Rule for solenoids, wrap the fingers of your right hand around the coil in the direction of the conventional current flow (which goes up over the front of the core face). Your extended right thumb will then point toward the magnetic North pole.<br><br>
+                    Following this technique, your thumb points to the **Left Side**. Therefore, the left end of the core acts as the magnetic North Pole, and the right end acts as the South Pole.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q19">
+                <div class="q-meta"><span>Question 19</span><span>Module 4 &bull; Non-Ohmic V-I Extraction &bull; 3 Marks</span></div>
+                <div class="q-text">The graph below shows the Voltage-Current relationship for a non-ohmic semiconductor component. Calculate the dynamic resistance of this component at an operating potential of $V = 6.0\text{ V}$.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q19" class="graph-canvas" width="480" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Extract matching coordinates for current and voltage from the curve, then apply Ohm's Law..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(19)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    For non-ohmic components, the resistance at a specific point is calculated using the ratio of voltage to current ($R = \frac{V}{I}$) at that exact coordinate.<br>
+                    From the graph, find $V = 6.0\text{ V}$ on the vertical axis and locate the corresponding value on the horizontal current axis, which reads $I = 2.0\text{ A}$.<br><br>
+                    $R = \frac{V}{I} = \frac{6.0\text{ V}}{2.0\text{ A}} = 3.00\ \Omega$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q20">
+                <div class="q-meta"><span>Question 20</span><span>Module 4 &bull; Parallel Wire Magnetic Forces &bull; 3 Marks</span></div>
+                <div class="q-text">Two parallel wires carry currents in opposite directions, as shown below. Identify the direction of the magnetic field generated by Wire 1 at the location of Wire 2, and determine the resulting magnetic force vector acting on Wire 2.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q20" class="graph-canvas" width="420" height="220"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Apply the Right-Hand Grip Rule and Right-Hand Palm Rule to find the fields and forces..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(20)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    1. <strong>Field Analysis:</strong> Using the Right-Hand Grip Rule for Wire 1 (current pointing upwards), the magnetic field it creates wraps around and points **into the page** at the location of Wire 2.<br><br>
+                    2. <strong>Force Vector Analysis:</strong> Using the Right-Hand Palm Rule for Wire 2 (thumb pointing down in the direction of the current, fingers pointing into the page in the direction of the magnetic field), your palm pushes **to the Right (away from Wire 1)**. This confirms that parallel wires carrying currents in opposite directions exert a repulsive force on each other.
+                </div>
+            </div>
+
+            <div class="module-banner">Section 3E: Advanced Synoptic Graphical Challenges (Questions 21-25)</div>
+
+            <div class="saq-card" id="q21">
+                <div class="q-meta"><span>Question 21</span><span>Synoptic Extension &bull; Multiphase Loop Kinematics &bull; 4 Marks</span></div>
+                <div class="q-text">The multi-stage velocity-time graph below shows an initial acceleration phase followed by a sharp deceleration drop below zero. Calculate the vehicle's maximum positive acceleration and determine its final displacement position at $t = 7.0\text{ s}$.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q21" class="graph-canvas" width="480" height="260"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Calculate gradients for acceleration and integrate areas across the zero axis boundary..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(21)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>1. Maximum Positive Acceleration:</strong> Occurs during the initial step from $t = 0$ to $t = 2.0\text{ s}$.<br>
+                    $a = \frac{20.0 - 0}{2.0 - 0} = 10.0\text{ m s}^{-2}$.<br><br>
+                    <strong>2. Total Displacements ($t = 0$ to $t = 7.0\text{ s}$):</strong><br>
+                    &bull; Area of positive trapezoid ($0$ to $5\text{ s}$): $\frac{1}{2} \times (a + b) \times h = \frac{1}{2} \times (3.0 + 5.0) \times 20.0 = 80.0\text{ m}$.<br>
+                    &bull; Area of negative triangle ($5$ to $7\text{ s}$): $\frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times 2.0\text{ s} \times (-15.0\text{ m s}^{-1}) = -15.0\text{ m}$.<br><br>
+                    $\text{Final Position Displacement} = 80.0\text{ m} - 15.0\text{ m} = +65.0\text{ m}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q22">
+                <div class="q-meta"><span>Question 22</span><span>Synoptic Extension &bull; Bridge Loading Force Analysis &bull; 4 Marks</span></div>
+                <div class="q-text">A uniform horizontal support beam measuring $6.0\text{ m}$ in length has a weight of $200\text{ N}$. It is supported at both ends by vertical pillars, $A$ and $B$. A heavy load weighing $600\text{ N}$ is positioned on the beam exactly $2.0\text{ m}$ from Pillar $A$, as illustrated below. Calculate the upward support forces exerted by both pillars to keep the system in equilibrium.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q22" class="graph-canvas" width="460" height="220"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Set Pillar A as the pivot point and apply the principle of conservation of torques..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(22)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    For rotational equilibrium, the sum of the torques around any pivot point must equal zero. Let's choose Pillar $A$ as our pivot point:<br>
+                    $\sum \tau_A = 0 \implies (600\text{ N} \times 2.0\text{ m}) + (200\text{ N} \times 3.0\text{ m}) - (F_B \times 6.0\text{ m}) = 0$<br>
+                    $1200 + 600 = 6.0 \cdot F_B \implies 1800 = 6.0 \cdot F_B \implies F_B = 300\text{ N}$.<br><br>
+                    For vertical translational equilibrium, the total upward forces must equal the total downward forces:<br>
+                    $F_A + F_B = 600\text{ N} + 200\text{ N} \implies F_A + 300 = 800 \implies F_A = 500\text{ N}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q23">
+                <div class="q-meta"><span>Question 23</span><span>Synoptic Extension &bull; Thermodynamic Phase Change Matrices &bull; 4 Marks</span></div>
+                <div class="q-text">A $0.25\text{ kg}$ sample of an unknown material is heated uniformly. Using the heating curve provided below, determine the specific heat capacity of the material in its solid phase and calculate its specific heat capacity in its liquid phase.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q23" class="graph-canvas" width="480" height="240"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Calculate the heat energy added during each temperature change segment..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(23)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>1. Solid Phase Specific Heat Capacity ($c_{\text{solid}}$):</strong> Tracks from $Q = 0$ to $Q = 10\text{ kJ}$ ($10000\text{ J}$), over a temperature range of $\Delta T = 20^\circ\text{C}$ to $60^\circ\text{C} = 40^\circ\text{C}$.<br>
+                    $Q = m c \Delta T \implies 10000 = 0.25 \times c_{\text{solid}} \times 40 \implies 10000 = 10 \cdot c_{\text{solid}}$<br>
+                    $c_{\text{solid}} = 1000\text{ J kg}^{-1}\text{ K}^{-1}$.<br><br>
+                    <strong>2. Liquid Phase Specific Heat Capacity ($c_{\text{liquid}}$):</strong> Tracks from $Q = 40\text{ kJ}$ to $Q = 70\text{ kJ}$ ($30000\text{ J}$), over a temperature range of $\Delta T = 60^\circ\text{C}$ to $120^\circ\text{C} = 60^\circ\text{C}$.<br>
+                    $Q = m c \Delta T \implies 30000 = 0.25 \times c_{\text{liquid}} \times 60 \implies 30000 = 15 \cdot c_{\text{liquid}}$<br>
+                    $c_{\text{liquid}} = 2000\text{ J kg}^{-1}\text{ K}^{-1}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q24">
+                <div class="q-meta"><span>Question 24</span><span>Synoptic Extension &bull; Mixed Bridge Network Analysis &bull; 4 Marks</span></div>
+                <div class="q-text">For the complex resistor circuit network shown below, calculate the equivalent total resistance of the circuit and determine the current flowing through Resistor 1 ($R_1$).</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q24" class="graph-canvas" width="460" height="220"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Simplify the parallel branches first, then combine with the series components..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(24)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>1. Calculate the parallel branch resistance ($R_p$):</strong> Contains $R_2 = 10\ \Omega$ and $R_3 = 10\ \Omega$ in parallel.<br>
+                    $\frac{1}{R_p} = \frac{1}{10} + \frac{1}{10} = \frac{2}{10} \implies R_p = 5.0\ \Omega$.<br><br>
+                    <strong>2. Determine total circuit resistance ($R_{\text{total}}$):</strong> Add the series resistor $R_1 = 7.0\ \Omega$.<br>
+                    $R_{\text{total}} = R_1 + R_p = 7.0 + 5.0 = 12.0\ \Omega$.<br><br>
+                    <strong>3. Calculate current through $R_1$:</strong> Since $R_1$ is in the main loop branch, the total circuit current flows through it:<br>
+                    $I_{\text{total}} = \frac{V}{R_{\text{total}}} = \frac{24.0\text{ V}}{12.0\ \Omega} = 2.00\text{ A}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q25">
+                <div class="q-meta"><span>Question 25</span><span>Synoptic Extension &bull; Vector Field Superposition &bull; 4 Marks</span></div>
+                <div class="q-text">Two identical positive point charges, $q_1$ and $q_2$, are fixed in space as shown in the diagram. Sketch the net electric field line configuration for this system, and locate the point where the net electric field strength is exactly zero.</div>
+                <div class="diagram-wrapper">
+                    <canvas id="canvas-q25" class="graph-canvas" width="400" height="200"></canvas>
+                </div>
+                <textarea class="working-space" placeholder="Map the repelling electric field lines and locate the neutral point..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(25)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    &bull; <strong>Field Line Interaction:</strong> Because both charges are positive, their electric field lines bend away from each other, creating a repulsive pattern. All arrows must point outwards away from the charges.<br><br>
+                    &bull; <strong>Neutral Zone Location:</strong> Since the two charges are equal in magnitude, their opposing electric field vectors cancel out perfectly at the exact **geometric midpoint** between them. At this location, the net electric field strength is $E_{\text{net}} = 0$, creating a neutral point with no field lines passing through it.
+                </div>
+            </div>
+
+            <div class="footer-nav">
+                <button class="exit-dashboard-btn" onclick="triggerExitSequence()">&larr; Return to Dashboard Hub</button>
+                <span style="font-size: 13px; color: var(--text-muted);">Preliminary Physics Evaluation Suite &bull; 2026</span>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function drawGrid(ctx, w, h, baseY = h/2) {
+            ctx.strokeStyle = "#1f162e";
+            ctx.lineWidth = 1;
+            for(let x = 40; x < w; x += 40) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+            }
+            for(let y = 20; y < h; y += 20) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+            }
+            // Draw Main Axes
+            ctx.strokeStyle = "#ffffff";
+            ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(40, 0); ctx.lineTo(40, h); ctx.stroke(); // Y Axis
+            ctx.beginPath(); ctx.moveTo(40, baseY); ctx.lineTo(w, baseY); ctx.stroke(); // X Axis
+        }
+
+        function drawLabel(ctx, text, x, y, color="#9ca3af", font="11px sans-serif") {
+            ctx.fillStyle = color;
+            ctx.font = font;
+            ctx.fillText(text, x, y);
+        }
+
+        // Initialize Canvas Diagrams
+        (function initGraphs() {
+            // Q1 Canvas Construction
+            let c1 = document.getElementById('canvas-q1'); let ctx1 = c1.getContext('2d');
+            drawGrid(ctx1, 500, 260, 220);
+            drawLabel(ctx1, "Displacement vs Time", 180, 20, "#a78bfa", "14px sans-serif");
+            drawLabel(ctx1, "Time t (s)", 420, 245); drawLabel(ctx1, "Position x (m)", 45, 30);
+            // Numbers
+            let t_ticks = ["0", "1.0", "2.0", "3.0", "4.0", "5.0"];
+            for(let i=0; i<t_ticks.length; i++) drawLabel(ctx1, t_ticks[i], 40 + i*70, 235);
+            let y_ticks = ["0", "10.0", "20.0", "30.0"];
+            for(let i=0; i<y_ticks.length; i++) drawLabel(ctx1, y_ticks[i], 10, 220 - i*60);
+            // Plot
+            ctx1.strokeStyle = "#38bdf8"; ctx1.lineWidth = 3; ctx1.beginPath();
+            ctx1.moveTo(40, 220); ctx1.lineTo(110, 160); ctx1.lineTo(180, 160);
+            ctx1.lineTo(320, 40); ctx1.lineTo(390, 100); ctx1.stroke();
+
+            // Q2 Canvas Construction (Extended below zero)
+            let c2 = document.getElementById('canvas-q2'); let ctx2 = c2.getContext('2d');
+            drawGrid(ctx2, 500, 280, 160);
+            drawLabel(ctx2, "Velocity vs Time (Inversion Flow)", 160, 25, "#a78bfa", "14px sans-serif");
+            drawLabel(ctx2, "Time t (s)", 430, 185); drawLabel(ctx2, "Velocity v (m/s)", 45, 30);
+            for(let i=0; i<=6; i++) drawLabel(ctx2, i.toFixed(1), 40 + i*65, 175);
+            drawLabel(ctx2, "20.0", 10, 60); drawLabel(ctx2, "0.0", 15, 165); drawLabel(ctx2, "-10.0", 5, 210);
+            ctx2.strokeStyle = "#f43f5e"; ctx2.lineWidth = 3; ctx2.beginPath();
+            ctx2.moveTo(40, 60); ctx2.lineTo(300, 160); ctx2.lineTo(430, 210); ctx2.stroke();
+
+            // Q4 Vector Box
+            let c4 = document.getElementById('canvas-q4'); let ctx4 = c4.getContext('2d');
+            ctx4.strokeStyle = "#372a4d"; ctx4.strokeRect(0,0,400,240);
+            drawLabel(ctx4, "Vector Displacement Layout Route", 100, 25, "#38bdf8", "13px sans-serif");
+            ctx4.strokeStyle = "#8b5cf6"; ctx4.lineWidth = 3; ctx4.beginPath();
+            ctx4.moveTo(80, 200); ctx4.lineTo(260, 200); ctx4.lineTo(260, 60); ctx4.stroke();
+            drawLabel(ctx4, "30.0 m East", 140, 215); drawLabel(ctx4, "40.0 m North", 275, 120);
+            drawLabel(ctx4, "Origin (0,0)", 50, 215);
+
+            // Q5 Slope Box
+            let c5 = document.getElementById('canvas-q5'); let ctx5 = c5.getContext('2d');
+            drawGrid(ctx5, 480, 220, 190);
+            drawLabel(ctx5, "Velocity v (m/s)", 45, 25); drawLabel(ctx5, "Time t (s)", 420, 210);
+            for(let i=0; i<=4; i++) drawLabel(ctx5, (i*1.0).toFixed(1), 40 + i*80, 205);
+            drawLabel(ctx5, "4.0", 15, 160); drawLabel(ctx5, "16.0", 10, 70);
+            ctx5.strokeStyle = "#38bdf8"; ctx5.lineWidth = 3; ctx5.beginPath();
+            ctx5.moveTo(40, 160); ctx5.lineTo(200, 70); ctx5.lineTo(360, 70); ctx5.stroke();
+
+            // Q6 Impulse Box
+            let c6 = document.getElementById('canvas-q6'); let ctx6 = c6.getContext('2d');
+            drawGrid(ctx6, 480, 240, 200);
+            drawLabel(ctx6, "Force F (N)", 45, 25); drawLabel(ctx6, "Time t (s)", 420, 220);
+            drawLabel(ctx6, "0.00", 35, 215); drawLabel(ctx6, "0.04", 190, 215); drawLabel(ctx6, "0.08", 350, 215);
+            drawLabel(ctx6, "150", 15, 60);
+            ctx6.strokeStyle = "#a855f7"; ctx6.lineWidth = 3; ctx6.beginPath();
+            ctx6.moveTo(40, 200); ctx6.lineTo(195, 60); ctx6.lineTo(350, 200); ctx6.stroke();
+
+            // Q7 Ramp Box
+            let c7 = document.getElementById('canvas-q7'); let ctx7 = c7.getContext('2d');
+            ctx7.strokeStyle = "#372a4d"; ctx7.lineWidth = 2; ctx7.beginPath();
+            ctx7.moveTo(50, 200); ctx7.lineTo(400, 200); ctx7.lineTo(400, 60); ctx7.closePath(); ctx7.stroke();
+            drawLabel(ctx7, "30°", 90, 195, "#ffffff", "12px sans-serif");
+            // Container Box
+            ctx7.fillStyle = "#221a30"; ctx7.fillRect(180, 110, 60, 40);
+            ctx7.strokeStyle = "#38bdf8"; ctx7.strokeRect(180, 110, 60, 40);
+            drawLabel(ctx7, "40 kg", 195, 135);
+
+            // Q8 Hooke box
+            let c8 = document.getElementById('canvas-q8'); let ctx8 = c8.getContext('2d');
+            drawGrid(ctx8, 480, 240, 200);
+            drawLabel(ctx8, "Force F (N)", 45, 25); drawLabel(ctx8, "Extension x (m)", 370, 220);
+            drawLabel(ctx8, "0.20", 190, 215); drawLabel(ctx8, "0.40", 350, 215);
+            drawLabel(ctx8, "10", 15, 140); drawLabel(ctx8, "20", 15, 80);
+            ctx8.strokeStyle = "#eab308"; ctx8.lineWidth = 3; ctx8.beginPath();
+            ctx8.moveTo(40, 200); ctx8.lineTo(350, 80); ctx8.stroke();
+
+            // Q9 Work Box
+            let c9 = document.getElementById('canvas-q9'); let ctx9 = c9.getContext('2d');
+            drawGrid(ctx9, 480, 220, 180);
+            drawLabel(ctx9, "Force F (N)", 45, 25); drawLabel(ctx9, "Displacement s (m)", 360, 200);
+            drawLabel(ctx9, "4.0", 190, 195); drawLabel(ctx9, "8.0", 350, 195); drawLabel(ctx9, "30", 15, 60);
+            ctx9.strokeStyle = "#10b981"; ctx9.lineWidth = 3; ctx9.beginPath();
+            ctx9.moveTo(40, 60); ctx9.lineTo(200, 60); ctx9.lineTo(350, 180); ctx9.stroke();
+
+            // Q10 Momentum vectors
+            let c10 = document.getElementById('canvas-q10'); let ctx10 = c10.getContext('2d');
+            ctx10.strokeStyle = "#372a4d"; ctx10.strokeRect(0,0,400,240);
+            ctx10.strokeStyle = "#f43f5e"; ctx10.lineWidth = 3;
+            // Draw Vector 1
+            ctx10.beginPath(); ctx10.moveTo(50, 120); ctx10.lineTo(200, 120); ctx10.stroke();
+            // Draw Vector 2
+            ctx10.strokeStyle = "#38bdf8";
+            ctx10.beginPath(); ctx10.moveTo(200, 220); ctx10.lineTo(200, 120); ctx10.stroke();
+            drawLabel(ctx10, "px = 12.0 kg m/s", 70, 105);
+            drawLabel(ctx10, "py = 5.0 kg m/s", 215, 180);
+
+            // Q11 Wave displacement-distance
+            let c11 = document.getElementById('canvas-q11'); let ctx11 = c11.getContext('2d');
+            drawGrid(ctx11, 480, 220, 110);
+            drawLabel(ctx11, "Displacement y (cm)", 45, 25); drawLabel(ctx11, "Distance x (m)", 380, 130);
+            drawLabel(ctx11, "4.0", 15, 50); drawLabel(ctx11, "-4.0", 10, 170);
+            drawLabel(ctx11, "0.10", 190, 125); drawLabel(ctx11, "0.20", 350, 125);
+            ctx11.strokeStyle = "#06b6d4"; ctx11.lineWidth = 2.5;
+            ctx11.beginPath();
+            for (let i = 40; i <= 390; i++) {
+                let x = (i - 40) * (Math.PI * 2 / 310);
+                let y = 110 - Math.sin(x) * 60;
+                if (i == 40) ctx11.moveTo(i, y); else ctx11.lineTo(i, y);
+            }
+            ctx11.stroke();
+
+            // Q12 Heating Curve substance
+            let c12 = document.getElementById('canvas-q12'); let ctx12 = c12.getContext('2d');
+            drawGrid(ctx12, 480, 240, 200);
+            drawLabel(ctx12, "Temp T (°C)", 45, 25); drawLabel(ctx12, "Heat Added Q (kJ)", 370, 220);
+            drawLabel(ctx12, "20", 350, 215); drawLabel(ctx12, "80", 190, 215); drawLabel(ctx12, "40", 15, 120);
+            ctx12.strokeStyle = "#f97316"; ctx12.lineWidth = 3; ctx12.beginPath();
+            ctx12.moveTo(40, 170); ctx12.lineTo(140, 120); ctx12.lineTo(320, 120); ctx12.lineTo(420, 50); ctx12.stroke();
+
+            // Q13 Snell's Boundary
+            let c13 = document.getElementById('canvas-q13'); let ctx13 = c13.getContext('2d');
+            ctx13.strokeStyle = "#372a4d"; ctx13.strokeRect(0,0,400,240);
+            // Interface line
+            ctx13.strokeStyle = "#9ca3af"; ctx13.lineWidth = 2; ctx13.beginPath(); ctx13.moveTo(40, 120); ctx13.lineTo(360, 120); ctx13.stroke();
+            // Normal line
+            ctx13.setLineDash([4, 4]); ctx13.beginPath(); ctx13.moveTo(200, 20); ctx13.lineTo(200, 220); ctx13.stroke(); ctx13.setLineDash([]);
+            // Incident Ray
+            ctx13.strokeStyle = "#a855f7"; ctx13.lineWidth = 2.5; ctx13.beginPath(); ctx13.moveTo(60, 40); ctx13.lineTo(200, 120);
+            // Refracted Ray
+            ctx13.lineTo(280, 200); ctx13.stroke();
+            drawLabel(ctx13, "Medium 1 (Air)", 50, 30); drawLabel(ctx13, "Medium 2", 50, 150);
+            drawLabel(ctx13, "30°", 150, 115); drawLabel(ctx13, "55°", 240, 135);
+
+            // Q14 Wave Displacement-Time
+            let c14 = document.getElementById('canvas-q14'); let ctx14 = c14.getContext('2d');
+            drawGrid(ctx14, 480, 220, 110);
+            drawLabel(ctx14, "Displacement y (mm)", 45, 25); drawLabel(ctx14, "Time t (s)", 390, 130);
+            drawLabel(ctx14, "0.020", 180, 125); drawLabel(ctx14, "0.040", 340, 125);
+            ctx14.strokeStyle = "#3b82f6"; ctx14.lineWidth = 2.5; ctx14.beginPath();
+            for (let i = 40; i <= 360; i++) {
+                let x = (i - 40) * (Math.PI * 2 / 150);
+                let y = 110 - Math.sin(x) * 50;
+                if (i == 40) ctx14.moveTo(i, y); else ctx14.lineTo(i, y);
+            }
+            ctx14.stroke();
+
+            // Q15 Superposition pulses
+            let c15 = document.getElementById('canvas-q15'); let ctx15 = c15.getContext('2d');
+            drawGrid(ctx15, 460, 200, 160);
+            drawLabel(ctx15, "Distance x (m)", 380, 180);
+            drawLabel(ctx15, "2.0", 120, 175); drawLabel(ctx15, "4.0", 220, 175); drawLabel(ctx15, "6.0", 320, 175);
+            ctx15.strokeStyle = "#ec4899"; ctx15.lineWidth = 3; ctx15.beginPath();
+            ctx15.moveTo(40, 160); ctx15.lineTo(100, 160); ctx15.lineTo(120, 100); ctx15.lineTo(140, 160); // Pulse 1
+            ctx15.lineTo(300, 160); ctx15.lineTo(320, 100); ctx15.lineTo(340, 160); ctx15.lineTo(440, 160); // Pulse 2
+            ctx15.stroke();
+
+            // Q16 Circuit Completion Canvas Base
+            let c16 = document.getElementById('canvas-q16'); let ctx16 = c16.getContext('2d');
+            ctx16.strokeStyle = "#ffffff"; ctx16.lineWidth = 2;
+            ctx16.strokeRect(60, 40, 320, 160); // Main layout
+            // Clear power source gap
+            ctx16.fillStyle = "#0b0610"; ctx16.fillRect(200, 30, 40, 20);
+            ctx16.beginPath(); ctx16.moveTo(210, 30); ctx16.lineTo(210, 50); ctx16.moveTo(220, 20); ctx16.lineTo(220, 60); ctx16.stroke(); // Cell symbol
+            // Resistor 1 box
+            ctx16.fillStyle = "#221a30"; ctx16.fillRect(100, 120, 60, 25); ctx16.strokeRect(100, 120, 60, 25);
+            drawLabel(ctx16, "R1", 122, 137);
+            // Resistor 2 box
+            ctx16.fillRect(260, 120, 60, 25); ctx16.strokeRect(260, 120, 60, 25);
+            drawLabel(ctx16, "R2", 282, 137);
+
+            // Q17 Electric Charge Base
+            let c17 = document.getElementById('canvas-q17'); let ctx17 = c17.getContext('2d');
+            ctx17.fillStyle = "#0284c7"; ctx17.beginPath(); ctx17.arc(100, 100, 12, 0, Math.PI*2); ctx17.fill();
+            drawLabel(c17, "+", 96, 105, "#ffffff", "16px sans-serif");
+            ctx17.fillStyle = "#f43f5e"; ctx17.beginPath(); ctx17.arc(300, 100, 12, 0, Math.PI*2); ctx17.fill();
+            drawLabel(c17, "-", 297, 104, "#ffffff", "16px sans-serif");
+
+            // Q18 Solenoid Base
+            let c18 = document.getElementById('canvas-q18'); let ctx18 = c18.getContext('2d');
+            ctx18.fillStyle = "#4b5563"; ctx18.fillRect(100, 70, 240, 60); // Core cylinder
+            ctx18.strokeStyle = "#eab308"; ctx18.lineWidth = 3;
+            for(let i=0; i<6; i++) { // Loops path
+                ctx18.beginPath(); ctx18.moveTo(120 + i*40, 60); ctx18.lineTo(140 + i*40, 140); ctx18.stroke();
+            }
+
+            // Q19 Non-Ohmic V-I Plot
+            let c19 = document.getElementById('canvas-q19'); let ctx19 = c19.getContext('2d');
+            drawGrid(ctx19, 480, 240, 200);
+            drawLabel(ctx19, "Voltage V (V)", 45, 25); drawLabel(ctx19, "Current I (A)", 380, 220);
+            drawLabel(ctx19, "1.0", 190, 215); drawLabel(ctx19, "2.0", 350, 215);
+            drawLabel(ctx19, "3.0", 15, 140); drawLabel(ctx19, "6.0", 15, 80);
+            ctx19.strokeStyle = "#a855f7"; ctx19.lineWidth = 3; ctx19.beginPath();
+            ctx19.moveTo(40, 200); ctx19.quadraticCurveTo(200, 180, 350, 80); ctx19.stroke();
+
+            // Q20 Opposing Wires Layout
+            let c20 = document.getElementById('canvas-q20'); let ctx20 = c20.getContext('2d');
+            ctx20.strokeStyle = "#ffffff"; ctx20.lineWidth = 3;
+            // Wire 1
+            ctx20.beginPath(); ctx20.moveTo(120, 30); ctx20.lineTo(120, 190); ctx20.stroke();
+            // Wire 2
+            ctx20.beginPath(); ctx20.moveTo(280, 30); ctx20.lineTo(280, 190); ctx20.stroke();
+            drawLabel(c20, "Wire 1 (I Up)", 90, 22, "#38bdf8"); drawLabel(c20, "Wire 2 (I Down)", 245, 22, "#f43f5e");
+
+            // Q21 High-Tier Graph Matrix
+            let c21 = document.getElementById('canvas-q21'); let ctx21 = c21.getContext('2d');
+            drawGrid(ctx21, 480, 260, 140);
+            drawLabel(ctx21, "Velocity v (m/s)", 45, 25); drawLabel(ctx21, "Time t (s)", 420, 160);
+            drawLabel(ctx21, "2.0", 150, 155); drawLabel(ctx21, "5.0", 290, 155); drawLabel(ctx21, "7.0", 390, 155);
+            drawLabel(ctx21, "20", 15, 50); drawLabel(ctx21, "-15", 10, 215);
+            ctx21.strokeStyle = "#0284c7"; ctx21.lineWidth = 3; ctx21.beginPath();
+            ctx21.moveTo(40, 140); ctx21.lineTo(145, 50); ctx21.lineTo(285, 50); ctx21.lineTo(390, 215); ctx21.stroke();
+
+            // Q22 Pivot Beam Balance
+            let c22 = document.getElementById('canvas-q22'); let ctx22 = c22.getContext('2d');
+            ctx22.fillStyle = "#372a4d"; ctx22.fillRect(60, 110, 340, 20); // Beam element
+            drawLabel(ctx22, "Pillar A", 50, 160, "#10b981"); drawLabel(ctx22, "Pillar B", 360, 160, "#10b981");
+            ctx22.fillStyle = "#ef4444"; ctx22.fillRect(160, 70, 30, 40); // Weight block
+            drawLabel(ctx22, "600 N Load", 145, 60, "#ef4444");
+
+            // Q23 Complex Thermal curve Matrix
+            let c23 = document.getElementById('canvas-q23'); let ctx23 = c23.getContext('2d');
+            drawGrid(ctx23, 480, 240, 200);
+            drawLabel(ctx23, "Temp T (°C)", 45, 25); drawLabel(ctx23, "Energy Added Q (kJ)", 360, 220);
+            drawLabel(ctx23, "10", 140, 215); drawLabel(ctx23, "40", 280, 215); drawLabel(ctx23, "70", 410, 215);
+            drawLabel(ctx23, "20", 15, 175); drawLabel(ctx23, "60", 15, 125); drawLabel(ctx23, "120", 10, 50);
+            ctx23.strokeStyle = "#e11d48"; ctx23.lineWidth = 3; ctx23.beginPath();
+            ctx23.moveTo(40, 175); ctx23.lineTo(140, 125); ctx23.lineTo(280, 125); ctx23.lineTo(410, 50); ctx23.stroke();
+
+            // Q24 Network schematic configuration
+            let c24 = document.getElementById('canvas-q24'); let ctx24 = c24.getContext('2d');
+            ctx24.strokeStyle = "#ffffff"; ctx24.lineWidth = 2;
+            ctx24.strokeRect(60, 50, 340, 120);
+            // Parallel division blocks
+            ctx24.fillStyle = "#0b0610"; ctx24.fillRect(220, 20, 20, 150);
+            ctx24.beginPath(); ctx24.moveTo(200, 50); ctx24.lineTo(200, 110); ctx24.lineTo(250, 110);
+            ctx24.moveTo(200, 50); ctx24.lineTo(200, -10); ctx24.stroke(); // simplified parallel block layout lines
+            // Resistors box elements
+            ctx24.fillStyle = "#1e1233"; ctx24.fillRect(90, 38, 50, 24); ctx24.strokeRect(90, 38, 50, 24);
+            drawLabel(ctx24, "7.0 Ω", 100, 54);
+            ctx24.fillRect(240, 20, 50, 24); ctx24.strokeRect(240, 20, 50, 24);
+            drawLabel(ctx24, "10 Ω", 252, 36);
+            ctx24.fillRect(240, 80, 50, 24); ctx24.strokeRect(240, 80, 50, 24);
+            drawLabel(ctx24, "10 Ω", 252, 96);
+
+            // Q25 Opposing Charge Balance fields
+            let c25 = document.getElementById('canvas-q25'); let ctx25 = c25.getContext('2d');
+            ctx25.fillStyle = "#38bdf8"; ctx25.beginPath(); ctx25.arc(100, 100, 10, 0, Math.PI*2); ctx25.fill();
+            ctx25.beginPath(); ctx25.arc(300, 100, 10, 0, Math.PI*2); ctx25.fill();
+            drawLabel(ctx25, "+q1", 90, 125, "#38bdf8"); drawLabel(ctx25, "+q2", 290, 125, "#38bdf8");
+        })();
+
+        // Interaction Solution Sketch Automation Layer
+        function drawCanvasOverlaySolutions(qNum) {
+            if(qNum === 16) {
+                let c = document.getElementById('canvas-q16'); let ctx = c.getContext('2d');
+                ctx.strokeStyle = "#10b981"; ctx.lineWidth = 3;
+                // Draw Ammeter Circle link
+                ctx.fillStyle = "#0f0a18"; ctx.beginPath(); ctx.arc(190, 140, 14, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+                drawLabel(ctx, "A", 185, 145, "#10b981", "12px sans-serif");
+                // Draw Voltmeter Parallel link
+                ctx.beginPath(); ctx.moveTo(270, 145); ctx.lineTo(270, 190); ctx.lineTo(310, 190); ctx.lineTo(310, 145); ctx.stroke();
+                ctx.beginPath(); ctx.arc(290, 190, 14, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+                drawLabel(ctx, "V", 285, 195, "#10b981", "12px sans-serif");
+            }
+            if(qNum === 17) {
+                let c = document.getElementById('canvas-q17'); let ctx = c.getContext('2d');
+                ctx.strokeStyle = "#10b981"; ctx.lineWidth = 1.5;
+                // Draw connecting center field line link
+                ctx.beginPath(); ctx.moveTo(112, 100); ctx.lineTo(288, 100); ctx.stroke();
+                // Curve field lines
+                ctx.beginPath(); ctx.moveTo(100, 88); ctx.bezierCurveTo(120, 30, 280, 30, 300, 88); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(100, 112); ctx.bezierCurveTo(120, 170, 280, 170, 300, 112); ctx.stroke();
+            }
+            if(qNum === 25) {
+                let c = document.getElementById('canvas-q25'); let ctx = c.getContext('2d');
+                ctx.strokeStyle = "#10b981"; ctx.lineWidth = 3; ctx.beginPath();
+                ctx.arc(200, 100, 4, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+                drawLabel(ctx, "Neutral Point (E = 0)", 150, 85, "#10b981", "11px sans-serif");
+            }
+        }
+
+        function revealSolution(qNum) {
+            const card = document.getElementById('q' + qNum);
+            const solBox = card.querySelector('.solution-box');
+            solBox.style.display = "block";
+            // Fire vector updates to dynamic canvas modules
+            drawCanvasOverlaySolutions(qNum);
+            if (window.MathJax) {
+                MathJax.typesetPromise([solBox]);
+            }
+        }
+
+        function updateTotalMarks() {
+            let total = 0;
+            const dropdowns = document.querySelectorAll('.select-mark');
+            dropdowns.forEach(dropdown => {
+                total += parseInt(dropdown.value) || 0;
+            });
+            document.getElementById('running-score').innerText = total;
+        }
+
+        function triggerExitSequence() {
+            const shield = document.getElementById('exit-animation-shield');
+            shield.classList.add('active');
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1200);
+        }
+    </script>
+</body>
+</html>

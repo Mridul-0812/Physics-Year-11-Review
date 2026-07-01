@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Academic Portal | Kinematics Practice Evaluation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div id="global-utility-bar">
+        <div class="utility-container">
+            <span class="announcement-text">NESA Year 11 Preliminary Syllabus Portal — Academic Session 2026</span>
+            <div class="utility-controls">
+                <button id="theme-toggle-btn" aria-label="Toggle between dark and light mode" title="Switch Color Theme">
+                    <span class="mode-text">Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="portal-layout">
+
+        <aside id="portal-sidebar" aria-label="Main Navigation">
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <span class="logo-icon">🌌</span>
+                    <span class="brand-name">Nexus<span class="highlight">Sci</span></span>
+                </div>
+                <p class="brand-tagline">NSW Curriculum Mastery</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Primary Directory">
+                <div class="nav-section-label">Core Directory</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <span class="nav-icon">🏠</span>
+                            <span class="nav-text">Portal Home</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-label">Physics Syllabus Modules</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="mod1.html" class="nav-link active" aria-current="page">
+                            <span class="nav-icon">🏃‍♂️</span>
+                            <span class="nav-text">Module 1: Kinematics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod2.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">Module 2: Dynamics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod3.html" class="nav-link">
+                            <span class="nav-icon">🌊</span>
+                            <span class="nav-text">Module 3: Waves / Temp</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod4.html" class="nav-link">
+                            <span class="nav-icon">⚡</span>
+                            <span class="nav-text">Module 4: Electricity</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-label">Evaluation Engine</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="results.html" class="nav-link">
+                            <span class="nav-icon">🏆</span>
+                            <span class="nav-text">Analytics & Results</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer-card">
+                <div class="status-indicator-group">
+                    <span class="status-dot online"></span>
+                    <span class="status-label">Syllabus Engine: Active</span>
+                </div>
+                <div class="version-tag">v2.4.0-Prelim</div>
+            </div>
+        </aside>
+
+        <main id="main-content" class="portal-main">
+
+            <header id="dashboard-header">
+                <div class="header-search-box">
+                    <label for="global-search" class="visually-hidden">Search syllabus concepts...</label>
+                    <span class="search-icon">🔍</span>
+                    <input type="search" id="global-search" placeholder="Search evaluation items, grading schemes...">
+                </div>
+                <div class="header-profile-zone">
+                    <div class="user-avatar-block">
+                        <div class="avatar-initials">ST</div>
+                        <div class="avatar-meta">
+                            <span class="user-name">Scholar Account</span>
+                            <span class="user-role">Year 11 Student</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="dashboard-hero-banner" style="margin-bottom: 30px;">
+                <div class="hero-left-block">
+                    <div class="breadcrumb-trail">
+                        <span>Nexus Core</span> &gt; <span>Module 1</span> &gt; <span class="current">Workstation mod1_1</span>
+                    </div>
+                    <h2>Module 1: Kinematics — Practice Evaluations</h2>
+                    <p class="hero-description">
+                        An exhaustive, syllabus-locked collection of assessment items structured explicitly around the NESA NSW Stage 6 Physics curriculum. This suite covers motion equations, relative velocity vectors, and geometric graphical transformations without projectile motion or calculus frameworks.
+                    </p>
+                </div>
+                <div class="hero-right-metrics">
+                    <div class="metric-node">
+                        <div class="metric-val" id="running-score-display">0 / 85</div>
+                        <div class="metric-lbl">Total Marks Earned</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="quick-reference-vault" style="margin-bottom: 40px; padding: 25px; border-radius: 12px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--accent-primary); margin-top: 0; font-size: 22px;">Part 1: Detailed Exam-Style Exemplars</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 25px;">Review these 5 highly technical solutions to calibrate your mathematical formatting against top-tier NESA criteria.</p>
+
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--accent-primary);">
+                    <strong>Exemplar 1: Derivation of $v^2 = u^2 + 2as$ without Calculus</strong>
+                    <p style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">
+                        <em>Question:</em> Derive the time-independent constant acceleration kinematic formula $v^2 = u^2 + 2as$ using algebraic combinations of definitions for average acceleration and displacement.
+                        <br><br>
+                        <strong>Exemplar Solution:</strong>
+                        <br>1. Define uniform constant acceleration as the time rate of change of velocity:
+                        $$a = \frac{v - u}{t} \implies t = \frac{v - u}{a} \quad \text{[Equation 1]}$$
+                        2. Define net vector displacement under constant acceleration as the geometric average velocity multiplied by time:
+                        $$s = \left(\frac{u + v}{2}\right)t \quad \text{[Equation 2]}$$
+                        3. Substitute Equation 1 into Equation 2 to eliminate the time variable ($t$):
+                        $$s = \left(\frac{v + u}{2}\right)\left(\frac{v - u}{a}\right)$$
+                        4. Expand the numerator using the difference of two squares identity:
+                        $$s = \frac{v^2 - u^2}{2a}$$
+                        5. Rearrange to isolate final velocity squared ($v^2$):
+                        $$2as = v^2 - u^2 \implies v^2 = u^2 + 2as \quad \blacksquare$$
+                    </p>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--accent-primary);">
+                    <strong>Exemplar 2: Multi-Vehicle Pursuit with Quadratic Systems</strong>
+                    <p style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">
+                        <em>Question:</em> A stationary police interceptor is passed by a speeding vehicle traveling at a constant velocity of $30.0\text{ m/s}$. The interceptor immediately accelerates from rest at a constant rate of $4.00\text{ m/s}^2$. Calculate the total distance the police car must travel to overtake the speeder.
+                        <br><br>
+                        <strong>Exemplar Solution:</strong>
+                        <br>1. Formulate the position equation for both vehicles relative to the launch point ($x = 0, t = 0$):
+                        $$s_{\text{speeder}} = v_{\text{constant}} \cdot t = 30.0t$$
+                        $$s_{\text{police}} = ut + \frac{1}{2}at^2 = 0 + \frac{1}{2}(4.00)t^2 = 2.00t^2$$
+                        2. Set the equations equal to represent the point of intercept ($s_{\text{speeder}} = s_{\text{police}}$):
+                        $$2.00t^2 = 30.0t \implies 2.00t^2 - 30.0t = 0$$
+                        $$t(2.00t - 30.0) = 0$$
+                        3. Discard the trivial solution ($t = 0$) to solve for the intersection time ($t$):
+                        $$2.00t = 30.0 \implies t = 15.0\text{ seconds}$$
+                        4. Calculate the total pursuit distance by substituting the time back into either kinematic equation:
+                        $$s = 30.0 \times 15.0 = 450\text{ meters}$$
+                        Both initial coordinates contain three significant figures, so the final verified answer is $\mathbf{450\text{ m}}$.
+                    </p>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--accent-primary);">
+                    <strong>Exemplar 3: Collinear Multi-Stage Freight Braking</strong>
+                    <p style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">
+                        <em>Question:</em> A heavy locomotive traveling at $40.0\text{ m/s}$ applies intermediate service brakes for $10.0\text{ s}$, slowing down at a constant rate of $-1.50\text{ m/s}^2$. The driver then throws the emergency reverse-thruster array, increasing deceleration to $-4.00\text{ m/s}^2$ until the train stops. Find the total distance covered.
+                        <br><br>
+                        <strong>Exemplar Solution:</strong>
+                        <br><strong>Stage 1 (Initial Service Braking):</strong>
+                        $$v_1 = u_1 + a_1 t_1 = 40.0 + (-1.50)(10.0) = 25.0\text{ m/s}$$
+                        $$s_1 = u_1 t_1 + \frac{1}{2}a_1 t_1^2 = (40.0)(10.0) + \frac{1}{2}(-1.50)(10.0)^2 = 400 - 75.0 = 325\text{ m}$$
+                        <strong>Stage 2 (Emergency Braking Phase):</strong>
+                        <br>Inputs: $u_2 = 25.0\text{ m/s}$, $v_2 = 0\text{ m/s}$, $a_2 = -4.00\text{ m/s}^2$.
+                        $$v_2^2 = u_2^2 + 2a_2 s_2 \implies 0^2 = (25.0)^2 + 2(-4.00)s_2$$
+                        $$0 = 625 - 8.00s_2 \implies s_2 = \frac{625}{8.00} = 78.125\text{ m}$$
+                        <strong>Total Cumulative Path:</strong>
+                        $$s_{\text{total}} = s_1 + s_2 = 325 + 78.125 = 403.125\text{ m}$$
+                        Rounding to three significant figures to match the raw data gives $\mathbf{403\text{ m}}$.
+                    </p>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--accent-primary);">
+                    <strong>Exemplar 4: Two-Dimensional Vector Boundary Crossings</strong>
+                    <p style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">
+                        <em>Question:</em> A ferry boat seeks to cross a straight river segment flowing due East at a constant speed of $3.00\text{ m/s}$. The ferry can travel at a maximum speed of $5.00\text{ m/s}$ through the water. Determine the angle relative to the bank at which the captain must steer the vessel to travel directly North across the channel.
+                        <br><br>
+                        <strong>Exemplar Solution:</strong>
+                        <br>1. Set up a vector addition triangle where the resultant velocity vector ($\vec{v}_{\text{resultant}}$) points straight North.
+                        <br>2. The downstream eastward current ($\vec{v}_{\text{river}} = 3.00\text{ m/s}$) forms the horizontal side, and the boat's speed through the water ($\vec{v}_{\text{boat}} = 5.00\text{ m/s}$) forms the hypotenuse pointing upstream (North-West).
+                        <br>3. Solve for the interior angle ($\theta$) relative to the true North axis using trigonometry:
+                        $$\sin(\theta) = \frac{\text{Opposite}}{\text{Hypotenuse}} = \frac{v_{\text{river}}}{v_{\text{boat}}} = \frac{3.00}{5.00} = 0.600$$
+                        $$\theta = \arcsin(0.600) \approx 36.87^\circ \text{ West of North}$$
+                        4. Calculate the steering angle relative to the riverbank itself:
+                        $$\phi = 90.00^\circ + 36.87^\circ = 126.87^\circ \text{ upstream from the downstream bank orientation.}$$
+                        Rounding to three significant figures yields $\mathbf{127^\circ}$.
+                    </p>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-primary);">
+                    <strong>Exemplar 5: The Low-Resolution Coarse Data Parameter Rule</strong>
+                    <p style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">
+                        <em>Question:</em> An object accelerates along a straight line at $6.0\text{ m/s}^2$ from rest over a distance recorded as $300\text{ m}$. Explain how the laboratory limitation rule applies when expressing the elapsed time with appropriate significant figures.
+                        <br><br>
+                        <strong>Exemplar Solution:</strong>
+                        <br>1. Use the standard displacement formula with $u = 0$:
+                        $$s = \frac{1}{2}at^2 \implies 300 = \frac{1}{2}(6.0)t^2 \implies 300 = 3.0t^2$$
+                        $$t^2 = 100 \implies t = 10.0\text{ s}$$
+                        2. Under strict significant figure rules, the measurement "$300\text{ m}$" has only one significant figure, which would force the final answer to round to "$10\text{ s}$".
+                        <br>3. However, under the <em>Coarse Data Exception Rule</em> for laboratory reporting, intermediate values can assume an intended precision of two significant figures ($3.0 \times 10^2\text{ m}$) to preserve the usefulness of the calculation. 
+                        <br>4. Therefore, the final baseline time is properly recorded as $\mathbf{10.\text{ s}}$ or $\mathbf{1.0 \times 10^1\text{ s}}$ to maintain two significant figures.
+                    </p>
+                </div>
+            </section>
+
+            <section class="quick-reference-vault" style="margin-bottom: 40px; padding: 25px; border-radius: 12px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--accent-primary); margin-top: 0; font-size: 22px;">Part 2: Multiple Choice Selection Matrix (10 Marks)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">Select the single most appropriate option. (1 Mark each).</p>
+
+                <form id="mcq-form">
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>1.</strong> An object travels around a circular track of radius $R$ and comes to a stop exactly halfway around. What are the total distance and net displacement of the object?</p>
+                        <label><input type="radio" name="mcq1" value="A"> A) Distance: $\pi R$, Displacement: $\pi R$</label><br>
+                        <label><input type="radio" name="mcq1" value="B"> B) Distance: $2\pi R$, Displacement: $2R$</label><br>
+                        <label><input type="radio" name="mcq1" value="C" id="correct-mcq1"> C) Distance: $\pi R$, Displacement: $2R$</label><br>
+                        <label><input type="radio" name="mcq1" value="D"> D) Distance: $2R$, Displacement: $\pi R$</label>
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>2.</strong> The gradient of a displacement-time ($s\text{-}t$) curve representing linear vector movement directly defines which property?</p>
+                        <label><input type="radio" name="mcq2" value="A"> A) Average acceleration profile</label><br>
+                        <label><input type="radio" name="mcq2" value="B" id="correct-mcq2"> B) Instantaneous velocity parameter</label><br>
+                        <label><input type="radio" name="mcq2" value="C"> C) Cumulative distance covered</label><br>
+                        <label><input type="radio" name="mcq2" value="D"> D) Total impulse deviation</label>
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>3.</strong> A runner sprints along a straight path at a constant speed of $8.0\text{ m/s}$ for $10\text{ s}$, then immediately stops and stands still for $20\text{ s}$. What is the average speed of the runner over the entire $30\text{ s}$ interval?</p>
+                        <label><input type="radio" name="mcq3" value="A" id="correct-mcq3"> A) $2.7\text{ m/s}$</label><br>
+                        <label><input type="radio" name="mcq3" value="B"> B) $4.0\text{ m/s}$</label><br>
+                        <label><input type="radio" name="mcq3" value="C"> C) $8.0\text{ m/s}$</label><br>
+                        <label><input type="radio" name="mcq3" value="D"> D) $0.0\text{ m/s}$</label>
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>4.</strong> Under the NESA Preliminary Physics syllabus rules, what is the geometric meaning of the area bounded between a linear velocity-time line and the time axis?</p>
+                        <label><input type="radio" name="mcq4" value="A"> A) Continuous rate of acceleration change</label><br>
+                        <label><input type="radio" name="mcq4" value="B" id="correct-mcq4"> B) Net vector displacement</label><br>
+                        <label><input type="radio" name="mcq4" value="C"> C) Final kinetic energy allocation</label><br>
+                        <label><input type="radio" name="mcq4" value="D"> D) Instantaneous velocity field values</label>
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>5.</strong> Car $A$ travels at $+25\text{ m/s}$ due East relative to the ground. Car $B$ travels at $+15\text{ m/s}$ due East relative to the ground. What is the velocity of Car $A$ relative to Car $B$ ($\vec{v}_{AB}$)?</p>
+                        <label><input type="radio" name="mcq5" value="A"> A) $+40\text{ m/s}$ due East</label><br>
+                        <label><input type="radio" name="mcq5" value="B" id="correct-mcq5"> B) $+10\text{ m/s}$ due East</label><br>
+                        <label><input type="radio" name="mcq5" value="C"> C) $-10\text{ m/s}$ due West</label><br>
+                        <label><input type="radio" name="mcq5" value="D"> D) $-40\text{ m/s}$ due West</label>
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>6.</strong> A field cart accelerates from rest along a straight line at a constant rate of $3.0\text{ m/s}^2$. What is its speed after covering a distance of exactly $24\text{ m}$?</p>
+                        <label><input type="radio" name="mcq6" value="A"> A) $8.0\text{ m/s}$</label><br>
+                        <label><input type="radio" name="mcq6" value="B" id="correct-mcq6"> B) $12\text{ m/s}$</label><br>
+                        <label><input type="radio" name="mcq6" value="C"> C) $144\text{ m/s}$</label><br>
+                        <label><input type="radio" name="mcq6" value="D"> D) $6.0\text{ m/s}$</label>
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>7.</strong> If an intermediate calculation yields an output string of $15.483\text{ s}$ but the co-dependent laboratory input limits have values of $4.2\text{ m}$ and $1.20\text{ m/s}^2$, how should the final parameter value be rounded?</p>
+                        <label><input type="radio" name="mcq7" value="A"> A) $15.48\text{ s}$</label><br>
+                        <label><input type="radio" name="mcq7" value="B"> B) $15.5\text{ s}$</label><br>
+                        <label><input type="radio" name="mcq7" value="C" id="correct-mcq7"> C) $15\text{ s}$</label><br>
+                        <label><input type="radio" name="mcq7" value="D"> D) $2.0 \times 10^1\text{ s}$</label>
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>8.</strong> An object is moving along a straight track with a constant negative acceleration. Which statement about its motion is definitely true?</p>
+                        <label><input type="radio" name="mcq8" value="A"> A) The object's speed must be decreasing.</label><br>
+                        <label><input type="radio" name="mcq8" value="B"> B) The object must be moving in the negative direction.</label><br>
+                        <label><input type="radio" name="mcq8" value="C" id="correct-mcq8"> C) The object's velocity is decreasing by equal amounts in equal time intervals.</label><br>
+                        <label><input type="radio" name="mcq8" value="D"> D) The displacement-time graph for this object must be a straight line.</label>
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>9.</strong> Two displacement vectors have magnitudes of $5.0\text{ m}$ and $12.0\text{ m}$. Which of the following cannot be the magnitude of their resultant vector sum?</p>
+                        <label><input type="radio" name="mcq9" value="A" id="correct-mcq9"> A) $6.0\text{ m}$</label><br>
+                        <label><input type="radio" name="mcq9" value="B"> B) $7.0\text{ m}$</label><br>
+                        <label><input type="radio" name="mcq9" value="C"> C) $13.0\text{ m}$</label><br>
+                        <label><input type="radio" name="mcq9" value="D"> D) $17.0\text{ m}$</label>
+                    </div>
+
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(0,0,0,0.1); border-radius: 6px;">
+                        <p><strong>10.</strong> A high-precision digital ticker-tape timer measures positions every $0.020\text{ s}$. If the spacing between successive dots remains perfectly constant, what does this tell you about the acceleration of the tape?</p>
+                        <label><input type="radio" name="mcq10" value="A" id="correct-mcq10"> A) It is exactly zero.</label><br>
+                        <label><input type="radio" name="mcq10" value="B"> B) It is positive and constant.</label><br>
+                        <label><input type="radio" name="mcq10" value="C"> C) It is negative and constant.</label><br>
+                        <label><input type="radio" name="mcq10" value="D"> D) It is steadily increasing over time.</label>
+                    </div>
+                </form>
+                <button type="button" class="action-btn primary-action" onclick="gradeMCQs()">Lock Multiple Choice Answers</button>
+            </section>
+
+            <section class="quick-reference-vault" style="margin-bottom: 40px; padding: 25px; border-radius: 12px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--accent-primary); margin-top: 0; font-size: 22px;">Part 3: Short Answer Assessments (75 Marks Total)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 25px;">Provide detailed numerical steps. After completing each question, expand the dropdown menu to select the marks you earned based on the provided solution key.</p>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 1 (Multi-Part Graph Item — 4 Marks)</span>
+                    <p>Examine the following velocity-time ($v\text{-}t$) profile describing a linear laboratory cart journey:</p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="400" height="220" style="background: rgba(0,0,0,0.2); border-radius: 6px;">
+                            <line x1="50" y1="170" x2="380" y2="170" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="20" x2="50" y2="170" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="170" x2="150" y2="50" stroke="#b666ff" stroke-width="3" />
+                            <line x1="150" y1="50" x2="250" y2="50" stroke="#b666ff" stroke-width="3" />
+                            <line x1="250" y1="50" x2="350" y2="170" stroke="#b666ff" stroke-width="3" />
+                            <text x="45" y="175" fill="var(--text-muted)" font-size="10" text-anchor="end">0</text>
+                            <text x="150" y="185" fill="var(--text-muted)" font-size="10" text-anchor="middle">5.0</text>
+                            <text x="250" y="185" fill="var(--text-muted)" font-size="10" text-anchor="middle">15.0</text>
+                            <text x="350" y="185" fill="var(--text-muted)" font-size="10" text-anchor="middle">20.0</text>
+                            <text x="40" y="55" fill="var(--text-muted)" font-size="10" text-anchor="end">12.0</text>
+                            <text x="370" y="165" fill="var(--text-secondary)" font-size="11">t (s)</text>
+                            <text x="65" y="30" fill="var(--text-secondary)" font-size="11">v (m/s)</text>
+                        </svg>
+                    </div>
+
+                    <p>
+                        a) Calculate the constant acceleration during the first 5.0 seconds.<br>
+                        b) Determine the acceleration rate between $5.0\text{ s}$ and $15.0\text{ s}$.<br>
+                        c) Find the deceleration rate during the final 5.0 seconds.<br>
+                        d) Calculate the net vector displacement covered during the entire 20.0-second journey.
+                    </p>
+                    <textarea placeholder="Write your final responses here..." style="width: 100%; height: 80px; background: #000; color: #fff; border: 1px solid var(--glass-border); padding: 10px; border-radius: 4px;"></textarea>
+                    
+                    <details style="margin-top: 15px; color: var(--text-secondary);">
+                        <summary style="cursor: pointer; color: var(--accent-primary);">View Marks Allocation & Solution Key</summary>
+                        <p style="font-size: 13.5px; margin-top: 10px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 6px;">
+                            <strong>Solution Key:</strong>
+                            <br>a) $a = \frac{12.0 - 0}{5.0} = \mathbf{2.4\text{ m/s}^2}$
+                            <br>b) Flat horizontal section $\implies \mathbf{0.0\text{ m/s}^2}$
+                            <br>c) $a = \frac{0 - 12.0}{20.0 - 15.0} = \frac{-12.0}{5.0} = \mathbf{-2.4\text{ m/s}^2}$
+                            <br>d) Total Area = Trapezoid Area = $\frac{1}{2}(a+b)h = \frac{1}{2}(10.0 + 20.0)(12.0) = \mathbf{180\text{ m}}$
+                        </p>
+                        <label>Select Marks Attained: 
+                            <select class="saq-mark" data-max="4" onchange="calculateTotalScore()">
+                                <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                            </select>
+                        </label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 2 (Multi-Part Graph Item — 4 Marks)</span>
+                    <p>Examine this displacement-time ($s\text{-}t$) graph for a particle moving along a straight path:</p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="400" height="220" style="background: rgba(0,0,0,0.2); border-radius: 6px;">
+                            <line x1="50" y1="170" x2="380" y2="170" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="20" x2="50" y2="170" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="170" x2="150" y2="70" stroke="#ff9f0a" stroke-width="3" />
+                            <line x1="150" y1="70" x2="250" y2="70" stroke="#ff9f0a" stroke-width="3" />
+                            <line x1="250" y1="70" x2="350" y2="170" stroke="#ff9f0a" stroke-width="3" />
+                            <text x="45" y="175" fill="var(--text-muted)" font-size="10" text-anchor="end">0</text>
+                            <text x="150" y="185" fill="var(--text-muted)" font-size="10" text-anchor="middle">4.0</text>
+                            <text x="250" y="185" fill="var(--text-muted)" font-size="10" text-anchor="middle">8.0</text>
+                            <text x="350" y="185" fill="var(--text-muted)" font-size="10" text-anchor="middle">12.0</text>
+                            <text x="40" y="75" fill="var(--text-muted)" font-size="10" text-anchor="end">40.0</text>
+                            <text x="370" y="165" fill="var(--text-secondary)" font-size="11">t (s)</text>
+                            <text x="65" y="30" fill="var(--text-secondary)" font-size="11">s (m)</text>
+                        </svg>
+                    </div>
+
+                    <p>
+                        a) Calculate the linear velocity over the first 4.0 seconds.<br>
+                        b) Describe the physical state of the object between $4.0\text{ s}$ and $8.0\text{ s}$.<br>
+                        c) Find the velocity parameter between $8.0\text{ s}$ and $12.0\text{ s}$.<br>
+                        d) Calculate the total distance covered and net vector displacement over the entire 12.0 seconds.
+                    </p>
+                    <textarea placeholder="Write your final responses here..." style="width: 100%; height: 80px; background: #000; color: #fff; border: 1px solid var(--glass-border); padding: 10px; border-radius: 4px;"></textarea>
+                    
+                    <details style="margin-top: 15px; color: var(--text-secondary);">
+                        <summary style="cursor: pointer; color: var(--accent-primary);">View Marks Allocation & Solution Key</summary>
+                        <p style="font-size: 13.5px; margin-top: 10px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 6px;">
+                            <strong>Solution Key:</strong>
+                            <br>a) Slope = $\frac{40.0 - 0}{4.0} = \mathbf{10\text{ m/s}}$
+                            <br>b) Slope is zero $\implies$ The object is **stationary / at rest**.
+                            <br>c) Slope = $\frac{0 - 40.0}{12.0 - 8.0} = \frac{-40.0}{4.0} = \mathbf{-10\text{ m/s}}$
+                            <br>d) Total distance = $40.0 + 40.0 = \mathbf{80.0\text{ m}}$. Net displacement = $0 - 0 = \mathbf{0.0\text{ m}}$ (returned to starting point).
+                        </p>
+                        <label>Select Marks Attained: 
+                            <select class="saq-mark" data-max="4" onchange="calculateTotalScore()">
+                                <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                            </select>
+                        </label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 3 (Multi-Part Graph Shadows — 4 Marks)</span>
+                    <p> Consider this velocity-time graph showing a vehicle that reverses direction during its journey:</p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="400" height="220" style="background: rgba(0,0,0,0.2); border-radius: 6px;">
+                            <line x1="50" y1="110" x2="380" y2="110" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="20" x2="50" y2="200" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="50" x2="200" y2="110" stroke="#30d158" stroke-width="3" />
+                            <line x1="200" y1="110" x2="350" y2="170" stroke="#30d158" stroke-width="3" />
+                            <text x="45" y="115" fill="var(--text-muted)" font-size="10" text-anchor="end">0</text>
+                            <text x="200" y="125" fill="var(--text-muted)" font-size="10" text-anchor="middle">6.0</text>
+                            <text x="350" y="125" fill="var(--text-muted)" font-size="10" text-anchor="middle">12.0</text>
+                            <text x="40" y="55" fill="var(--text-muted)" font-size="10" text-anchor="end">10.0</text>
+                            <text x="40" y="175" fill="var(--text-muted)" font-size="10" text-anchor="end">-10.0</text>
+                            <text x="370" y="100" fill="var(--text-secondary)" font-size="11">t (s)</text>
+                            <text x="65" y="30" fill="var(--text-secondary)" font-size="11">v (m/s)</text>
+                        </svg>
+                    </div>
+
+                    <p>
+                        a) Find the time at which the vehicle changes direction.<br>
+                        b) Calculate the uniform acceleration throughout the entire 12.0-second timeline.<br>
+                        c) Find the displacement over the first 6.0 seconds.<br>
+                        d) Calculate the net total displacement over the full 12.0 seconds.
+                    </p>
+                    <textarea placeholder="Write your final responses here..." style="width: 100%; height: 80px; background: #000; color: #fff; border: 1px solid var(--glass-border); padding: 10px; border-radius: 4px;"></textarea>
+                    
+                    <details style="margin-top: 15px; color: var(--text-secondary);">
+                        <summary style="cursor: pointer; color: var(--accent-primary);">View Marks Allocation & Solution Key</summary>
+                        <p style="font-size: 13.5px; margin-top: 10px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 6px;">
+                            <strong>Solution Key:</strong>
+                            <br>a) The line crosses the zero-velocity axis at $\mathbf{t = 6.0\text{ s}}$.
+                            <br>b) Slope = $\frac{-10.0 - 10.0}{12.0 - 0} = \frac{-20.0}{12.0} = \mathbf{-1.67\text{ m/s}^2}$
+                            <br>c) Area 1 (Triangle above axis) = $\frac{1}{2} \times 6.0 \times 10.0 = \mathbf{+30\text{ m}}$
+                            <br>d) Area 2 (Triangle below axis) = $\frac{1}{2} \times (12.0 - 6.0) \times (-10.0) = -30\text{ m}$. Total net displacement = $+30 + (-30) = \mathbf{0.0\text{ m}}$.
+                        </p>
+                        <label>Select Marks Attained: 
+                            <select class="saq-mark" data-max="4" onchange="calculateTotalScore()">
+                                <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                            </select>
+                        </label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 4 (Multi-Part Graph Item — 4 Marks)</span>
+                    <p>An experimental monorail prototype follows this asymmetric velocity-time profile:</p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="400" height="220" style="background: rgba(0,0,0,0.2); border-radius: 6px;">
+                            <line x1="50" y1="170" x2="380" y2="170" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="20" x2="50" y2="170" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="170" x2="110" y2="50" stroke="#0a84ff" stroke-width="3" />
+                            <line x1="110" y1="50" x2="290" y2="50" stroke="#0a84ff" stroke-width="3" />
+                            <line x1="290" y1="50" x2="350" y2="170" stroke="#0a84ff" stroke-width="3" />
+                            <text x="45" y="175" fill="var(--text-muted)" font-size="10" text-anchor="end">0</text>
+                            <text x="110" y="185" fill="var(--text-muted)" font-size="10" text-anchor="middle">2.0</text>
+                            <text x="290" y="185" fill="var(--text-muted)" font-size="10" text-anchor="middle">8.0</text>
+                            <text x="350" y="185" fill="var(--text-muted)" font-size="10" text-anchor="middle">10.0</text>
+                            <text x="40" y="55" fill="var(--text-muted)" font-size="10" text-anchor="end">24.0</text>
+                            <text x="370" y="165" fill="var(--text-secondary)" font-size="11">t (s)</text>
+                        </svg>
+                    </div>
+
+                    <p>
+                        a) Find the initial acceleration rate over the first 2.0 seconds.<br>
+                        b) Calculate the final deceleration rate during the last 2.0 seconds.<br>
+                        c) Find the total distance covered during the uniform cruising phase.<br>
+                        d) Calculate the average speed over the entire 10.0-second test run.
+                    </p>
+                    <textarea placeholder="Write your final responses here..." style="width: 100%; height: 80px; background: #000; color: #fff; border: 1px solid var(--glass-border); padding: 10px; border-radius: 4px;"></textarea>
+                    
+                    <details style="margin-top: 15px; color: var(--text-secondary);">
+                        <summary style="cursor: pointer; color: var(--accent-primary);">View Marks Allocation & Solution Key</summary>
+                        <p style="font-size: 13.5px; margin-top: 10px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 6px;">
+                            <strong>Solution Key:</strong>
+                            <br>a) Acceleration = $\frac{24.0}{2.0} = \mathbf{12\text{ m/s}^2}$
+                            <br>b) Deceleration = $\frac{0 - 24.0}{10.0 - 8.0} = \mathbf{-12\text{ m/s}^2}$
+                            <br>c) Cruising phase distance = $\text{width} \times \text{height} = (8.0 - 2.0) \times 24.0 = 6.0 \times 24.0 = \mathbf{144\text{ m}}$
+                            <br>d) Total Area = $\frac{1}{2}(6.0 + 10.0) \times 24.0 = 8.0 \times 24.0 = 192\text{ m}$. Average Speed = $\frac{192}{10.0} = \mathbf{19.2\text{ m/s}}$.
+                        </p>
+                        <label>Select Marks Attained: 
+                            <select class="saq-mark" data-max="4" onchange="calculateTotalScore()">
+                                <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                            </select>
+                        </label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 5 (Multi-Part Graph Item — 4 Marks)</span>
+                    <p>An object shifts position backwards and forwards along a straight lab track as shown below:</p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="400" height="220" style="background: rgba(0,0,0,0.2); border-radius: 6px;">
+                            <line x1="50" y1="120" x2="380" y2="120" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="20" x2="50" y2="200" stroke="var(--text-primary)" stroke-width="2" />
+                            <line x1="50" y1="120" x2="150" y2="40" stroke="#bf5af2" stroke-width="3" />
+                            <line x1="150" y1="40" x2="250" y2="180" stroke="#bf5af2" stroke-width="3" />
+                            <line x1="250" y1="180" x2="350" y2="120" stroke="#bf5af2" stroke-width="3" />
+                            <text x="45" y="125" fill="var(--text-muted)" font-size="10" text-anchor="end">0</text>
+                            <text x="150" y="135" fill="var(--text-muted)" font-size="10" text-anchor="middle">3.0</text>
+                            <text x="250" y="135" fill="var(--text-muted)" font-size="10" text-anchor="middle">7.0</text>
+                            <text x="350" y="135" fill="var(--text-muted)" font-size="10" text-anchor="middle">10.0</text>
+                            <text x="40" y="45" fill="var(--text-muted)" font-size="10" text-anchor="end">30.0</text>
+                            <text x="40" y="185" fill="var(--text-muted)" font-size="10" text-anchor="end">-30.0</text>
+                            <text x="370" y="110" fill="var(--text-secondary)" font-size="11">t (s)</text>
+                            <text x="65" y="30" fill="var(--text-secondary)" font-size="11">s (m)</text>
+                        </svg>
+                    </div>
+
+                    <p>
+                        a) Determine the velocity of the object during the first 3.0 seconds.<br>
+                        b) Calculate the velocity parameter between $3.0\text{ s}$ and $7.0\text{ s}$.<br>
+                        c) Find the total displacement over the entire 10.0-second window.<br>
+                        d) Calculate the cumulative distance covered during the full journey.
+                    </p>
+                    <textarea placeholder="Write your final responses here..." style="width: 100%; height: 80px; background: #000; color: #fff; border: 1px solid var(--glass-border); padding: 10px; border-radius: 4px;"></textarea>
+                    
+                    <details style="margin-top: 15px; color: var(--text-secondary);">
+                        <summary style="cursor: pointer; color: var(--accent-primary);">View Marks Allocation & Solution Key</summary>
+                        <p style="font-size: 13.5px; margin-top: 10px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 6px;">
+                            <strong>Solution Key:</strong>
+                            <br>a) Slope = $\frac{30.0 - 0}{3.0} = \mathbf{10\text{ m/s}}$
+                            <br>b) Slope = $\frac{-30.0 - 30.0}{7.0 - 3.0} = \frac{-60.0}{4.0} = \mathbf{-15\text{ m/s}}$
+                            <br>c) Final position is 0, initial position is 0 $\implies$ Net Displacement = $\mathbf{0.0\text{ m}}$
+                            <br>d) Distance segment 1 = $30\text{ m}$, segment 2 = $60\text{ m}$, segment 3 = $30\text{ m}$. Total Distance = $\mathbf{120\text{ m}}$.
+                        </p>
+                        <label>Select Marks Attained: 
+                            <select class="saq-mark" data-max="4" onchange="calculateTotalScore()">
+                                <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                            </select>
+                        </label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 6 (Algebraic Verification — 3 Marks)</span>
+                    <p>A transport capsule accelerates uniformly from $+10.0\text{ m/s}$ to $+30.0\text{ m/s}$ over a distance of $200.0\text{ m}$. Calculate the uniform acceleration rate.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $v^2 = u^2 + 2as \implies 30.0^2 = 10.0^2 + 2a(200.0) \implies 900 = 100 + 400a \implies 800 = 400a \implies \mathbf{a = 2.00\text{ m/s}^2}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="3" onchange="calculateTotalScore()"><option value="0">0/3</option><option value="1">1/3</option><option value="2">2/3</option><option value="3">3/3</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 7 (Collinear Vectors — 3 Marks)</span>
+                    <p>A drone flying due North at $12.0\text{ m/s}$ encounters a steady crosswind blowing due East at $5.00\text{ m/s}$. Calculate the magnitude and true vector bearing of the drone's resultant velocity relative to the ground.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $v = \sqrt{12.0^2 + 5.00^2} = \mathbf{13.0\text{ m/s}}$. Angle $\theta = \arctan(5.00/12.0) \approx 22.6^\circ$. True Bearing: $\mathbf{022.6^\circ}$ or $\mathbf{N22.6^\circ E}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="3" onchange="calculateTotalScore()"><option value="0">0/3</option><option value="1">1/3</option><option value="2">2/3</option><option value="3">3/3</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 8 (Quadratic Intersection — 4 Marks)</span>
+                    <p>A runner with a 20.0-meter head start runs forward at a constant speed of $4.0\text{ m/s}$. A second runner starts from rest at the same origin point and pursues the first runner with a constant acceleration of $2.0\text{ m/s}^2$. Find the time required for the second runner to overtake the first.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $s_1 = 20.0 + 4.0t$, $s_2 = \frac{1}{2}(2.0)t^2 = t^2$. Set equal: $t^2 - 4.0t - 20.0 = 0$.
+                            Using quadratic formula: $t = \frac{4.0 \pm \sqrt{(-4.0)^2 - 4(1)(-20.0)}}{2} = \frac{4.0 \pm \sqrt{16 + 80}}{2} = \frac{4.0 + 9.80}{2} = \mathbf{6.9\text{ s}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="4" onchange="calculateTotalScore()"><option value="0">0/4</option><option value="1">1/4</option><option value="2">2/4</option><option value="3">3/4</option><option value="4">4/4</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 9 (Oakhill Framework Core — 3 Marks)</span>
+                    <p>A laboratory cart moving at $15.0\text{ m/s}$ is brought to a complete stop by a constant braking force over a distance of $30.0\text{ m}$. Calculate the constant deceleration rate.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $v^2 = u^2 + 2as \implies 0 = 15.0^2 + 2a(30.0) \implies 0 = 225 + 60a \implies a = \frac{-225}{60} = \mathbf{-3.75\text{ m/s}^2}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="3" onchange="calculateTotalScore()"><option value="0">0/3</option><option value="1">1/3</option><option value="2">2/3</option><option value="3">3/3</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 10 (Coarse Parameter Check — 2 Marks)</span>
+                    <p>An object travels from rest with a uniform acceleration of $5.0\text{ m/s}^2$ over a distance of $40\text{ m}$. State the calculated travel time, rounding correctly based on the low-resolution coarse data rule.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $s = \frac{1}{2}at^2 \implies 40 = \frac{1}{2}(5.0)t^2 \implies 40 = 2.5t^2 \implies t^2 = 16 \implies t = 4\text{ s}$. 
+                            Under the coarse data rule, round to match two significant figures: $\mathbf{4.0\text{ s}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="2" onchange="calculateTotalScore()"><option value="0">0/2</option><option value="1">1/2</option><option value="2">2/2</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 11 (Relative Framing Vector Subtraction — 3 Marks)</span>
+                    <p>Train $A$ travels North at $20.0\text{ m/s}$ relative to the ground. Train $B$ travels South at $15.0\text{ m/s}$ relative to the ground. Calculate the vector velocity of Train $A$ relative to an observer looking out the window of Train $B$.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $\vec{v}_{AB} = \vec{v}_A - \vec{v}_B = (+20.0\text{ m/s}) - (-15.0\text{ m/s}) = \mathbf{+35.0\text{ m/s} \text{ North}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="3" onchange="calculateTotalScore()"><option value="0">0/3</option><option value="1">1/3</option><option value="2">2/3</option><option value="3">3/3</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 12 (Multi-Stage Braking Sequence — 4 Marks)</span>
+                    <p>A vehicle traveling at $30.0\text{ m/s}$ brakes uniformly to $10.0\text{ m/s}$ over $5.00\text{ s}$, then brakes more softly with a deceleration of $-1.00\text{ m/s}^2$ until it stops completely. Calculate the total linear distance covered across both phases.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            Phase 1: $s_1 = \left(\frac{30.0+10.0}{2}\right) \times 5.00 = 100\text{ m}$. 
+                            Phase 2: $v^2 = u^2 + 2as \implies 0^2 = 10.0^2 + 2(-1.00)s_2 \implies 2s_2 = 100 \implies s_2 = 50.0\text{ m}$. 
+                            Total Distance = $100 + 50.0 = \mathbf{150.\text{ m}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="4" onchange="calculateTotalScore()"><option value="0">0/4</option><option value="1">1/4</option><option value="2">2/4</option><option value="3">3/4</option><option value="4">4/4</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 13 (Average Rate Formulation — 3 Marks)</span>
+                    <p>An athlete runs the first $100.0\text{ m}$ of a race at an average speed of $8.00\text{ m/s}$, and the next $100.0\text{ m}$ at an average speed of $10.0\text{ m/s}$. Calculate the average speed over the full $200.0\text{ m}$ course.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $t_1 = \frac{100.0}{8.00} = 12.5\text{ s}$, $t_2 = \frac{100.0}{10.0} = 10.0\text{ s}$. 
+                            Total time = $22.5\text{ s}$. Average Speed = $\frac{200.0}{22.5} = \mathbf{8.89\text{ m/s}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="3" onchange="calculateTotalScore()"><option value="0">0/3</option><option value="1">1/3</option><option value="2">2/3</option><option value="3">3/3</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 14 (Collinear Intersection Parameters — 3 Marks)</span>
+                    <p>A car and a truck start from rest at the same line. The car accelerates at $3.00\text{ m/s}^2$ and the truck accelerates at $2.00\text{ m/s}^2$. How far apart are they after exactly $6.00\text{ s}$?</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $s_{\text{car}} = \frac{1}{2}(3.00)(6.00)^2 = 54.0\text{ m}$. $s_{\text{truck}} = \frac{1}{2}(2.00)(6.00)^2 = 36.0\text{ m}$. 
+                            Separation distance = $54.0 - 36.0 = \mathbf{18.0\text{ m}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="3" onchange="calculateTotalScore()"><option value="0">0/3</option><option value="1">1/3</option><option value="2">2/3</option><option value="3">3/3</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 15 (Syllabus Vector Splitting — 3 Marks)</span>
+                    <p>A survey crew records a displacement vector of $50.0\text{ m}$ pointing at an angle of $30.0^\circ$ North of West. Calculate the magnitude of the horizontal component (due West) of this displacement.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $s_{\text{west}} = 50.0 \times \cos(30.0^\circ) = 50.0 \times 0.8660 = \mathbf{43.3\text{ m}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="3" onchange="calculateTotalScore()"><option value="0">0/3</option><option value="1">1/3</option><option value="2">2/3</option><option value="3">3/3</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 16 (Braking Profiles — 3 Marks)</span>
+                    <p>A train car moving at $24.0\text{ m/s}$ applies its brakes and slows down at a constant rate of $-2.00\text{ m/s}^2$. Calculate the distance covered by the train during its final 2.00 seconds of motion before coming to a stop.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            Work backwards: an object stopping with deceleration $a$ covers the same distance as an object accelerating from rest at that same rate over the same time window:
+                            $s = \frac{1}{2}at^2 = \frac{1}{2}(2.00)(2.00)^2 = \mathbf{4.00\text{ m}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="3" onchange="calculateTotalScore()"><option value="0">0/3</option><option value="1">1/3</option><option value="2">2/3</option><option value="3">3/3</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 17 (Collinear Relative Tracking — 4 Marks)</span>
+                    <p>A passenger train traveling along a straight track at $35.0\text{ m/s}$ tracks a freight train ahead on the same line traveling at $15.0\text{ m/s}$ in the same direction. The passenger train brakes at $-2.50\text{ m/s}^2$. Calculate the minimum initial separation distance required to avoid a collision.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $u_{\text{relative}} = 35.0 - 15.0 = 20.0\text{ m/s}$. $a_{\text{relative}} = -2.50\text{ m/s}^2$.
+                            $v_{\text{rel}}^2 = u_{\text{rel}}^2 + 2a_{\text{rel}}s \implies 0 = 20.0^2 + 2(-2.50)s \implies 0 = 400 - 5.00s \implies s = \frac{400}{5.00} = \mathbf{80.0\text{ m}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="4" onchange="calculateTotalScore()"><option value="0">0/4</option><option value="1">1/4</option><option value="2">2/4</option><option value="3">3/4</option><option value="4">4/4</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 18 (Syllabus Geometry — 3 Marks)</span>
+                    <p>A swimmer capable of a maximum speed of $2.00\text{ m/s}$ in still water swims directly across a river that flows at a speed of $1.50\text{ m/s}$. Calculate the magnitude of the swimmer's resultant velocity vector relative to the riverbank.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            The components form a right-angled triangle: $v = \sqrt{2.00^2 + 1.50^2} = \sqrt{4.00 + 2.25} = \sqrt{6.25} = \mathbf{2.50\text{ m/s}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="3" onchange="calculateTotalScore()"><option value="0">0/3</option><option value="1">1/3</option><option value="2">2/3</option><option value="3">3/3</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 19 (Multi-Stage Sprint — 4 Marks)</span>
+                    <p>A runner accelerates from rest at $1.50\text{ m/s}^2$ for $4.00\text{ s}$, then maintains that top speed for another $6.00\text{ s}$. Calculate the total distance covered over the entire 10.00-second journey.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            Stage 1: $v = 0 + (1.50)(4.00) = 6.00\text{ m/s}$. $s_1 = \frac{1}{2}(1.50)(4.00)^2 = 12.0\text{ m}$. 
+                            Stage 2: $s_2 = v \cdot t = 6.00 \times 6.00 = 36.0\text{ m}$. Total Distance = $12.0 + 36.0 = \mathbf{48.0\text{ m}}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="4" onchange="calculateTotalScore()"><option value="0">0/4</option><option value="1">1/4</option><option value="2">2/4</option><option value="3">3/4</option><option value="4">4/4</option></select></label>
+                    </details>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--glass-border);">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 20 (Algebraic Combination Challenge — 4 Marks)</span>
+                    <p>An object traveling along a straight line covers exactly $60.0\text{ m}$ during its 4th second of travel (between $t = 3.00\text{ s}$ and $t = 4.00\text{ s}$). If it started from rest, calculate its constant acceleration rate.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            $s(t) = \frac{1}{2}at^2 \implies \Delta s = s(4) - s(3) = \frac{1}{2}a(4.00^2) - \frac{1}{2}a(3.00^2) = 60.0\text{ m}$
+                            $8.00a - 4.50a = 60.0 \implies 3.50a = 60.0 \implies a = \frac{60.0}{3.50} = \mathbf{17.1\text{ m/s}^2}$.
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="4" onchange="calculateTotalScore()"><option value="0">0/4</option><option value="1">1/4</option><option value="2">2/4</option><option value="3">3/4</option><option value="4">4/4</option></select></label>
+                    </details>
+                </div>
+
+                <br>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--glass-border); margin-bottom: 25px;">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 21 (Multi-Stage Graphical Kinematics — 8 Marks)</span>
+                    <p>A high-performance prototype model train moves along a straight linear test track. Its motion over a $60\text{ s}$ window is monitored and plotted below as a piecewise continuous Velocity-Time graph, crossing both above and below the time axis.</p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="450" height="260" style="background: #0f0f14; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;">
+                            <line x1="50" y1="30" x2="420" y2="30" stroke="rgba(255,255,255,0.03)" stroke-dasharray="2,2"/>
+                            <line x1="50" y1="80" x2="420" y2="80" stroke="rgba(255,255,255,0.03)" stroke-dasharray="2,2"/>
+                            <line x1="50" y1="180" x2="420" y2="180" stroke="rgba(255,255,255,0.03)" stroke-dasharray="2,2"/>
+                            <line x1="50" y1="230" x2="420" y2="230" stroke="rgba(255,255,255,0.03)" stroke-dasharray="2,2"/>
+                            
+                            <line x1="100" y1="30" x2="100" y2="240" stroke="rgba(255,255,255,0.03)" stroke-dasharray="2,2"/>
+                            <line x1="150" y1="30" x2="150" y2="240" stroke="rgba(255,255,255,0.03)" stroke-dasharray="2,2"/>
+                            <line x1="230" y1="30" x2="230" y2="240" stroke="rgba(255,255,255,0.03)" stroke-dasharray="2,2"/>
+                            <line x1="310" y1="30" x2="310" y2="240" stroke="rgba(255,255,255,0.03)" stroke-dasharray="2,2"/>
+                            <line x1="370" y1="30" x2="370" y2="240" stroke="rgba(255,255,255,0.03)" stroke-dasharray="2,2"/>
+                            
+                            <line x1="50" y1="130" x2="420" y2="130" stroke="#aaa" stroke-width="1.5"/> <line x1="50" y1="20" x2="50" y2="240" stroke="#aaa" stroke-width="1.5"/> <text x="25" y="34" fill="#888" font-size="11">+20</text>
+                            <text x="25" y="84" fill="#888" font-size="11">+10</text>
+                            <text x="35" y="134" fill="#aaa" font-size="11">0</text>
+                            <text x="25" y="184" fill="#888" font-size="11">-10</text>
+                            <text x="25" y="234" fill="#888" font-size="11">-20</text>
+                            <text x="40" y="15" fill="#aaa" font-size="11" font-weight="bold">v (m/s)</text>
+                            
+                            <text x="95" y="146" fill="#888" font-size="11">10</text>
+                            <text x="145" y="146" fill="#888" font-size="11">20</text>
+                            <text x="225" y="146" fill="#888" font-size="11">32</text>
+                            <text x="305" y="146" fill="#888" font-size="11">44</text>
+                            <text x="365" y="146" fill="#888" font-size="11">52</text>
+                            <text x="410" y="146" fill="#888" font-size="11">60</text>
+                            <text x="425" y="134" fill="#aaa" font-size="11" font-weight="bold">t (s)</text>
+                            
+                            <line x1="50" y1="130" x2="100" y2="30" stroke="#00d2ff" stroke-width="2.5"/>
+                            <line x1="100" y1="30" x2="150" y2="30" stroke="#00d2ff" stroke-width="2.5"/>
+                            <line x1="150" y1="30" x2="230" y2="230" stroke="#00d2ff" stroke-width="2.5"/>
+                            <line x1="230" y1="230" x2="310" y2="230" stroke="#00d2ff" stroke-width="2.5"/>
+                            <line x1="310" y1="230" x2="370" y2="80" stroke="#00d2ff" stroke-width="2.5"/>
+                            <line x1="370" y1="80" x2="420" y2="130" stroke="#00d2ff" stroke-width="2.5"/>
+                        </svg>
+                    </div>
+                
+                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
+                        (a) Determine the instantaneous acceleration of the train at $t = 25.0\text{ s}$. (2 Marks)<br>
+                        (b) State the distinct timestamp(s) or interval(s) where the train changes its directional heading. (1 Mark)<br>
+                        (c) Calculate the total distance covered by the train throughout the entire $60.0\text{ s}$ testing run. (3 Marks)<br>
+                        (d) Compute the magnitude of the final displacement from its initial origin at $t = 60.0\text{ s}$. (2 Marks)
+                    </p>
+                    <input type="text" placeholder="Your final answers..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <div style="background:rgba(0,0,0,0.3); padding:15px; border-radius:4px; font-size:13px; line-height:1.6;">
+                            <strong>(a) Acceleration at $t = 25\text{ s}$ (Gradient of segment from $t=20$ to $t=32$):</strong><br>
+                            $$a = \frac{v_f - v_i}{t_f - t_i} = \frac{-20 - 20}{32 - 20} = \frac{-40}{12} = \mathbf{-3.33\text{ m/s}^2}$$ [2 Marks]<br><br>
+                            
+                            <strong>(b) Direction changes (Time-axis intercepts where velocity flips signs):</strong><br>
+                            • Intercept 1 lies exactly halfway along the linear segment between $(20, 20)$ and $(32, -20)$, which is at **$t = 26.0\text{ s}$**.<br>
+                            • Intercept 2 lies on the segment between $(44, -20)$ and $(52, 10)$. Slope is $\frac{10 - (-20)}{52 - 44} = \frac{30}{8} = 3.75\text{ m/s}^2$. Intercept: $0 = -20 + 3.75(t - 44) \implies t = 44 + 5.33 = \mathbf{49.33\text{ s}}$.<br>
+                            Therefore, changes direction at **$t = 26.0\text{ s}$ and $t = 49.33\text{ s}$** [1 Mark].<br><br>
+                            
+                            <strong>(c) Total Distance (Sum of absolute geometric regions under curve):</strong><br>
+                            • Area 1 (Positive, $t=0$ to $26$): Trapezoid with bases $26$ and $10$, height $20 \implies A_1 = \frac{26+10}{2} \times 20 = 360\text{ m}$.<br>
+                            • Area 2 (Negative, $t=26$ to $49.33$): Trapezoid with bases $(49.33 - 26) = 23.33$ and $(44 - 32) = 12$, height $20 \implies A_2 = \frac{23.33+12}{2} \times 20 = 353.33\text{ m}$.<br>
+                            • Area 3 (Positive, $t=49.33$ to $60$): Triangle with base $(60 - 49.33) = 10.67$, height $10 \implies A_3 = \frac{1}{2} \times 10.67 \times 10 = 53.33\text{ m}$.<br>
+                            $$\text{Total Distance} = 360 + 353.33 + 53.33 = \mathbf{766.66\text{ m}}$$ [3 Marks].<br><br>
+                            
+                            <strong>(d) Magnitude of Net Displacement:</strong><br>
+                            $$\vec{s} = A_1 - A_2 + A_3 = 360 - 353.33 + 53.33 = \mathbf{60.0\text{ m}\text{ [East/Forward]}}$$ [2 Marks].
+                        </div>
+                        <label style="margin-top:10px; display:block;">Marks: <select class="saq-mark" data-max="8" onchange="calculateTotalScore()"><option value="0">0/8</option><option value="1">1/8</option><option value="2">2/8</option><option value="3">3/8</option><option value="4">4/8</option><option value="5">5/8</option><option value="6">6/8</option><option value="7">7/8</option><option value="8">8/8</option></select></label>
+                    </details>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--glass-border); margin-bottom: 25px;">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 22 (Non-Uniform Relative Acceleration Interception — 4 Marks)</span>
+                    <p>A sports car is idling at a red light. The instant the signal turns green, the car accelerates uniformly at $a_c = 4.50\text{ m/s}^2$. At that exact same fraction of a second, a commercial truck traveling at a fixed, constant velocity of $v_t = 24.0\text{ m/s}$ bypasses the car in the adjacent lane. Determine how far down the road the sports car will travel before it successfully overtakes the truck.</p>
+                    <input type="text" placeholder="Final numeric answer..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            Set up the kinematic position functions from the point of origin ($x_0 = 0$ at $t = 0$):<br>
+                            $$\text{Truck Position: } x_t(t) = v_t \cdot t = 24.0t$$
+                            $$\text{Car Position: } x_c(t) = \frac{1}{2}a_c \cdot t^2 = \frac{1}{2}(4.50)t^2 = 2.25t^2$$
+                            At interception, $x_c(t) = x_t(t)$:<br>
+                            $$2.25t^2 = 24.0t \implies t(2.25t - 24.0) = 0 \implies t = \frac{24.0}{2.25} = 10.67\text{ s}$$
+                            Substitute time back into either position equation to evaluate displacement:<br>
+                            $$x = 24.0 \times 10.67 = \mathbf{256.0\text{ m}}$$
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="4" onchange="calculateTotalScore()"><option value="0">0/4</option><option value="1">1/4</option><option value="2">2/4</option><option value="3">3/4</option><option value="4">4/4</option></select></label>
+                    </details>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--glass-border); margin-bottom: 25px;">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 23 (The Reaction-Deceleration Threshold Problem — 5 Marks)</span>
+                    <p>A vehicle is cruising at $v_0 = 30.0\text{ m/s}$ when the driver spots an obstacle lying across the road $95.0\text{ m}$ ahead. The driver experiences a physiological human reaction delay of $\Delta t_{\text{react}} = 0.65\text{ s}$ before hitting the brakes. Once applied, the brakes generate a constant maximum deceleration rate of $a = -6.20\text{ m/s}^2$. Determine if the vehicle safely stops before hitting the obstacle, and calculate its remaining clearance or impact speed velocity.</p>
+                    <input type="text" placeholder="Clearance distance or impact speed..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            <strong>Step 1: Compute reaction distance traveled at constant velocity:</strong><br>
+                            $$\Delta x_{\text{react}} = v_0 \cdot \Delta t_{\text{react}} = 30.0\text{ m/s} \times 0.65\text{ s} = 19.5\text{ m}$$
+                            Remaining buffer distance left to stop: $95.0\text{ m} - 19.5\text{ m} = 75.5\text{ m}$.<br><br>
+                            
+                            <strong>Step 2: Calculate the physical braking stopping distance required:</strong><br>
+                            Using $v^2 = u^2 + 2ax$ where terminal velocity $v = 0$:<br>
+                            $$0 = (30.0)^2 + 2(-6.20) \cdot \Delta x_{\text{brake}} \implies 0 = 900 - 12.4 \cdot \Delta x_{\text{brake}}$$
+                            $$\Delta x_{\text{brake}} = \frac{900}{12.4} = 72.58\text{ m}$$
+                            <br>
+                            <strong>Conclusion:</strong> Total stopping track length required is $19.5 + 72.58 = 92.08\text{ m}$. Since $92.08\text{ m} < 95.0\text{ m}$, the car stops safely. <br>
+                            $$\text{Clearance Safety Margin} = 95.0\text{ m} - 92.08\text{ m} = \mathbf{2.92\text{ m}}$$
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="5" onchange="calculateTotalScore()"><option value="0">0/5</option><option value="1">1/5</option><option value="2">2/5</option><option value="3">3/5</option><option value="4">4/5</option><option value="5">5/5</option></select></label>
+                    </details>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--glass-border); margin-bottom: 25px;">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 24 (Asynchronous Free-Fall Intersect — 4 Marks)</span>
+                    <p>Object A is dropped from rest from the top of an observation deck cliff of height $H = 120\text{ m}$. Exactly $1.50\text{ s}$ later, Object B is launched vertically upwards from the absolute base of the cliff with an initial velocity of $u_B = 45.0\text{ m/s}$. Neglecting air resistance and taking $g = 9.80\text{ m/s}^2$, calculate the height above the ground where these two items pass one another.</p>
+                    <input type="text" placeholder="Final height value..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            Let $t$ represent the total time elapsed since Object A was released.<br>
+                            $$\text{Position of Object A (Height from ground): } y_A(t) = H - \frac{1}{2}gt^2 = 120 - 4.9t^2$$
+                            Object B travels for time $(t - 1.50)$:<br>
+                            $$\text{Position of Object B: } y_B(t) = u_B(t - 1.5) - \frac{1}{2}g(t - 1.5)^2 = 45(t - 1.5) - 4.9(t - 1.5)^2$$
+                            $$y_B(t) = 45t - 67.5 - 4.9(t^2 - 3t + 2.25) = 45t - 67.5 - 4.9t^2 + 14.7t - 11.025$$
+                            $$y_B(t) = -4.9t^2 + 59.7t - 78.525$$
+                            Set equations equal to find crossing intersection point: $y_A(t) = y_B(t)$:<br>
+                            $$120 - 4.9t^2 = -4.9t^2 + 59.7t - 78.525 \implies 120 = 59.7t - 78.525$$
+                            $$59.7t = 198.525 \implies t = 3.325\text{ s}$$
+                            Calculate height using Object A's clean profile:<br>
+                            $$y = 120 - 4.9(3.325)^2 = 120 - 54.17 = \mathbf{65.83\text{ m}}$$
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="4" onchange="calculateTotalScore()"><option value="0">0/4</option><option value="1">1/4</option><option value="2">2/4</option><option value="3">3/4</option><option value="4">4/4</option></select></label>
+                    </details>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--glass-border); margin-bottom: 25px;">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 25 (The Consecutive Displacement Interval Challenge — 5 Marks)</span>
+                    <p>A particle traveling under uniform acceleration along a straight coordinate line covers a distance of $d_1 = 42.0\text{ m}$ during an initial timed window of $\Delta t = 3.00\text{ s}$. It then continues onward to cover an additional distance of $d_2 = 90.0\text{ m}$ during the next consecutive interval of $\Delta t = 3.00\text{ s}$. Determine the particle's initial velocity $u$ at the very start of the first tracking period.</p>
+                    <input type="text" placeholder="Initial velocity..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <p style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px;">
+                            Using the kinematic formula $s = ut + \frac{1}{2}at^2$ for distinct overlapping intervals:<br>
+                            <strong>Interval 1 (First 3 seconds):</strong><br>
+                            $$42.0 = u(3.00) + \frac{1}{2}a(3.00)^2 \implies 42.0 = 3u + 4.5a \implies 14.0 = u + 1.5a \quad \text{--- (Eq 1)}$$
+                            <br>
+                            <strong>Combined Interval (Total of first 6 seconds):</strong><br>
+                            $$\text{Total distance } s_{\text{total}} = 42.0 + 90.0 = 132.0\text{ m}$$
+                            $$132.0 = u(6.00) + \frac{1}{2}a(6.00)^2 \implies 132.0 = 6u + 18a \implies 22.0 = u + 3a \quad \text{--- (Eq 2)}$$
+                            <br>
+                            Subtract Equation 1 from Equation 2 to eliminate $u$:<br>
+                            $$(u + 3a) - (u + 1.5a) = 22.0 - 14.0 \implies 1.5a = 8.0 \implies a = \frac{8.0}{1.5} = 5.33\text{ m/s}^2$$
+                            Substitute acceleration value back into Equation 1 to isolate initial velocity:<br>
+                            $$14.0 = u + 1.5(5.33) \implies 14.0 = u + 8.0 \implies u = \mathbf{6.00\text{ m/s}}$$
+                        </p>
+                        <label>Marks: <select class="saq-mark" data-max="5" onchange="calculateTotalScore()"><option value="0">0/5</option><option value="1">1/5</option><option value="2">2/5</option><option value="3">3/5</option><option value="4">4/5</option><option value="5">5/5</option></select></label>
+                    </details>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--glass-border); margin-bottom: 25px;">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 26 (Asymmetric Vertical Boundary Challenge — 5 Marks)</span>
+                    <p>A sound-monitoring drone is hovering at a steady height of $H$ meters above the edge of a deep vertical mine shaft. A structural bolt accidentally breaks loose from the chassis of the drone and drops from rest under gravity. Exactly $2.00\text{ s}$ after the bolt is dropped, the drone instantly begins an emergency dive straight down into the shaft with a constant downward acceleration of $a_d = 14.7\text{ m/s}^2$. If the drone manages to intercept the falling bolt at exactly the mouth level of the mine shaft ($y = 0$), calculate the initial hovering height $H$. (Take $g = 9.80\text{ m/s}^2$ and neglect air friction).</p>
+                    <input type="text" placeholder="Initial hovering height H (m)..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px; font-size:13px; line-height:1.6;">
+                            <strong>Step 1: Set up the displacement equation for the bolt.</strong><br>
+                            Let $t$ be the total time the bolt falls before being intercepted at the shaft entrance.<br>
+                            Since it falls from rest from height $H$ to ground level ($0$), its total vertical descent displacement is $H$ using $s = ut + \frac{1}{2}at^2$:<br>
+                            $$H = \frac{1}{2}gt^2 = \frac{1}{2}(9.80)t^2 = 4.90t^2 \quad \text{--- (Eq 1)}$$
+                            <br>
+                            <strong>Step 2: Set up the displacement equation for the drone.</strong><br>
+                            The drone travels the same vertical distance $H$, but it begins $2.00\text{ s}$ later. Therefore, its flight time is $(t - 2.00)$ seconds. It also starts from a hovering rest position ($u = 0$):<br>
+                            $$H = \frac{1}{2}a_d(t - 2.00)^2 = \frac{1}{2}(14.7)(t - 2.00)^2 = 7.35(t - 2.00)^2 \quad \text{--- (Eq 2)}$$
+                            <br>
+                            <strong>Step 3: Equate the two displacement representations to eliminate $H$.</strong><br>
+                            $$4.90t^2 = 7.35(t - 2.00)^2$$
+                            Divide both sides by $2.45$ to clean up the coefficients smoothly:<br>
+                            $$2t^2 = 3(t - 2.00)^2 \implies 2t^2 = 3(t^2 - 4t + 4)$$
+                            $$2t^2 = 3t^2 - 12t + 12 \implies t^2 - 12t + 12 = 0$$
+                            <br>
+                            <strong>Step 4: Solve the quadratic expression.</strong><br>
+                            $$t = \frac{-(-12) \pm \sqrt{(-12)^2 - 4(1)(12)}}{2(1)} = \frac{12 \pm \sqrt{144 - 48}}{2} = \frac{12 \pm \sqrt{96}}{2} = 6 \pm 2\sqrt{6}$$
+                            $$\text{Evaluating solutions: } t_1 = 6 + 4.90 = 10.90\text{ s}, \quad t_2 = 6 - 4.90 = 1.10\text{ s}$$
+                            Since the drone doesn't even begin moving until $t = 2.00\text{ s}$, the time must be greater than $2.00\text{ s}$. Thus, $t = 10.90\text{ s}$.
+                            <br><br>
+                            <strong>Step 5: Compute the original height $H$.</strong><br>
+                            $$H = 4.90 \times (10.90)^2 \approx 4.90 \times 118.81 = \mathbf{582.2\text{ m}}$$
+                        </div>
+                        <label style="margin-top:10px; display:block;">Marks: <select class="saq-mark" data-max="5" onchange="calculateTotalScore()"><option value="0">0/5</option><option value="1">1/5</option><option value="2">2/5</option><option value="3">3/5</option><option value="4">4/5</option><option value="5">5/5</option></select></label>
+                    </details>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--glass-border); margin-bottom: 25px;">
+                    <span style="color: var(--accent-primary); font-weight: 700;">Question 27 (Kinematic Boundary Profile — 5 Marks)</span>
+                    <p>A high-speed experimental research capsule is fired vertically straight downwards into a deep ocean research column with a non-zero initial speed of $8.50\text{ m/s}$. Upon contact with the water, fluid resistance introduces a constant upward deceleration rate of $2.20\text{ m/s}^2$ against its path. Calculate the exact time frame required for the capsule to first reach a total downward depth displacement of precisely $14.0\text{ m}$ within the column.</p>
+                    <input type="text" placeholder="Time required (s)..." style="background:#000; color:#fff; border:1px solid var(--glass-border); padding:5px; border-radius:4px;"><br><br>
+                    
+                    <details style="color: var(--text-secondary);">
+                        <summary style="cursor: pointer;">View Solution</summary>
+                        <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:4px; font-size:13px; line-height:1.6;">
+                            <strong>Step 1: Coordinate sign conventions and tracking parameters.</strong><br>
+                            Define down as the positive mechanical direction ($+$):<br>
+                            • Initial velocity: $u = +8.50\text{ m/s}$<br>
+                            • Acceleration: $a = -2.20\text{ m/s}^2$ (directed upwards, opposing velocity)<br>
+                            • Displacement: $s = +14.0\text{ m}$<br><br>
+                            
+                            <strong>Step 2: Apply the standard linear displacement equation ($s = ut + \frac{1}{2}at^2$).</strong><br>
+                            $$14.0 = 8.50t + \frac{1}{2}(-2.20)t^2$$
+                            $$14.0 = 8.50t - 1.10t^2$$
+                            <br>
+                            <strong>Step 3: Rearrange terms to collect and solve for time ($t$).</strong><br>
+                            $$1.10t^2 - 8.50t + 14.0 = 0$$
+                            <br>
+                            Using the quadratic equation formula ($t = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$):<br>
+                            $$t = \frac{-(-8.50) \pm \sqrt{(-8.50)^2 - 4(1.10)(14.0)}}{2(1.10)}$$
+                            $$t = \frac{8.50 \pm \sqrt{72.25 - 61.60}}{2.20} = \frac{8.50 \pm \sqrt{10.65}}{2.20}$$
+                            $$\sqrt{10.65} \approx 3.263$$
+                            <br>
+                            <strong>Step 4: Identify individual roots and isolate the physically matching timestamp.</strong><br>
+                            $$t_1 = \frac{8.50 + 3.263}{2.20} = \frac{11.763}{2.20} = 5.35\text{ s}$$
+                            $$t_2 = \frac{8.50 - 3.263}{2.20} = \frac{5.237}{2.20} = 2.38\text{ s}$$
+                            <br>
+                            <strong>Physical Context Interpretation:</strong> Both roots yield valid mathematical configurations, implying the vehicle passes the $14.0\text{ m}$ depth mark twice. It crosses down past this distance at **$2.38\text{ s}$**, decelerates completely to rest at a deeper position, and is then accelerated backwards up the column by the fluid buoyant force profiles, returning to cross the $14.0\text{ m}$ line from below at $5.35\text{ s}$. Because the prompt specifies finding the time frame to first reach this displacement, select the initial chronological event: $t = \mathbf{2.38\text{ s}}$.
+                        </div>
+                        <label style="margin-top:10px; display:block;">Marks: <select class="saq-mark" data-max="5" onchange="calculateTotalScore()"><option value="0">0/5</option><option value="1">1/5</option><option value="2">2/5</option><option value="3">3/5</option><option value="4">4/5</option><option value="5">5/5</option></select></label>
+                    </details>
+                </div>
+            </section>
+
+            <section class="analytical-engine-intro" style="margin-top: 30px;">
+                <div class="engine-card-inner">
+                    <div class="badge-accent" style="background:#30d158; color:#000;">Performance Metrics Console</div>
+                    <h3>Kinematics Performance Log</h3>
+                    <p>Your grades from the multiple choice section and your self-reported short answer marks are aggregated below in real time.</p>
+                    
+                    <div style="background:rgba(0,0,0,0.4); padding:20px; border-radius:8px; margin:20px 0; text-align:center;">
+                        <span style="font-size:36px; font-weight:800; color:var(--accent-primary);" id="total-score-panel">0 / 121</span>
+                        <br><span style="font-size:12px; color:var(--text-muted); text-transform:uppercase;">Overall Evaluation Standing</span>
+                    </div>
+                </div>
+            </section>
+
+            <footer id="portal-global-footer">
+                <div class="footer-upper-row">
+                    <div class="footer-brand-info">
+                        <span class="f-logo">NexusSci Platform</span>
+                        <p>Academic validation suite optimising student performance workflows for high-tier secondary science education.</p>
+                    </div>
+                </div>
+                <hr class="footer-divider">
+                <div class="footer-lower-row">
+                    <p class="copyright-notice">&copy; 2026 NexusSci Academic Frameworks. Built for static configuration on GitHub Pages.</p>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        let mcqScore = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Switcher Module
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const currentThemeSetting = localStorage.getItem('nexus-color-theme') || 'dark-mode';
+            document.body.classList.add(currentThemeSetting);
+            
+            themeToggleBtn.addEventListener('click', () => {
+                if (document.body.classList.contains('dark-mode')) {
+                    document.body.classList.replace('dark-mode', 'light-mode');
+                    localStorage.setItem('nexus-color-theme', 'light-mode');
+                } else {
+                    document.body.classList.replace('light-mode', 'dark-mode');
+                    localStorage.setItem('nexus-color-theme', 'dark-mode');
+                }
+            });
+        });
+
+        function gradeMCQs() {
+            let score = 0;
+            const answers = {
+                mcq1: 'C', mcq2: 'B', mcq3: 'A', mcq4: 'B', mcq5: 'B',
+                mcq6: 'B', mcq7: 'C', mcq8: 'C', mcq9: 'A', mcq10: 'A'
+            };
+
+            for (let i = 1; i <= 10; i++) {
+                const element = document.getElementById(`correct-mcq${i}`);
+                if (element && element.checked) {
+                    score++;
+                }
+            }
+            mcqScore = score;
+            alert(`Multiple Choice Answers locked! You scored ${mcqScore} / 10.`);
+            calculateTotalScore();
+        }
+
+        function calculateTotalScore() {
+            let saqScore = 0;
+            const dropdowns = document.querySelectorAll('.saq-mark');
+            dropdowns.forEach(dropdown => {
+                saqScore += parseInt(dropdown.value) || 0;
+            });
+
+            const netScore = mcqScore + saqScore;
+            document.getElementById('running-score-display').innerText = `${netScore} / 85`;
+            document.getElementById('total-score-panel').innerText = `${netScore} / 85`;
+        }
+    </script>
+</body>
+</html>

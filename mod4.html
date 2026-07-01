@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: Electricity and Magnetism | Nexus Academic Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Maintain portal UI integration */
+        :root {
+            --bg-primary: #130f1a;
+            --bg-secondary: #1e152a;
+            --bg-card: #1a1b2f;
+            --accent-blue: #0066cc;
+            --accent-green: #2b9348;
+            --text-main: #f0e6ff;
+            --border-purple: #3d344d;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #portal-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        #portal-sidebar {
+            width: 260px;
+            background-color: #0b0811;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid var(--border-purple);
+            z-index: 100;
+        }
+
+        .portal-main {
+            margin-left: 260px;
+            width: calc(100% - 260px);
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .content-body {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4 {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 2px solid var(--border-purple);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            border-bottom: 1px solid var(--border-purple);
+            padding-bottom: 8px;
+            color: #b39ddb;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 30px;
+            color: #81d4fa;
+        }
+
+        p, li {
+            line-height: 1.75;
+            font-size: 1.05rem;
+            color: #e0d8f0;
+        }
+
+        .academic-callout {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent-blue);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .derivation-box {
+            background: #111224;
+            border: 1px solid #4a5568;
+            border-left: 4px solid #ffaa00;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 6px;
+        }
+
+        .vector-canvas {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .symbol-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .symbol-table th, .symbol-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-purple);
+        }
+
+        .symbol-table th {
+            background-color: #251c35;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .symbol-table tr:hover {
+            background-color: #242545;
+        }
+
+        .svg-icon-container {
+            background: #ffffff;
+            border-radius: 4px;
+            padding: 5px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .link-button-container {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .nav-btn-terminal {
+            display: inline-block;
+            background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+            transition: all 0.3s ease;
+            border: 1px solid #3388ff;
+        }
+
+        .nav-btn-terminal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 102, 204, 0.6);
+            background: linear-gradient(135deg, #0077ee 0%, #0055bb 100%);
+        }
+
+        .example-box {
+            background: #16222f;
+            border-left: 4px solid var(--accent-green);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .graph-flex {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .graph-item {
+            flex: 1;
+            min-width: 300px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: #333;
+        }
+
+        .graph-item span {
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div id="global-utility-bar">
+        <div class="utility-container">
+            <span class="announcement-text">NESA Year 11 Preliminary Syllabus Portal — Academic Session 2026</span>
+            <div class="utility-controls">
+                <button id="theme-toggle-btn" aria-label="Toggle between dark and light mode" title="Switch Color Theme">
+                    <span class="mode-text">Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="portal-layout">
+
+        <aside id="portal-sidebar" aria-label="Main Navigation">
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <span class="logo-icon">🌌</span>
+                    <span class="brand-name">Nexus<span class="highlight">Sci</span></span>
+                </div>
+                <p class="brand-tagline">NSW Curriculum Mastery</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Primary Directory">
+                <div class="nav-section-label">Core Directory</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <span class="nav-icon">🏠</span>
+                            <span class="nav-text">Portal Home</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-label">Physics Syllabus Modules</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="mod1.html" class="nav-link">
+                            <span class="nav-icon">🏃‍♂️</span>
+                            <span class="nav-text">Module 1: Kinematics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod2.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">Module 2: Dynamics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod3.html" class="nav-link">
+                            <span class="nav-icon">🌊</span>
+                            <span class="nav-text">Module 3: Waves / Temp</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod4.html" class="nav-link active" aria-current="page">
+                            <span class="nav-icon">⚡</span>
+                            <span class="nav-text">Module 4: Electricity</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-label">Evaluation Engine</div>
+                <li class="nav-item"></li>
+                        <a href="exam.html" class="nav-link">
+                            <span class="nav-icon">📝</span>
+                            <span class="nav-text">Final Physics Exam</span>
+                        </a>
+                    </li>
+
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="results.html" class="nav-link">
+                            <span class="nav-icon">🏆</span>
+                            <span class="nav-text">Analytics & Results</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer-card">
+                <div class="status-indicator-group">
+                    <span class="status-dot online"></span>
+                    <span class="status-label">Syllabus Engine: Active</span>
+                </div>
+                <div class="version-tag">v2.4.0-Prelim</div>
+            </div>
+        </aside>
+
+        <main id="main-content" class="portal-main">
+
+            <header id="dashboard-header">
+                <div class="header-search-box">
+                    <label for="global-search" class="visually-hidden">Search syllabus concepts...</label>
+                    <span class="search-icon">🔍</span>
+                    <input type="search" id="global-search" placeholder="Search vector components, electric field equations, flux density...">
+                </div>
+            </header>
+
+            <div class="content-body">
+                <h1>Module 4: Electricity and Magnetism</h1>
+                <p class="subtitle">Advanced Deep-Dive Analytical Monograph — NESA Preliminary Physics Syllabus</p>
+
+                <div class="academic-callout">
+                    <h3>Syllabus Architectural Framework</h3>
+                    <p>Atomic theory and the macroscopic laws of conservation of energy and electric charge constitute the structural foundational matrices for understanding the electrical and magnetic interactions of matter. This module systematically formalises fields as spatial vector structures, establishes the mathematical mechanics of electric circuits, and investigates the electromagnetic geometries dictating magnetostatic fields.</p>
+                </div>
+
+                <h2>1. Foundations of Electrostatics and Atomic Theory</h2>
+                
+                <h3>1.1 Electrostatic Charge and Matter Quantisation</h3>
+                <p>On a microscopic tier, the electrical properties of matter are governed by atomic structure. The fundamental charge carrier within solid-state conductors is the electron, possessing an immutable intrinsic negative charge value denoted as $-e$. Conversely, the proton within the atomic nucleus carries an equal and opposite value $+e$. The magnitude of this elementary charge constant is defined as:</p>
+                $$e = 1.602 \times 10^{-19} \text{ C}$$
+                <p>Consequently, macroscopically observed electric charge ($q$ or $Q$) is structurally quantised; it must exist purely as integer multiples of the elementary charge unit. This condition is mathematically captured via the relation:</p>
+                $$q = ne, \quad \text{where } n \in \mathbb{Z}$$
+                <p>The Law of Conservation of Electric Charge dictates that the net algebraic sum of electric charge within an isolated physical system remains invariant across any physical, chemical, or nuclear transformation. Charge is not generated de novo or annihilated; instead, physical phenomena modify the structural distribution of existing carriers.</p>
+
+                <h3>1.2 Mechanics of Charging: Friction, Conduction, and Induction</h3>
+                <p>Macroscopic material structures typically express an electrically neutral state due to an exact numeric parity between systemic protons and electrons. Breaking this baseline equilibrium requires explicit mechanical or electromagnetic energy inputs to induce carrier translocation. This occurs through three canonical processing pathways:</p>
+
+                <ul>
+                    <li><strong>Charging by Friction:</strong> When two chemically distinct materials are mechanically brought into intimate physical contact and subjected to shear stress (rubbing), electrons are stripped from the valence shells of one material and appended to the other. The direction of this translocation matrix is dictated by the relative electron affinities of the materials, structured formally within the <em>triboelectric series</em>. The substance with higher affinity gains electrons, manifesting a net negative polarity, while the donor substance exhibits an equal magnitude of net positive polarity.</li>
+                    <li><strong>Charging by Conduction:</strong> This pathway relies on direct macroscopic ohmic contact between an pre-charged conductor and a target body. Free valence electrons within the conduction band experience mutual electrostatic repulsion. When a conductive bridge is introduced, these mobile carriers redistribute across the combined surface geometries of both objects to minimise the overall electro-potential energy density of the system. Upon separation, the target object retains a net residual charge of identical sign polarity to the charging source.</li>
+                    <li><strong>Charging by Induction:</strong> A purely non-contact mechanisation that utilises spatial electrostatic force fields. When a highly charged object is brought into close proximity with a neutral conductive object, it exerts an immediate spatial force on the free electron gas within that neutral conductor. If the charging agent is negative, the mobile conduction electrons are repelled to the far boundary of the neutral object, leaving a localized positive deficiency on the near boundary—a state known as electrical polarisation. If the distant boundary is momentarily coupled to an infinite charge reservoir (grounded), the repelled electrons escape into the earth. Severing the ground connection prior to removing the primary charging agent traps a net residual charge on the object, whose sign polarity is fundamentally opposite to the source agent.</li>
+                </ul>
+
+                <h3>1.3 Interaction Profiles: Like, Unlike, and Neutral Manifestations</h3>
+                <p>The fundamental force interactions between charges are governed by qualitative and quantitative structural rules:</p>
+                <ul>
+                    <li><strong>Identical Sign Polarities (Like Charges):</strong> Two positive or two negative spatial points generate mutually outward or inward vector configurations that yield strong geometric repulsion forces.</li>
+                    <li><strong>Opposing Sign Polarities (Unlike Charges):</strong> A positive-negative spatial matrix establishes a coherent continuous vector trajectory, resulting in mutual attraction forces.</li>
+                    <li><strong>Charged Object and Neutral Body Interactions:</strong> A highly charged object invariably attracts a light neutral object. This occurs because the field of the charged item polarises the internal charge distribution of the neutral entity. If a positively charged rod approaches a neutral insulator, the electron clouds of the surface atoms shift slightly toward the rod. Because the attractive positive-to-negative distance is smaller than the repelling positive-to-positive distance, the net attractive Coulombic force dominates over the repulsive component, producing a net macroscopic attraction.</li>
+                </ul>
+
+                <h2>2. Electric Fields, Forces, and Potentials</h2>
+                
+                <h3>2.1 The Concept of a Field Vector</h3>
+                <p>An electric field is defined as a spatial continuum wherein an electrical charge experiences an absolute mechanical force. The field possesses a vector identity at every single spatial coordinate $(x,y,z)$. By universal physics convention, the directional vector pointing profile of an electric field is defined as the direction of the mechanical force vector that would be exerted upon an infinitesimal positive test charge ($+q_0$) positioned at that exact coordinate.</p>
+
+                <h3>2.2 Core Field Equations and Mathematical Foundations</h3>
+                <p>To evaluate the structural intensity of this vector field, we define the Electric Field Strength ($E$) as the mechanical force per unit charge:</p>
+                $$E = \frac{F}{q}$$
+                <p>Where $E$ is measured in Newtons per Coulomb ($\text{N/C}$), $F$ is the force vector in Newtons ($\text{N}$), and $q$ is the scalar charge magnitude in Coulombs ($\text{C}$). Alternatively, $E$ can be expressed in Volts per metre ($\text{V/m}$).</p>
+
+                <div class="derivation-box">
+                    <h4>Derivation 2.1: Equivalence of Spatial Work and Potential Energy Transfer</h4>
+                    <p>Consider a uniform electric field $E$ directed along the negative $x$-axis. A positive test charge $q$ is moved a linear displacement distance $d$ directly against the electrostatic force field by an external mechanical agent. </p>
+                    <p>The fundamental mechanical work $W$ executed by a constant force agent is given by the spatial dot product:</p>
+                    $$W = F \cdot d$$
+                    <p>Since the mechanical force required to move the charge at a constant velocity must exactly balance the internal electrostatic force, its absolute magnitude is:</p>
+                    $$F = qE$$
+                    <p>Substituting this directly into the classical work relation yields:</p>
+                    $$W = (qE)d = qEd$$
+                    <p>By definition, the electric potential difference ($V$) between the starting point and ending point represents the absolute change in electro-potential energy per unit charge:</p>
+                    $$V = \frac{W}{q}$$
+                    <p>Rearranging this structural statement gives the total energy conversion or work executed:</p>
+                    $$W = qV$$
+                    <p>Equating our two distinct expressions for mechanical and electrical work ($W = qEd$ and $W = qV$):</p>
+                    $$qEd = qV$$
+                    <p>Dividing out the scalar charge variable $q$ from both sides provides the classic relationship for a uniform electric field:</p>
+                    $$E = \frac{V}{d}$$
+                    <p>This derivation proves that electric field strength is identical to the spatial gradient of electric potential, validating the direct tracking equivalence between $\text{N/C}$ and $\text{V/m}$.</p>
+                </div>
+
+                <h3>2.3 Equipotential Lines and Field Geometries</h3>
+                <p>Equipotential lines represent continuous spatial contours or surfaces where every single coordinate possesses an identical electric potential value ($V$). Because potential is uniform along these boundaries, moving a charge entirely along an equipotential path requires zero net work ($\Delta V = 0 \implies W = q\Delta V = 0$). Since $W = \vec{F} \cdot \vec{d} = Fd\cos\theta = 0$, the electrostatic force vector (and thus the electric field line) must always intersect an equipotential line at a <strong>perfect perpendicular angle ($90^\circ$)</strong> everywhere in space.</p>
+
+                <h3>2.4 Structural Vector Field Renderings</h3>
+                <p>To visualize these fields, examine the vector diagrams below, which map out the field trajectories (solid arrows) and the corresponding equipotential lines (dashed lines).</p>
+
+                
+
+                <h4>Vector Diagram 2.1: Isolated Monopole Charge Configurations</h4>
+                <div class="graph-flex">
+                    <div class="graph-item" style="background:#fff;">
+                        <span style="color:#000;">Isolated Positive Charge (+q)</span>
+                        <svg viewBox="0 0 200 200" width="200" height="200" class="vector-canvas">
+                            <circle cx="100" cy="100" r="12" fill="#d32f2f"/>
+                            <text x="96" y="104" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">+</text>
+                            <line x1="100" y1="88" x2="100" y2="20" stroke="#0066cc" stroke-width="2" marker-end="url(#arrow)"/>
+                            <line x1="100" y1="112" x2="100" y2="180" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="88" y1="100" x2="20" y2="100" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="112" y1="100" x2="180" y2="100" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="91" y1="91" x2="40" y2="40" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="109" y1="91" x2="160" y2="40" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="91" y1="109" x2="40" y2="160" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="109" y1="109" x2="160" y2="160" stroke="#0066cc" stroke-width="2"/>
+                            <circle cx="100" cy="100" r="45" fill="none" stroke="#e0a900" stroke-width="1.5" stroke-dasharray="4"/>
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#e0a900" stroke-width="1.5" stroke-dasharray="4"/>
+                        </svg>
+                    </div>
+                    <div class="graph-item" style="background:#fff;">
+                        <span style="color:#000;">Isolated Negative Charge (-q)</span>
+                        <svg viewBox="0 0 200 200" width="200" height="200" class="vector-canvas">
+                            <circle cx="100" cy="100" r="12" fill="#1976d2"/>
+                            <text x="97" y="104" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">-</text>
+                            <line x1="100" y1="20" x2="100" y2="88" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="100" y1="180" x2="100" y2="112" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="20" y1="100" x2="88" y2="100" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="180" y1="100" x2="112" y2="100" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="40" y1="40" x2="91" y2="91" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="160" y1="40" x2="109" y2="91" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="40" y1="160" x2="91" y2="109" stroke="#0066cc" stroke-width="2"/>
+                            <line x1="160" y1="160" x2="109" y2="109" stroke="#0066cc" stroke-width="2"/>
+                            <circle cx="100" cy="100" r="45" fill="none" stroke="#e0a900" stroke-width="1.5" stroke-dasharray="4"/>
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#e0a900" stroke-width="1.5" stroke-dasharray="4"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <h4>Vector Diagram 2.2: Uniform Parallel Plate Configurations</h4>
+                <div style="text-align:center; background:#fff; padding:15px; border-radius:8px;">
+                    <svg viewBox="0 0 600 250" width="100%" height="250" class="vector-canvas" style="background:#fff; margin:0 auto;">
+                        <rect x="50" y="30" width="500" height="15" fill="#d32f2f"/>
+                        <g fill="#fff" font-family="sans-serif" font-size="12" font-weight="bold">
+                            <text x="70" y="42">+</text><text x="140" y="42">+</text><text x="210" y="42">+</text>
+                            <text x="280" y="42">+</text><text x="350" y="42">+</text><text x="420" y="42">+</text>
+                            <text x="490" y="42">+</text>
+                        </g>
+                        <rect x="50" y="200" width="500" height="15" fill="#1976d2"/>
+                        <g fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold">
+                            <text x="70" y="213">-</text><text x="140" y="213">-</text><text x="210" y="213">-</text>
+                            <text x="280" y="213">-</text><text x="350" y="213">-</text><text x="420" y="213">-</text>
+                            <text x="490" y="213">-</text>
+                        </g>
+                        <g stroke="#0066cc" stroke-width="2">
+                            <line x1="100" y1="45" x2="100" y2="200"/>
+                            <line x1="180" y1="45" x2="180" y2="200"/>
+                            <line x1="260" y1="45" x2="260" y2="200"/>
+                            <line x1="340" y1="45" x2="340" y2="200"/>
+                            <line x1="420" y1="45" x2="420" y2="200"/>
+                            <line x1="500" y1="45" x2="500" y2="200"/>
+                            <path d="M 50,45 Q 20,122.5 50,200" fill="none"/>
+                            <path d="M 550,45 Q 580,122.5 550,200" fill="none"/>
+                        </g>
+                        <g stroke="#e0a900" stroke-width="1.5" stroke-dasharray="6,4">
+                            <line x1="50" y1="83.3" x2="550" y2="83.3"/>
+                            <line x1="50" y1="122.5" x2="550" y2="122.5"/>
+                            <line x1="50" y1="161.6" x2="550" y2="161.6"/>
+                        </g>
+                        <g fill="#e0a900" font-family="sans-serif" font-size="10">
+                            <text x="555" y="86">V = 75V</text>
+                            <text x="555" y="126">V = 50V</text>
+                            <text x="555" y="165">V = 25V</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="example-box">
+                    <h4>Worked Exemplar 2.1: Parallel Plate Kinematic Vector Field</h4>
+                    <p><strong>Problem Statement:</strong> Two flat parallel metal plates are separated by an absolute distance of $d = 3.50 \text{ cm}$ within a high-vacuum chamber. A potential difference of $V = 1400 \text{ V}$ is sustained across this assembly. </p>
+                    <p>Calculate:<br>
+                    (a) The electric field strength $E$ in the uniform core region.<br>
+                    (b) The electrostatic force magnitude $F$ acting on a doubly-ionised helium nucleus (alpha particle, $q = +2e$) traversing this field zone.</p>
+                    <p><strong>Step-by-Step Analytical Execution:</strong></p>
+                    <p><em>Part (a):</em> Convert distance down to SI base units: $d = 3.50 \text{ cm} = 0.0350 \text{ m}$. Apply the uniform field gradient equation:</p>
+                    $$E = \frac{V}{d} = \frac{1400 \text{ V}}{0.0350 \text{ m}} = 40,000 \text{ V/m} = 4.00 \times 10^4 \text{ N/C}$$
+                    <p><em>Part (b):</em> Determine the charge of the carrier particle: $q = 2 \times (1.602 \times 10^{-19} \text{ C}) = 3.204 \times 10^{-19} \text{ C}$. Use the field force equation:</p>
+                    $$F = qE = (3.204 \times 10^{-19} \text{ C}) \times (4.00 \times 10^4 \text{ N/C}) = 1.2816 \times 10^{-14} \text{ N}$$
+                    <p><strong>Final Solution Matrix:</strong> The electric field strength is exactly $4.00 \times 10^4 \text{ N/C}$ and the structural force magnitude is $1.28 \times 10^{-14} \text{ N}$.</p>
+                </div>
+
+                <h2>3. Electrical Circuit Architecture and Symbol Systems</h2>
+                
+                <h3>3.1 Definitions of Fundamental Circuit Variables</h3>
+                <p>To analyze closed loop topologies, we define four core metric quantities:</p>
+                <ul>
+                    <li><strong>Electric Current ($I$):</strong> The net rate of electric charge flow passing through a given cross-sectional area per unit time. Measured in Amperes ($\text{A}$):</li>
+                    $$I = \frac{q}{t}$$
+                    <li><strong>Voltage or Potential Difference ($V$):</strong> The work executed per unit charge to move a microscopic carrier between two distinct nodal coordinates. Measured in Volts ($\text{V}$):</li>
+                    $$V = \frac{W}{q}$$
+                    <li><strong>Electrical Resistance ($R$):</strong> The structural opposition manifested by a material block to the flow of charge carriers. Measured in Ohms ($\Omega$):</li>
+                    $$R = \frac{V}{I}$$
+                    <li><strong>Electrical Power ($P$):</strong> The rate at which electrical potential energy is transformed into another energy format per unit time. Measured in Watts ($\text{W}$):</li>
+                    $$P = VI = I^2R = \frac{V^2}{R}$$
+                </ul>
+
+                <h3>3.2 Ohmic vs. Non-Ohmic Conductors</h3>
+                <p>Materials are classified based on the stability of their structural resistance across varying electrical constraints:</p>
+                <ul>
+                    <li><strong>Ohmic Conductors:</strong> Materials (such as standard refined metals at stable temperatures) that adhere strictly to Ohm's Law. The resistance remains entirely independent of the applied voltage or current magnitude. Consequently, an intensity-versus-voltage ($I\text{-}V$) plot forms a clean, invariant straight line passing directly through the origin, where the constant gradient equals $\frac{1}{R}$.</li>
+                    <li><strong>Non-Ohmic Conductors:</strong> Devices (such as semiconductor diodes, thermistors, or incandescent filament bulbs) where resistance changes dynamically as a function of the operational current or temperature. Their $I\text{-}V$ characteristic plots are non-linear, meaning the local resistance must be evaluated dynamically at specific operational parameters using the tangent inverse value ($R = \frac{\Delta V}{\Delta I}$).</li>
+                </ul>
+
+                <div class="graph-flex">
+                    <div class="graph-item">
+                        <span style="color:#000;">Ohmic Conductor (Linear Constant R)</span>
+                        <svg viewBox="0 0 200 150" width="200" height="150" class="vector-canvas">
+                            <line x1="20" y1="130" x2="180" y2="130" stroke="#333" stroke-width="1.5"/>
+                            <line x1="20" y1="130" x2="20" y2="10" stroke="#333" stroke-width="1.5"/>
+                            <text x="180" y="145" font-family="sans-serif" font-size="10" fill="#333">V</text>
+                            <text x="5" y="20" font-family="sans-serif" font-size="10" fill="#333">I</text>
+                            <line x1="20" y1="130" x2="160" y2="30" stroke="#2b9348" stroke-width="2.5"/>
+                        </svg>
+                    </div>
+                    <div class="graph-item">
+                        <span style="color:#000;">Non-Ohmic Filament (Decreasing Slope)</span>
+                        <svg viewBox="0 0 200 150" width="200" height="150" class="vector-canvas">
+                            <line x1="20" y1="130" x2="180" y2="130" stroke="#333" stroke-width="1.5"/>
+                            <line x1="20" y1="130" x2="20" y2="10" stroke="#333" stroke-width="1.5"/>
+                            <text x="180" y="145" font-family="sans-serif" font-size="10" fill="#333">V</text>
+                            <text x="5" y="20" font-family="sans-serif" font-size="10" fill="#333">I</text>
+                            <path d="M 20,130 Q 100,60 170,50" fill="none" stroke="#d32f2f" stroke-width="2.5"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <h3>3.3 Kirchhoff's Laws and Conservation Requirements</h3>
+                <p>Circuit analysis relies on two structural conservation laws:</p>
+                <ol>
+                    <li><strong>Kirchhoff's Current Law (KCL / Junction Rule):</strong> The algebraic sum of currents entering any circuit junction coordinate must precisely equal the sum of currents leaving that same junction. This is a direct consequence of the <strong>Law of Conservation of Charge</strong>:
+                    $$\sum I_{\text{in}} = \sum I_{\text{out}}$$
+                    </li>
+                    <li><strong>Kirchhoff's Voltage Law (KVL / Loop Rule):</strong> The algebraic sum of all potential differences (voltage gains and drops) around any closed loop pathway within a network must equal exactly zero. This is a direct consequence of the <strong>Law of Conservation of Energy</strong>:
+                    $$\sum \Delta V = 0$$
+                    </li>
+                </ol>
+
+                <h3>3.4 Comprehensive Structural Layout Derivations</h3>
+                <div class="derivation-box">
+                    <h4>Derivation 3.1: Series Circuit Resistance Aggregation</h4>
+                    <p>Consider three discrete resistors ($R_1, R_2, R_3$) wired end-to-end in a single series line across a stable DC source $V_{\text{total}}$.</p>
+                    <p>By KCL, there are no branching paths, so the current $I$ passing through every resistor must be identical:</p>
+                    $$I_{\text{total}} = I_1 = I_2 = I_3$$
+                    <p>By KVL, the total potential energy drop across the closed loop must equal the source energy input:</p>
+                    $$V_{\text{total}} = V_1 + V_2 + V_3$$
+                    <p>Substituting Ohm's Law ($V = IR$) for each discrete voltage drop components:</p>
+                    $$I_{\text{total}}R_{\text{series}} = I_1 R_1 + I_2 R_2 + I_3 R_3$$
+                    <p>Since the current $I$ is uniform throughout, we divide out the current variable to yield:</p>
+                    $$R_{\text{series}} = R_1 + R_2 + R_3 = \sum_{i=1}^{n} R_i$$
+                </div>
+
+                <div class="derivation-box">
+                    <h4>Derivation 3.2: Parallel Circuit Resistance Aggregation</h4>
+                    <p>Consider three discrete resistors ($R_1, R_2, R_3$) connected in parallel across a stable DC source $V_{\text{total}}$.</p>
+                    <p>By KVL, each component is connected directly between the same two electrical nodes, meaning the voltage drop across each branch is identical:</p>
+                    $$V_{\text{total}} = V_1 = V_2 = V_3$$
+                    <p>By KCL, the total current entering the parallel node splits into the three distinct branches:</p>
+                    $$I_{\text{total}} = I_1 + I_2 + I_3$$
+                    <p>Substituting Ohm's Law in its current form ($I = \frac{V}{R}$) into the junction equation:</p>
+                    $$\frac{V_{\text{total}}}{R_{\text{parallel}}} = \frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3}$$
+                    <p>Since the voltage variable $V$ is uniform across all branches, dividing it out yields:</p>
+                    $$\frac{1}{R_{\text{parallel}}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} = \sum_{i=1}^{n} \frac{1}{R_i}$$
+                </div>
+
+                <h3>3.5 Standardised Circuit Representation Symbology</h3>
+                <p>The following technical schema table details the core symbols required to construct and analyze electrical circuit topologies:</p>
+
+                <table class="symbol-table">
+                    <thead>
+                        <tr>
+                            <th>Component Identity</th>
+                            <th>Technical Schematic Symbol Canvas</th>
+                            <th>Functional Operational Protocol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>DC Voltage Source (Cell)</strong></td>
+                            <td>
+                                <div class="svg-icon-container">
+                                    <svg width="100" height="40" viewBox="0 0 100 40">
+                                        <line x1="0" y1="20" x2="45" y2="20" stroke="#000" stroke-width="2"/>
+                                        <line x1="45" y1="5" x2="45" y2="35" stroke="#000" stroke-width="3"/>
+                                        <line x1="55" y1="12" x2="55" y2="28" stroke="#000" stroke-width="5"/>
+                                        <line x1="55" y1="20" x2="100" y2="20" stroke="#000" stroke-width="2"/>
+                                        <text x="35" y="12" font-family="sans-serif" font-size="10" font-weight="bold">+</text>
+                                        <text x="60" y="12" font-family="sans-serif" font-size="10" font-weight="bold">-</text>
+                                    </svg>
+                                </div>
+                            </td>
+                            <td>Generates a stable chemical-to-electrical potential gradient across a single galvanic cell structure.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Battery Block</strong></td>
+                            <td>
+                                <div class="svg-icon-container">
+                                    <svg width="100" height="40" viewBox="0 0 100 40">
+                                        <line x1="0" y1="20" x2="30" y2="20" stroke="#000" stroke-width="2"/>
+                                        <line x1="30" y1="5" x2="30" y2="35" stroke="#000" stroke-width="3"/>
+                                        <line x1="40" y1="12" x2="40" y2="28" stroke="#000" stroke-width="4"/>
+                                        <line x1="50" y1="5" x2="50" y2="35" stroke="#000" stroke-width="3"/>
+                                        <line x1="60" y1="12" x2="60" y2="28" stroke="#000" stroke-width="4"/>
+                                        <line x1="70" y1="5" x2="70" y2="35" stroke="#000" stroke-width="3"/>
+                                        <line x1="80" y1="12" x2="80" y2="28" stroke="#000" stroke-width="4"/>
+                                        <line x1="80" y1="20" x2="100" y2="20" stroke="#000" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </td>
+                            <td>Aggregates multiple individual cells in series configuration to output higher baseline system voltage.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fixed Resistor</strong></td>
+                            <td>
+                                <div class="svg-icon-container">
+                                    <svg width="100" height="40" viewBox="0 0 100 40">
+                                        <line x1="0" y1="20" x2="30" y2="20" stroke="#000" stroke-width="2"/>
+                                        <rect x="30" y="10" width="40" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                                        <line x1="70" y1="20" x2="100" y2="20" stroke="#000" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </td>
+                            <td>Exerts a calibrated, unchanging thermal-scattering constraint on local current flow.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Variable Resistor (Rheostat)</strong></td>
+                            <td>
+                                <div class="svg-icon-container">
+                                    <svg width="100" height="40" viewBox="0 0 100 40">
+                                        <line x1="0" y1="20" x2="30" y2="20" stroke="#000" stroke-width="2"/>
+                                        <rect x="30" y="10" width="40" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                                        <line x1="70" y1="20" x2="100" y2="20" stroke="#000" stroke-width="2"/>
+                                        <line x1="20" y1="35" x2="80" y2="5" stroke="red" stroke-width="2"/>
+                                        <polygon points="80,5 72,5 77,10" fill="red"/>
+                                    </svg>
+                                </div>
+                            </td>
+                            <td>Allows manual dynamic modification of channel length to adjust track resistance constraints.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ammeter</strong></td>
+                            <td>
+                                <div class="svg-icon-container">
+                                    <svg width="100" height="40" viewBox="0 0 100 40">
+                                        <line x1="0" y1="20" x2="35" y2="20" stroke="#000" stroke-width="2"/>
+                                        <circle cx="50" cy="20" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                                        <text x="44" y="25" font-family="sans-serif" font-size="14" font-weight="bold">A</text>
+                                        <line x1="65" y1="20" x2="100" y2="20" stroke="#000" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </td>
+                            <td>Measures active loop current flow. Placed strictly in <strong>series</strong>; engineered with near-zero internal resistance.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Voltmeter</strong></td>
+                            <td>
+                                <div class="svg-icon-container">
+                                    <svg width="100" height="40" viewBox="0 0 100 40">
+                                        <line x1="0" y1="20" x2="35" y2="20" stroke="#000" stroke-width="2"/>
+                                        <circle cx="50" cy="20" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                                        <text x="44" y="25" font-family="sans-serif" font-size="14" font-weight="bold">V</text>
+                                        <line x1="65" y1="20" x2="100" y2="20" stroke="#000" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </td>
+                            <td>Measures potential difference between two nodes. Placed in <strong>parallel</strong>; engineered with near-infinite internal resistance.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Switch Element</strong></td>
+                            <td>
+                                <div class="svg-icon-container">
+                                    <svg width="100" height="40" viewBox="0 0 100 40">
+                                        <line x1="0" y1="25" x2="35" y2="25" stroke="#000" stroke-width="2"/>
+                                        <circle cx="35" cy="25" r="3" fill="#000"/>
+                                        <circle cx="65" cy="25" r="3" fill="#000"/>
+                                        <line x1="35" y1="25" x2="62" y2="5" stroke="#000" stroke-width="2"/>
+                                        <line x1="65" y1="25" x2="100" y2="25" stroke="#000" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </td>
+                            <td>Mechanically closes or opens the conductive track matrix to control carrier propagation.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ohmic Load (Lamp)</strong></td>
+                            <td>
+                                <div class="svg-icon-container">
+                                    <svg width="100" height="40" viewBox="0 0 100 40">
+                                        <line x1="0" y1="20" x2="35" y2="20" stroke="#000" stroke-width="2"/>
+                                        <circle cx="50" cy="20" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                                        <line x1="39.4" y1="9.4" x2="60.6" y2="30.6" stroke="#000" stroke-width="1.5"/>
+                                        <line x1="39.4" y1="30.6" x2="60.6" y2="9.4" stroke="#000" stroke-width="1.5"/>
+                                        <line x1="65" y1="20" x2="100" y2="20" stroke="#000" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </td>
+                            <td>Transforms electrical energy into light and thermal radiation via resistive element excitation.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3.6 Circuit Layout Topologies</h3>
+                <p>To contextualize these component networks, examine the structural wiring schematics below:</p>
+
+                
+
+                <div class="graph-flex">
+                    <div class="graph-item" style="background:#fff; flex:1;">
+                        <span style="color:#000;">Complex Series Network Layout</span>
+                        <svg viewBox="0 0 300 200" width="300" height="200" class="vector-canvas" style="margin:0 auto;">
+                            <rect x="30" y="30" width="240" height="140" fill="none" stroke="#000" stroke-width="2"/>
+                            <rect x="130" y="20" width="40" height="20" fill="#fff"/>
+                            <line x1="140" y1="30" x2="140" y2="20" stroke="#000" stroke-width="2"/>
+                            <line x1="145" y1="35" x2="145" y2="15" stroke="#000" stroke-width="2"/>
+                            <line x1="150" y1="32" x2="150" y2="18" stroke="#000" stroke-width="4"/>
+                            <line x1="155" y1="35" x2="155" y2="15" stroke="#000" stroke-width="2"/>
+                            <line x1="160" y1="32" x2="160" y2="18" stroke="#000" stroke-width="4"/>
+                            <line x1="165" y1="30" x2="165" y2="20" stroke="#000" stroke-width="2"/>
+                            <rect x="255" y="80" width="20" height="40" fill="#fff" stroke="#000" stroke-width="2"/>
+                            <text x="260" y="105" font-family="sans-serif" font-size="10">R1</text>
+                            <circle cx="150" cy="170" r="12" fill="#fff" stroke="#000" stroke-width="2"/>
+                            <text x="145" y="174" font-family="sans-serif" font-size="12" font-weight="bold">A</text>
+                        </svg>
+                    </div>
+                    <div class="graph-item" style="background:#fff; flex:1;">
+                        <span style="color:#000;">Complex Parallel Branch Network Layout</span>
+                        <svg viewBox="0 0 300 200" width="300" height="200" class="vector-canvas" style="margin:0 auto;">
+                            <rect x="30" y="30" width="240" height="140" fill="none" stroke="#000" stroke-width="2"/>
+                            <rect x="15" y="80" width="30" height="40" fill="#fff"/>
+                            <line x1="20" y1="100" x2="40" y2="100" stroke="#000" stroke-width="2"/>
+                            <line x1="25" y1="85" x2="25" y2="115" stroke="#000" stroke-width="2"/>
+                            <line x1="30" y1="90" x2="30" y2="110" stroke="#000" stroke-width="4"/>
+                            <line x1="130" y1="30" x2="130" y2="170" stroke="#000" stroke-width="2"/>
+                            <line x1="210" y1="30" x2="210" y2="170" stroke="#000" stroke-width="2"/>
+                            <rect x="115" y="80" width="30" height="20" fill="#fff" stroke="#000" stroke-width="2"/>
+                            <text x="123" y="93" font-family="sans-serif" font-size="9">R1</text>
+                            <rect x="195" y="80" width="30" height="20" fill="#fff" stroke="#000" stroke-width="2"/>
+                            <text x="203" y="93" font-family="sans-serif" font-size="9">R2</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <h2>4. Magnetism and Electromagnetism Mechanics</h2>
+                
+                <h3>4.1 Magnetic Dipoles and Ferromagnetic Domain Theory</h3>
+                <p>Unlike electrostatics, which features isolated positive or negative electric charges, nature does not permit isolated magnetic monopoles. Every magnetic structure possesses a paired dipole configuration consisting of a North pole and a South pole. </p>
+                <p><strong>Ferromagnetic materials</strong> (such as Iron, Nickel, and Cobalt) exhibit strong internal magnetic interactions due to unpaired electron spins. These interactions spontaneously align across microscopic regions known as <em>magnetic domains</em>. In an unmagnetised state, the vector orientations of these domains are randomly distributed, resulting in a net cancellation of the macroscopic field. When exposed to an external magnetic field, these domains realign along the driving vector axis and expand, causing the material to manifest a strong induced macroscopic magnetic field.</p>
+
+                <h3>4.2 B-Field Equations and Mathematical Modeling</h3>
+                <p>The vector strength of a magnetic field is defined as the Magnetic Flux Density ($B$), measured in Tesla ($\text{T}$). The NESA syllabus structures two exact mathematical solutions for calculating fields generated by current flow:</p>
+                
+                <ol>
+                    <li><strong>Straight Current-Carrying Conductor:</strong> The magnetic field strength at a radial distance $r$ from an infinitely long straight wire carrying a current $I$ is modeled by the Biot-Savart derivative:
+                    $$B = \frac{\mu_0 I}{2\pi r}$$
+                    Where $\mu_0 = 4\pi \times 10^{-7} \text{ T}\cdot\text{m/A}$ is the permeability of free space constant.
+                    </li>
+                    <li><strong>Solenoid Core Interior:</strong> A helical coil winding concentrates a highly uniform, intense axial magnetic field within its hollow interior:
+                    $$B = \mu_0 n I = \frac{\mu_0 N I}{L}$$
+                    Where $N$ is the total number of physical wire turns, $L$ is the longitudinal length of the solenoid block in metres, and $n = \frac{N}{L}$ represents the linear turn density.
+                </ol>
+
+                <h3>4.3 Geometric Field Projections and Vector Rules</h3>
+                <p>To determine the vector trajectories of these magnetic field lines, we apply the <strong>Right-Hand Grip Rule</strong>:</p>
+                <ul>
+                    <li><strong>For Straight Conductors:</strong> Align the thumb of the right hand along the conventional current direction ($+$ to $-$). The natural curl of the fingers maps the concentric circular trajectories of the magnetic field lines ($B$).</li>
+                    <li><strong>For Solenoids:</strong> Curl the fingers of the right hand around the helical coil layers along the direction of conventional current. The extended thumb then points directly along the interior vector line, identifying the structural <strong>North pole</strong> exit boundary of the solenoid.</li>
+                </ul>
+
+                
+
+                <h4>Vector Diagram 4.1: Electromagnetism Vector Geometries</h4>
+                <div class="graph-flex">
+                    <div class="graph-item" style="background:#fff;">
+                        <span style="color:#000;">Concentric Field Lines Around a Straight Wire</span>
+                        <svg viewBox="0 0 200 200" width="200" height="200" class="vector-canvas">
+                            <circle cx="100" cy="100" r="10" fill="#fff" stroke="#000" stroke-width="2"/>
+                            <circle cx="100" cy="100" r="2" fill="#000"/>
+                            <text x="115" y="105" font-family="sans-serif" font-size="12" fill="#000" font-weight="bold">I (Out)</text>
+                            <circle cx="100" cy="100" r="40" fill="none" stroke="#ffaa00" stroke-width="2"/>
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#ffaa00" stroke-width="2"/>
+                            <polygon points="100,60 92,64 100,56" fill="#ffaa00"/>
+                            <polygon points="100,30 92,34 100,26" fill="#ffaa00"/>
+                        </svg>
+                    </div>
+                    <div class="graph-item" style="background:#fff;">
+                        <span style="color:#000;">Solenoid Cross-Sectional Vector Profiles</span>
+                        <svg viewBox="0 0 250 180" width="250" height="180" class="vector-canvas" style="margin:0 auto;">
+                            <rect x="50" y="50" width="150" height="60" fill="none" stroke="#aaa" stroke-dasharray="2"/>
+                            <circle cx="70" cy="40" r="6" fill="#fff" stroke="#000"/><circle cx="70" cy="40" r="1" fill="#000"/>
+                            <circle cx="110" cy="40" r="6" fill="#fff" stroke="#000"/><circle cx="110" cy="40" r="1" fill="#000"/>
+                            <circle cx="150" cy="40" r="6" fill="#fff" stroke="#000"/><circle cx="150" cy="40" r="1" fill="#000"/>
+                            <circle cx="70" cy="120" r="6" fill="#fff" stroke="#000"/>
+                            <line x1="66" y1="116" x2="74" y2="124" stroke="#000"/><line x1="74" y1="116" x2="66" y2="124" stroke="#000"/>
+                            <circle cx="110" cy="120" r="6" fill="#fff" stroke="#000"/>
+                            <line x1="106" y1="116" x2="114" y2="124" stroke="#000"/><line x1="114" y1="116" x2="106" y2="124" stroke="#000"/>
+                            <circle cx="150" cy="120" r="6" fill="#fff" stroke="#000"/>
+                            <line x1="146" y1="116" x2="154" y2="124" stroke="#000"/><line x1="154" y1="116" x2="146" y2="124" stroke="#000"/>
+                            <line x1="30" y1="80" x2="220" y2="80" stroke="#ffaa00" stroke-width="2"/>
+                            <polygon points="220,80 210,75 210,85" fill="#ffaa00"/>
+                            <text x="225" y="85" font-family="sans-serif" font-size="12" fill="#000" font-weight="bold">N</text>
+                            <text x="10" y="85" font-family="sans-serif" font-size="12" fill="#000" font-weight="bold">S</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <h2>5. Mathematical Synthesis Matrix</h2>
+                <p>This section provides multi-part, algebraically rigorous calculation problems that map across the foundational equations of Module 4.</p>
+
+                <div class="example-box">
+                    <h4>Complex Problem 5.1: Combined Electro-Kinetic Circuit Analysis</h4>
+                    <p><strong>Scenario:</strong> A composite network branch consists of a parallel pair of resistors ($R_1 = 12.0\ \Omega$ and $R_2 = 6.0\ \Omega$) placed in series with a secondary parallel assembly ($R_3 = 8.0\ \Omega$ and $R_4 = 8.0\ \Omega$). This complete circuit load is coupled across a power pack outputting $V = 24.0 \text{ V}$. Simultaneously, a parasitic branch draws a net steady charge magnitude of $q = 1800 \text{ C}$ across a runtime window of $t = 5.0 \text{ minutes}$.</p>
+                    <p>Determine:<br>
+                    (a) The total equivalent network resistance ($R_{\text{total}}$) of the primary branch group.<br>
+                    (b) The current draw ($I_{\text{parasitic}}$) through the secondary fault branch.<br>
+                    (c) The total power delivered by the primary voltage source.</p>
+                    
+                    <p><strong>Step-by-Step Analytical Solution:</strong></p>
+                    <p><em>Step (a):</em> Resolve the first parallel sub-cluster ($R_{p1}$):</p>
+                    $$\frac{1}{R_{p1}} = \frac{1}{12.0} + \frac{1}{6.0} = \frac{1 + 2}{12.0} = \frac{3}{12.0} \implies R_{p1} = 4.0\ \Omega$$
+                    <p>Resolve the second parallel sub-cluster ($R_{p2}$):</p>
+                    $$\frac{1}{R_{p2}} = \frac{1}{8.0} + \frac{1}{8.0} = \frac{2}{8.0} \implies R_{p2} = 4.0\ \Omega$$
+                    <p>Since these two sub-clusters are wired in a series configuration relative to each other, sum their equivalent values directly:</p>
+                    $$R_{\text{total}} = R_{p1} + R_{p2} = 4.0\ \Omega + 4.0\ \Omega = 8.0\ \Omega$$
+                    
+                    <p><em>Step (b):</em> Normalize the temporal parameter into standard SI units: $t = 5.0 \text{ mins} = 5.0 \times 60 \text{ s} = 300 \text{ s}$. Evaluate current via the fundamental charge rate equation:</p>
+                    $$I_{\text{parasitic}} = \frac{q}{t} = \frac{1800 \text{ C}}{300 \text{ s}} = 6.0 \text{ A}$$
+                    
+                    <p><em>Step (c):</em> Calculate current draw within the primary load loop:</p>
+                    $$I_{\text{primary}} = \frac{V}{R_{\text{total}}} = \frac{24.0 \text{ V}}{8.0\ \Omega} = 3.0 \text{ A}$$
+                    <p>By KCL, the total aggregate current supplied by the power source is the sum of both paths:</p>
+                    $$I_{\text{source}} = I_{\text{primary}} + I_{\text{parasitic}} = 3.0 \text{ A} + 6.0 \text{ A} = 9.0 \text{ A}$$
+                    <p>Calculate total system power transformations via the absolute power relation:</p>
+                    $$P = V I_{\text{source}} = 24.0 \text{ V} \times 9.0 \text{ A} = 216.0 \text{ W}$$
+                    <p><strong>Final Solution Matrix:</strong> The primary equivalent resistance is exactly $8.0\ \Omega$, the parasitic branch current is $6.0 \text{ A}$, and the total power output is $216 \text{ W}$.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Complex Problem 5.2: Solenoid and Conductor Fields</h4>
+                    <p><strong>Scenario:</strong> An engineered magnetic core contains a long solenoid of length $L = 0.40 \text{ m}$ wound uniformly with $N = 800$ turns of thin insulated wire. Running directly parallel along the exterior casing of this solenoid, at a radial distance of $r = 0.020 \text{ m}$ away from its core axis line, lies a long, straight power grid calibration line carrying a steady current of $I_{\text{wire}} = 15.0 \text{ A}$.</p>
+                    <p>Calculate:<br>
+                    (a) The current magnitude ($I_{\text{solenoid}}$) required within the coil to generate an internal core magnetic flux density of exactly $B_{\text{internal}} = 4.00 \times 10^{-3} \text{ T}$.<br>
+                    (b) The independent magnetic flux density ($B_{\text{wire}}$) generated by the external straight calibration line at that specific offset position.</p>
+                    
+                    <p><strong>Step-by-Step Analytical Solution:</strong></p>
+                    <p><em>Step (a):</em> Isolate the target variable $I$ from the solenoid axial field equation:</p>
+                    $$B = \frac{\mu_0 N I}{L} \implies I_{\text{solenoid}} = \frac{B \cdot L}{\mu_0 N}$$
+                    <p>Substitute the operational constants into the isolated equation:</p>
+                    $$I_{\text{solenoid}} = \frac{(4.00 \times 10^{-3} \text{ T}) \times (0.40 \text{ m})}{(4\pi \times 10^{-7} \text{ T}\cdot\text{m/A}) \times 800} = \frac{1.60 \times 10^{-3}}{1.0053 \times 10^{-3}} \approx 1.5915 \text{ A}$$
+                    
+                    <p><em>Step (Step b):</em> Apply the straight wire conductor field equation for the exterior coordinates:</p>
+                    $$B_{\text{wire}} = \frac{\mu_0 I_{\text{wire}}}{2\pi r} = \frac{(4\pi \times 10^{-7}) \times 15.0}{2\pi \times 0.020}$$
+                    <p>Simplify using mathematical cancellation paths:</p>
+                    $$B_{\text{wire}} = \frac{2 \times 10^{-7} \times 15.0}{0.020} = \frac{3.00 \times 10^{-6}}{0.020} = 1.50 \times 10^{-4} \text{ T}$$
+                    <p><strong>Final Solution Matrix:</strong> The solenoid current must be driven at $1.59 \text{ A}$ and the straight wire magnetic field is $1.50 \times 10^{-4} \text{ T}$.</p>
+                </div>
+
+                <div class="link-button-container">
+                    <hr style="border:0; border-top:1px solid var(--border-purple); margin-bottom:30px;">
+                    <p style="font-style:italic; margin-bottom:20px;">Ready to stress-test your conceptual mastery against syllabus-matched evaluation tracks?</p>
+                    <a href="mod4_1.html" class="nav-btn-terminal">Proceed to Module 4 Evaluation Engine 🚀</a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>

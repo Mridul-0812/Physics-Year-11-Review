@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 2: Short Answer Question Evaluator | Nexus Academic Portal</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0f0a18;
+            --bg-sidebar: #181124;
+            --bg-card: #221a30;
+            --accent-purple: #8b5cf6;
+            --accent-purple-hover: #7c3aed;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-purple: #372a4d;
+            --correct-green: #10b981;
+            --utility-purple: #1e1233;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #global-utility-bar {
+            background-color: var(--utility-purple);
+            border-bottom: 1px solid var(--border-purple);
+            padding: 8px 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .utility-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-purple);
+            color: var(--text-main);
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        #portal-layout {
+            display: flex;
+            flex: 1;
+        }
+
+        #portal-sidebar {
+            width: 260px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-purple);
+            padding: 24px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: calc(100vh - 35px);
+            overflow-y: auto;
+        }
+
+        .sidebar-brand {
+            margin-bottom: 24px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .brand-logo .highlight {
+            color: #a78bfa;
+        }
+
+        .brand-tagline {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 4px 0 0 0;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin: 16px 0 8px 0;
+            font-weight: 600;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin-bottom: 4px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(139, 92, 246, 0.15);
+            color: #ffffff;
+        }
+
+        .sidebar-footer-card {
+            margin-top: auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-purple);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        .status-indicator-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .status-dot.online {
+            width: 8px;
+            height: 8px;
+            background-color: var(--correct-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--correct-green);
+        }
+
+        .portal-main {
+            margin-left: 260px;
+            flex-grow: 1;
+            padding: 40px;
+            max-width: 1000px;
+            box-sizing: border-box;
+        }
+
+        #dashboard-header {
+            margin-bottom: 30px;
+        }
+
+        .header-search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-purple);
+            border-radius: 8px;
+            padding: 8px 14px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .header-search-box input {
+            background: none;
+            border: none;
+            color: white;
+            margin-left: 10px;
+            width: 100%;
+            outline: none;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .module-banner {
+            background: linear-gradient(90deg, #311c52 0%, #1e1233 100%);
+            border-left: 4px solid var(--accent-purple);
+            padding: 12px 20px;
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .saq-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-purple);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .q-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #a78bfa;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .q-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .working-space {
+            width: 100%;
+            min-height: 120px;
+            background-color: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-purple);
+            border-radius: 8px;
+            padding: 12px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            resize: vertical;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+            outline: none;
+        }
+
+        .working-space:focus {
+            border-color: var(--accent-purple);
+        }
+
+        .control-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-submit {
+            background-color: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-purple-hover);
+        }
+
+        .marking-criteria-panel {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .select-mark {
+            background-color: #181124;
+            border: 1px solid var(--border-purple);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .solution-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(139, 92, 246, 0.05);
+            border: 1px solid var(--border-purple);
+            border-left: 4px solid var(--correct-green);
+            border-radius: 8px;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .solution-title {
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+
+        #live-summary-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #221a30, #181124);
+            border: 1px solid var(--accent-purple);
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .summary-score {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .summary-score span {
+            color: #a78bfa;
+        }
+
+        .footer-nav {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-purple);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-page-btn {
+            background: linear-gradient(135deg, #6d28d9, #4c1d95);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            box-shadow: 0 4px 14px rgba(109, 40, 217, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .next-page-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(109, 40, 217, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="global-utility-bar">
+        <div class="utility-container">
+            <span>NESA Year 11 Preliminary Syllabus Portal — Academic Short Answer Assessment Engine</span>
+            <div class="utility-controls">
+                <button id="theme-toggle-btn">Toggle Theme</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="portal-layout">
+        <aside id="portal-sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <span>🌌</span>
+                    <span class="brand-name">Nexus<span class="highlight">Sci</span></span>
+                </div>
+                <p class="brand-tagline">NSW Curriculum Mastery</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Core Directory</div>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span class="nav-text">Portal Home</span></a></li>
+                </ul>
+
+                <div class="nav-section-label">Physics Syllabus Modules</div>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="mod1.html" class="nav-link"><span class="nav-icon">🏃‍♂️</span><span class="nav-text">Module 1: Kinematics</span></a></li>
+                    <li class="nav-item"><a href="mod2.html" class="nav-link"><span class="nav-icon">⚙️</span><span class="nav-text">Module 2: Dynamics</span></a></li>
+                    <li class="nav-item"><a href="mod3.html" class="nav-link"><span class="nav-icon">🌊</span><span class="nav-text">Module 3: Waves / Temp</span></a></li>
+                    <li class="nav-item"><a href="mod4.html" class="nav-link"><span class="nav-icon">⚡</span><span class="nav-text">Module 4: Electricity</span></a></li>
+                </ul>
+
+                <div class="nav-section-label">Evaluation Engine</div>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="exam.html" class="nav-link"><span class="nav-icon">📝</span><span class="nav-text">Final Physics Exam</span></a></li>
+                    <li class="nav-item"><a href="saq1.html" class="nav-link active"><span class="nav-icon">🖋️</span><span class="nav-text">SAQ Tracker 1</span></a></li>
+                    <li class="nav-item"><a href="results.html" class="nav-link"><span class="nav-icon">🏆</span><span class="nav-text">Analytics & Results</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer-card">
+                <div class="status-indicator-group">
+                    <span class="status-dot online"></span>
+                    <span class="status-label">Syllabus Engine: Active</span>
+                </div>
+                <div class="version-tag">v2.4.0-Prelim</div>
+            </div>
+        </aside>
+
+        <main id="main-content" class="portal-main">
+            <header id="dashboard-header">
+                <div class="header-search-box">
+                    <span>🔍</span>
+                    <input type="search" placeholder="Search criteria, markers notes, numerical constants...">
+                </div>
+            </header>
+
+            <h1>Section 2: Short Answer Quality Analysis (SAQ1)</h1>
+            <p style="color: var(--text-muted); margin-bottom: 40px;">
+                Complete the working panels below. After self-submitting your code solutions or response structures, analyze the official NESA alignment model and allocate your personal self-assessment mark.
+            </p>
+
+            <div id="live-summary-bar">
+                <div class="summary-score">Total Marks: <span id="running-score">0</span> / 68</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Self-Assigned Matrix Score</div>
+            </div>
+
+            <div class="module-banner">Module 1: Kinematics (Questions 1-5)</div>
+
+            <div class="saq-card" id="q1">
+                <div class="q-meta"><span>Question 1</span><span>Module 1 &bull; Explanation Based &bull; 3 Marks</span></div>
+                <div class="q-text">Explain how it is entirely possible for an accelerating vehicle to possess an instantaneous vector velocity of zero. Provide a real-world vertical trajectory example to justify your answer.</div>
+                <textarea class="working-space" placeholder="Draft explanations, frame structural arguments..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(1)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Criteria Matrix:</div>
+                    Acceleration represents the *rate of change* of velocity ($a = \frac{\Delta v}{\Delta t}$), not the value of velocity itself. When an object thrown vertically upward reaches the apex of its path, its instantaneous velocity transitions from upward to downward, passing precisely through $0\text{ m s}^{-1}$. However, gravity continuously exerts a net downward force, yielding a constant acceleration of $9.8\text{ m s}^{-2}$ downward at that exact moment.<br><br>
+                    <strong>Marking Rubric:</strong><br>
+                    &bull; 3 Marks: Clear definition of acceleration vs velocity with valid apex physics scenario.<br>
+                    &bull; 2 Marks: Mentions apex velocity zero but lacks robust acceleration tracking definition.<br>
+                    &bull; 1 Mark: Fragmented understanding of zero velocity conditions.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q2">
+                <div class="q-meta"><span>Question 2</span><span>Module 1 &bull; Scientific Skills &bull; 3 Marks</span></div>
+                <div class="q-text">A physics group utilizes a ticker-timer producing dot patterns every $0.02\text{ s}$ to calculate tracking acceleration. Distinguish clearly between the terms <strong>accuracy</strong> and <strong>reliability</strong> within the framework of this specific kinematic recording setup.</div>
+                <textarea class="working-space" placeholder="Draft explanations, frame structural arguments..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(2)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Criteria Matrix:</div>
+                    <strong>Accuracy</strong> refers to how closely the calculated experimental acceleration matches the accepted true reference value ($9.80\text{ m s}^{-2}$). It is improved by minimizing systematic errors, such as friction on the tape or timing calibration issues. <strong>Reliability</strong> denotes the consistency or reproducibility of the data trails across multiple repeated runs. It is verified by repeating trials under identical conditions and looking for minimal spread in the results.<br><br>
+                    <strong>Marking Rubric:</strong><br>
+                    &bull; 3 Marks: Clear distinction linking each term perfectly to the ticker-timer apparatus components.<br>
+                    &bull; 2 Marks: Defines both terms accurately but lacks explicit technical link to the experiment.<br>
+                    &bull; 1 Mark: Confuses accuracy with reliability definitions.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q3">
+                <div class="q-meta"><span>Question 3</span><span>Module 1 &bull; Mathematical Matrix &bull; 4 Marks</span></div>
+                <div class="q-text">A performance sports car starts from rest at a coordinate datum position and accelerates uniformly along a straight drag strip at a rate of $a = 4.50\text{ m s}^{-2}$ for exactly $t_1 = 6.00\text{ s}$. The driver then immediately applies brakes, generating a constant deceleration profile to bring the vehicle safely to rest over a displacement of $\Delta x = 50.0\text{ m}$. Calculate the total time elapsed from initial launch to final rest.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(3)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>Step 1: Determine peak velocity at the end of the first phase:</strong><br>
+                    $v = u + at_1 = 0 + (4.50 \times 6.00) = 27.0\text{ m s}^{-1}$<br><br>
+                    <strong>Step 2: Track braking phase to rest to compute $t_2$:</strong><br>
+                    We know $v_i = 27.0\text{ m s}^{-1}$, $v_f = 0$, and $\Delta x = 50.0\text{ m}$. Using average velocity mechanics:<br>
+                    $\Delta x = \left(\frac{v_i + v_f}{2}\right)t_2 \implies 50.0 = \left(\frac{27.0 + 0}{2}\right)t_2 \implies 50.0 = 13.5 \cdot t_2 \implies t_2 = 3.70\text{ s}$<br><br>
+                    <strong>Step 3: Total time:</strong><br>
+                    $t_{\text{total}} = t_1 + t_2 = 6.00 + 3.70 = 9.70\text{ s}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q4">
+                <div class="q-meta"><span>Question 4</span><span>Module 1 &bull; Mathematical Matrix &bull; 3 Marks</span></div>
+                <div class="q-text">A deep-space tracking vector reveals a satellite moving at an initial vector velocity of $150\text{ m s}^{-1}$ due East. Exactly $25.0\text{ s}$ later, corrections output a final vector velocity of $200\text{ m s}^{-1}$ due North. Compute the average acceleration vector magnitude over this window.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(4)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    The vector change in velocity is $\Delta\vec{v} = \vec{v}_f - \vec{v}_i = \vec{v}_f + (-\vec{v}_i)$. This maps a right triangle with vectors $200\text{ m s}^{-1}$ North and $150\text{ m s}^{-1}$ West.<br>
+                    $|\Delta\vec{v}| = \sqrt{200^2 + 150^2} = 250\text{ m s}^{-1}$.<br><br>
+                    Average acceleration magnitude:<br>
+                    $a_{\text{avg}} = \frac{|\Delta\vec{v}|}{\Delta t} = \frac{250\text{ m s}^{-1}}{25.0\text{ s}} = 10.0\text{ m s}^{-2}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q5">
+                <div class="q-meta"><span>Question 5</span><span>Module 1 &bull; Mathematical Matrix &bull; 3 Marks</span></div>
+                <div class="q-text">An asset drops from rest from a vertical platform height of $80.0\text{ m}$. Simultaneously, an interceptor projectile is fired vertically upward from baseline ground level with an initial launch speed of $u_0$. Calculate the required value of $u_0$ for the items to collide exactly halfway down ($y = 40.0\text{ m}$). Use $g = 9.80\text{ m s}^{-2}$.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(5)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>Step 1: Solve for falling asset transit timeline to the midpoint:</strong><br>
+                    $\Delta y_{\text{down}} = \frac{1}{2}gt^2 \implies 40.0 = 4.90 \cdot t^2 \implies t = \sqrt{\frac{40.0}{4.90}} = 2.857\text{ s}$<br><br>
+                    <strong>Step 2: Frame the interceptor ascending displacement equation over the same time:</strong><br>
+                    $\Delta y_{\text{up}} = u_0 t - \frac{1}{2}gt^2 \implies 40.0 = u_0(2.857) - 4.90(2.857)^2$<br>
+                    Notice $4.90(2.857)^2 = 40.0$, thus: $40.0 = u_0(2.857) - 40.0 \implies 80.0 = u_0(2.857) \implies u_0 = \frac{80.0}{2.857} = 28.0\text{ m s}^{-1}$.
+                </div>
+            </div>
+
+            <div class="module-banner">Module 2: Dynamics (Questions 6-10)</div>
+
+            <div class="saq-card" id="q6">
+                <div class="q-meta"><span>Question 6</span><span>Module 2 &bull; Explanation Based &bull; 3 Marks</span></div>
+                <div class="q-text">Explain the operation of an automotive seatbelt system during a severe frontal collision, justifying its structural function explicitly with reference to <strong>Newton's First Law of Motion</strong>.</div>
+                <textarea class="working-space" placeholder="Draft explanations, frame structural arguments..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(6)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Criteria Matrix:</div>
+                    Newton's First Law (Law of Inertia) states that an object maintains its state of rest or constant linear velocity unless acted upon by an external net force. When a car stops suddenly in a collision, the passenger possesses independent forward velocity and continues moving forward due to inertia. The seatbelt provides the necessary external unbalanced force to decelerate the passenger at the same rate as the vehicle cabin, preventing dangerous secondary impact contact.<br><br>
+                    <strong>Marking Rubric:</strong><br>
+                    &bull; 3 Marks: Links Newton's First Law, internal inertia mechanics, and external stopping force explicitly.<br>
+                    &bull; 2 Marks: Mentions inertia and seatbelts but lacks rigorous force framing vocabulary.<br>
+                    &bull; 1 Mark: Outlines general safety without mentioning physics laws.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q7">
+                <div class="q-meta"><span>Question 7</span><span>Module 2 &bull; Scientific Skills &bull; 3 Marks</span></div>
+                <div class="q-text">An experimental team records static friction thresholds across varying contact weights. They notice that adding lubricant alters the coefficient value consistently. Detail two steps necessary to ensure this investigation remains highly <strong>valid</strong>.</div>
+                <textarea class="working-space" placeholder="Draft explanations, frame structural arguments..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(7)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Criteria Matrix:</div>
+                    Validity requires that an experiment directly tests its stated hypothesis, meaning all variables except the independent variable must be strictly controlled. To maintain validity:<br>
+                    1. Keep surface materials and cross-sectional areas completely identical between consecutive trials.<br>
+                    2. Ensure the force pulling angle remains perfectly horizontal relative to the tracking plane across all weight changes.<br><br>
+                    <strong>Marking Rubric:</strong><br>
+                    &bull; 3 Marks: Two distinct, scientifically accurate control methods directly linked to validity metrics.<br>
+                    &bull; 2 Marks: Lists controls but does not clearly link them to the validity parameters of the setup.<br>
+                    &bull; 1 Mark: Gives vague answers like "be careful with measurements."
+                </div>
+            </div>
+
+            <div class="saq-card" id="q8">
+                <div class="q-meta"><span>Question 8</span><span>Module 2 &bull; Mathematical Matrix &bull; 4 Marks</span></div>
+                <div class="q-text">A $12.0\text{ kg}$ tracking mass is placed on a flat horizontal table with a coefficient of kinetic friction $\mu_k = 0.25$. An inextensible wire line runs from this block over a frictionless corner pulley to a suspended hanging mass of $8.0\text{ kg}$. Calculate the resulting systemic acceleration of the coupled configuration when released from rest.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(8)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    Let the system total mass $M_{\text{total}} = 12.0 + 8.0 = 20.0\text{ kg}$.<br><br>
+                    <strong>Step 1: Calculate the opposing kinetic friction force on the table:</strong><br>
+                    $F_f = \mu_k \cdot N = \mu_k \cdot m_1 g = 0.25 \times 12.0 \times 9.80 = 29.4\text{ N}$<br><br>
+                    <strong>Step 2: Calculate the driving weight force from the hanging mass:</strong><br>
+                    $F_{\text{drive}} = m_2 g = 8.0 \times 9.80 = 78.4\text{ N}$<br><br>
+                    <strong>Step 3: Apply Newton's Second Law to the coupled system:</strong><br>
+                    $F_{\text{net}} = F_{\text{drive}} - F_f = 78.4 - 29.4 = 49.0\text{ N}$<br>
+                    $a = \frac{F_{\text{net}}}{M_{\text{total}}} = \frac{49.0\text{ N}}{20.0\text{ kg}} = 2.45\text{ m s}^{-2}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q9">
+                <div class="q-meta"><span>Question 9</span><span>Module 2 &bull; Mathematical Matrix &bull; 3 Marks</span></div>
+                <div class="q-text">A high-velocity projectile massing $m = 0.040\text{ kg}$ tracking at $350\text{ m s}^{-1}$ embeds into a stationary ballistic block of mass $M = 2.46\text{ kg}$. If the block is suspended freely like a pendulum, calculate the initial common velocity profile of the system immediately following the impact.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(9)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    Using the Conservation of Momentum formula for a perfectly inelastic collision:<br>
+                    $m v_1 + M v_2 = (m + M) v_f$<br>
+                    $(0.040 \times 350) + 0 = (0.040 + 2.46) \cdot v_f$<br>
+                    $14.0 = 2.50 \cdot v_f \implies v_f = \frac{14.0}{2.50} = 5.60\text{ m s}^{-1}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q10">
+                <div class="q-meta"><span>Question 10</span><span>Module 2 &bull; Mathematical Matrix &bull; 3 Marks</span></div>
+                <div class="q-text">An electric mining winch reels in a $250\text{ kg}$ containment unit vertically upwards from a shaft bottom, covering $30.0\text{ m}$ at a uniform velocity over exactly $15.0\text{ s}$. Compute the absolute power output required by the winch motor assembly.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(10)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    Because the load shifts at a uniform velocity, the tension force equals the gravitational weight force:<br>
+                    $F = mg = 250 \times 9.80 = 2450\text{ N}$<br><br>
+                    Work done lifting the unit:<br>
+                    $W = F \cdot d = 2450 \times 30.0 = 73500\text{ J}$<br><br>
+                    Power requirements:<br>
+                    $P = \frac{W}{t} = \frac{73500\text{ J}}{15.0\text{ s}} = 4900\text{ W}$ (or $4.90\text{ kW}$).
+                </div>
+            </div>
+
+            <div class="module-banner">Module 3: Waves and Thermodynamics (Questions 11-15)</div>
+
+            <div class="saq-card" id="q11">
+                <div class="q-meta"><span>Question 11</span><span>Module 3 &bull; Explanation Based &bull; 3 Marks</span></div>
+                <div class="q-text">Explain the foundational structural conditions that govern the generation of a standing wave inside a physical medium, referencing the roles of <strong>superposition</strong> and reflection.</div>
+                <textarea class="working-space" placeholder="Draft explanations, frame structural arguments..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(11)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Criteria Matrix:</div>
+                    A standing wave is formed when two waves of identical frequency, wavelength, and amplitude travel in opposite directions through the same medium. This usually happens when a continuous wave train reflects off a boundary. As these counter-propagating waves pass through each other, they undergo continuous **superposition**. This interference creates a stable pattern of nodes (points of zero amplitude due to destructive interference) and antinodes (points of maximum amplitude due to constructive interference).<br><br>
+                    <strong>Marking Rubric:</strong><br>
+                    &bull; 3 Marks: Identifies identical wave criteria, reflection origins, and maps superposition perfectly to nodes/antinodes.<br>
+                    &bull; 2 Marks: Explains wave overlap but fails to explicitly connect it to boundary reflection conditions.<br>
+                    &bull; 1 Mark: Outlines basic definitions of standing waves without mentioning interference mechanics.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q12">
+                <div class="q-meta"><span>Question 12</span><span>Module 3 &bull; Scientific Skills &bull; 3 Marks</span></div>
+                <div class="q-text">A student design tests the specific heat capacity of an unknown metal alloy using a traditional water calorimeter cup. Identify two distinct systematic experimental heat losses and explain how to mitigate them to optimize data **accuracy**.</div>
+                <textarea class="working-space" placeholder="Draft explanations, frame structural arguments..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(12)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Criteria Matrix:</div>
+                    1. Heat lost to the surrounding air during the transfer of the hot metal block. *Mitigation:* Minimize the transfer time and place the heating station directly adjacent to the calorimeter.<br>
+                    2. Heat absorbed by the calorimeter cup walls or escaping through an open top. *Mitigation:* Use a highly insulating polystyrene container shield and seal the top with a tight-fitting lid.<br><br>
+                    <strong>Marking Rubric:</strong><br>
+                    &bull; 3 Marks: Clear identification of two logical heat loss paths along with practical, effective mitigation strategies.<br>
+                    &bull; 2 Marks: Lists the heat losses well but provides incomplete or impractical mitigation methods.<br>
+                    &bull; 1 Mark: Mentions general insulation without structural analysis.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q13">
+                <div class="q-meta"><span>Question 13</span><span>Module 3 &bull; Mathematical Matrix &bull; 3 Marks</span></div>
+                <div class="q-text">A sub-surface sound pulse targets the ocean floor vertically, receiving a return echo exactly $t = 3.40\text{ s}$ later. If the bulk modulus characteristics of seawater yield an acoustic wave speed of $1480\text{ m s}^{-1}$ with an operating frequency of $f = 25.0\text{ kHz}$, calculate the total tracking depth and the physical wavelength of the signal.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(13)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>Step 1: Calculate total one-way depth tracking distance:</strong><br>
+                    The total echo time represents round-trip travel. The one-way time is $t_{\text{one-way}} = \frac{3.40}{2} = 1.70\text{ s}$.<br>
+                    $\text{Depth} = v \cdot t_{\text{one-way}} = 1480\text{ m s}^{-1} \times 1.70\text{ s} = 2516\text{ m}$.<br><br>
+                    <strong>Step 2: Compute signal wavelength inside the medium:</strong><br>
+                    $v = f \lambda \implies \lambda = \frac{v}{f} = \frac{1480}{25000\text{ Hz}} = 0.0592\text{ m}$ (or $5.92\text{ cm}$).
+                </div>
+            </div>
+
+            <div class="saq-card" id="q14">
+                <div class="q-meta"><span>Question 14</span><span>Module 3 &bull; Mathematical Matrix &bull; 3 Marks</span></div>
+                <div class="q-text">A laser path traveling inside a dense core plastic medium meets a planar boundary layer to air ($n_{\text{air}} = 1.00$). Telemetry shows the total internal reflection critical boundary cut-off tracks exactly at an angle of incidence of $\theta_c = 38.5^\circ$. Calculate the refractive index of the plastic medium.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(14)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    Using Snell's Law configuration for critical angle bounds:<br>
+                    $\sin(\theta_c) = \frac{n_2}{n_1}$ where $n_2 = n_{\text{air}} = 1.00$<br>
+                    $\sin(38.5^\circ) = \frac{1.00}{n_{\text{plastic}}} \implies 0.6225 = \frac{1.00}{n_{\text{plastic}}}$<br>
+                    $n_{\text{plastic}} = \frac{1.00}{0.6225} = 1.61$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q15">
+                <div class="q-meta"><span>Question 15</span><span>Module 3 &bull; Mathematical Matrix &bull; 3 Marks</span></div>
+                <div class="q-text">Calculate the total energy required to heat a $0.150\text{ kg}$ block of pure ice initially at $-10.0^\circ\text{C}$ to fully melted liquid water at $+20.0^\circ\text{C}$. Let $c_{\text{ice}} = 2100\text{ J kg}^{-1}\text{ K}^{-1}$, $L_f = 3.34 \times 10^5\text{ J kg}^{-1}$, and $c_{\text{water}} = 4186\text{ J kg}^{-1}\text{ K}^{-1}$.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(15)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    The process requires three consecutive thermal stages:<br>
+                    1. Heat ice to $0^\circ\text{C}$: $Q_1 = m c_{\text{ice}} \Delta T = 0.150 \times 2100 \times 10 = 3150\text{ J}$<br>
+                    2. Melt ice to water: $Q_2 = m L_f = 0.150 \times (3.34 \times 10^5) = 50100\text{ J}$<br>
+                    3. Heat liquid water to $20^\circ\text{C}$: $Q_3 = m c_{\text{water}} \Delta T = 0.150 \times 4186 \times 20 = 12558\text{ J}$<br><br>
+                    Total thermal energy needed:<br>
+                    $Q_{\text{total}} = 3150 + 50100 + 12558 = 65808\text{ J}$ (or $65.8\text{ kW}$).
+                </div>
+            </div>
+
+            <div class="module-banner">Module 4: Electricity and Magnetism (Questions 16-20)</div>
+
+            <div class="saq-card" id="q16">
+                <div class="q-meta"><span>Question 16</span><span>Module 4 &bull; Explanation Based &bull; 3 Marks</span></div>
+                <div class="q-text">Describe the movement of free electrons within a solid metallic wire lattice when a constant DC potential difference is applied across its ends, referencing the concept of <strong>drift velocity</strong>.</div>
+                <textarea class="working-space" placeholder="Draft explanations, frame structural arguments..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(16)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Criteria Matrix:</div>
+                    In a metallic conductor, free conduction electrons move in random high-speed paths, colliding continuously with the fixed positive ions of the crystal lattice. When a DC potential difference is applied, an electric field is established through the wire. This field exerts an electrostatic force that superimposes a slow, net directional movement on the electrons toward the positive terminal. This average net directional velocity is known as the **drift velocity**, and it is much slower than the instantaneous speed of the random thermal motion.<br><br>
+                    <strong>Marking Rubric:</strong><br>
+                    &bull; 3 Marks: Connects random thermal velocity, electric field force, and drift velocity mechanics accurately.<br>
+                    &bull; 2 Marks: Mentions drift velocity towards the positive terminal but fails to contrast it with random thermal motion.<br>
+                    &bull; 1 Mark: States that electrons flow through the wire without explaining the motion profile.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q17">
+                <div class="q-meta"><span>Question 17</span><span>Module 4 &bull; Scientific Skills &bull; 3 Marks</span></div>
+                <div class="q-text">A lab group measures the potential drop across a resistor using a traditional analog voltmeter. Explain how to configure the meter within the circuit topology to protect the <strong>validity</strong> of the recorded resistance data.</div>
+                <textarea class="working-space" placeholder="Draft explanations, frame structural arguments..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(17)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Criteria Matrix:</div>
+                    To measure the true potential difference across a component without altering the circuit's operation, the voltmeter must be connected in **parallel** with that component. Additionally, the voltmeter must have a very high internal resistance. This design ensures that minimal current is diverted away from the main branch through the meter, preserving the original current and voltage distribution across the test network.<br><br>
+                    <strong>Marking Rubric:</strong><br>
+                    &bull; 3 Marks: Identifies parallel orientation and explains how high internal resistance minimizes branch current diversion.<br>
+                    &bull; 2 Marks: States parallel placement but lacks an analysis of internal resistance mechanics.<br>
+                    &bull; 1 Mark: Suggests series connection or shows fundamental circuit tracking errors.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q18">
+                <div class="q-meta"><span>Question 18</span><span>Module 4 &bull; Mathematical Matrix &bull; 4 Marks</span></div>
+                <div class="q-text">An electrical device runs safely on a $240\text{ V}$ grid connection, drawing a stable current of $I = 6.25\text{ A}$ over an operational window of exactly $2.00\text{ hours}$. Calculate the total electrical energy transferred through the system components.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(18)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>Step 1: Calculate the power consumption of the device:</strong><br>
+                    $P = V \cdot I = 240\text{ V} \times 6.25\text{ A} = 1500\text{ W}$<br><br>
+                    <strong>Step 2: Convert the operational time window into standard SI seconds:</strong><br>
+                    $t = 2.00 \times 3600\text{ s} = 7200\text{ s}$<br><br>
+                    <strong>Step 3: Calculate the total energy transfer:</strong><br>
+                    $E = P \cdot t = 1500\text{ W} \times 7200\text{ s} = 1.08 \times 10^7\text{ J}$ (or $10.8\text{ MJ}$).
+                </div>
+            </div>
+
+            <div class="saq-card" id="q19">
+                <div class="q-meta"><span>Question 19</span><span>Module 4 &bull; Mathematical Matrix &bull; 3 Marks</span></div>
+                <div class="q-text">Two long, straight parallel wires are separated by a distance of $r = 12.0\text{ cm}$. Wire 1 carries a current of $I_1 = 8.0\text{ A}$ pointing upwards, while Wire 2 carries a current of $I_2 = 15.0\text{ A}$ pointing downwards. Calculate the net magnetic field magnitude at the midpoint between the two wires. ($\mu_0 = 4\pi \times 10^{-7}\text{ T m A}^{-1}$).</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(19)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    The midpoint is located at a distance of $r = 0.060\text{ m}$ from each wire.<br>
+                    Using the Right-Hand Grip Rule: Wire 1 (current up) generates a magnetic field pointing *into the page* at the midpoint. Wire 2 (current down) also generates a magnetic field pointing *into the page* at the midpoint. Because both fields point in the same direction, their magnitudes add together.<br><br>
+                    $B_1 = \frac{\mu_0 I_1}{2\pi r} = \frac{(4\pi \times 10^{-7}) \times 8.0}{2\pi \times 0.060} = 2.67 \times 10^{-5}\text{ T}$<br>
+                    $B_2 = \frac{\mu_0 I_2}{2\pi r} = \frac{(4\pi \times 10^{-7}) \times 15.0}{2\pi \times 0.060} = 5.00 \times 10^{-5}\text{ T}$<br><br>
+                    $B_{\text{net}} = B_1 + B_2 = 2.67 \times 10^{-5} + 5.00 \times 10^{-5} = 7.67 \times 10^{-5}\text{ T}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q20">
+                <div class="q-meta"><span>Question 20</span><span>Module 4 &bull; Mathematical Matrix &bull; 3 Marks</span></div>
+                <div class="q-text">A uniform magnetic core creates a field density of $B = 0.045\text{ T}$ oriented straight out of the page plane. A straight wire segment of length $L = 0.15\text{ m}$ lies in the plane of the page and carries a current of $I = 6.0\text{ A}$. Calculate the magnetic force acting on the wire.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(20)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="3">
+                            <option value="0">0 / 3</option><option value="1">1 / 3</option><option value="2">2 / 3</option><option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    The magnetic force on a current-carrying wire is given by:<br>
+                    $F = B I L \sin(\theta)$<br>
+                    Since the magnetic field is perpendicular to the page and the wire lies flat in the page plane, the angle of interaction is exactly $\theta = 90^\circ$ ($\sin(90^\circ) = 1$).<br><br>
+                    $F = 0.045\text{ T} \times 6.0\text{ A} \times 0.15\text{ m} \times 1 = 0.0405\text{ N}$.
+                </div>
+            </div>
+
+            <div class="module-banner">Section 2E: High-Tier Synoptic Extension (Questions 21-25)</div>
+
+            <div class="saq-card" id="q21">
+                <div class="q-meta"><span>Question 21</span><span>Synoptic extension &bull; Kinematics &amp; Dynamics &bull; 4 Marks</span></div>
+                <div class="q-text">A $5.0\text{ kg}$ tracking drone starting from rest activates its thrusters, experiencing a net force profile given over time by $F(t) = 3.0t + 2.0$. Calculate the velocity achieved by the drone at $t = 4.0\text{ s}$ using impulse-momentum mechanics.</div>
+                <textarea class="working-space" placeholder="Requires integration or finding the area under a force-time graph..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(21)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    The total impulse delivered equals the area under the force-time graph from $t = 0$ to $t = 4.0\text{ s}$.<br>
+                    At $t = 0$, $F = 2.0\text{ N}$. At $t = 4.0\text{ s}$, $F = 3.0(4.0) + 2.0 = 14.0\text{ N}$.<br>
+                    Since the force function is linear, the area forms a trapezoid:<br>
+                    $\text{Impulse} = \text{Area} = \frac{1}{2}(F_{\text{initial}} + F_{\text{final}}) \cdot \Delta t = \frac{1}{2}(2.0 + 14.0) \times 4.0 = 32.0\text{ N s}$<br><br>
+                    Using the impulse-momentum theorem ($\text{Impulse} = \Delta p = m \Delta v$):<br>
+                    $32.0 = 5.0 \times (v_f - 0) \implies v_f = \frac{32.0}{5.0} = 6.40\text{ m s}^{-1}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q22">
+                <div class="q-meta"><span>Question 22</span><span>Synoptic Extension &bull; Energy Conversion Waves &bull; 4 Marks</span></div>
+                <div class="q-text">A $0.200\text{ kg}$ structural block attached to a horizontal spring oscillates in simple harmonic motion across a frictionless surface. If the wave energy profile shows the system has a maximum speed of $4.00\text{ m s}^{-1}$ and the spring has a stiffness constant of $k = 50.0\text{ N m}$, determine the physical amplitude of the oscillation.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(22)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    By the Law of Conservation of Energy, the maximum kinetic energy (at equilibrium) equals the maximum potential energy stored in the spring (at maximum displacement/amplitude):<br>
+                    $\frac{1}{2} m (v_{\text{max}})^2 = \frac{1}{2} k A^2$<br><br>
+                    Substitute the known values into the equation:<br>
+                    $0.200 \times (4.00)^2 = 50.0 \times A^2$<br>
+                    $0.200 \times 16.0 = 50.0 \times A^2 \implies 3.20 = 50.0 \cdot A^2$<br>
+                    $A^2 = \frac{3.20}{50.0} = 0.064 \implies A = \sqrt{0.064} = 0.253\text{ m}$ (or $25.3\text{ cm}$).
+                </div>
+            </div>
+
+            <div class="saq-card" id="q23">
+                <div class="q-meta"><span>Question 23</span><span>Synoptic Extension &bull; Electricity &amp; Thermal Fields &bull; 4 Marks</span></div>
+                <div class="q-text">An electric immersion heater element running on a $12.0\text{ V}$ DC source is placed inside an insulated beaker containing $0.300\text{ kg}$ of pure water. If the water temperature rises by $\Delta T = 8.00^\circ\text{C}$ over exactly $t = 10.0\text{ minutes}$, calculate the electrical resistance of the heating element. ($c_{\text{water}} = 4186\text{ J kg}^{-1}\text{ K}^{-1}$).</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(23)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>Step 1: Calculate the thermal energy absorbed by the water sample:</strong><br>
+                    $Q = m c \Delta T = 0.300 \times 4186 \times 8.00 = 10046.4\text{ J}$<br><br>
+                    <strong>Step 2: Determine the required electrical power input ($t = 600\text{ s}$):</strong><br>
+                    $P = \frac{Q}{t} = \frac{10046.4\text{ J}}{600\text{ s}} = 16.744\text{ W}$<br><br>
+                    <strong>Step 3: Relate power to voltage and solve for resistance ($R$):</strong><br>
+                    $P = \frac{V^2}{R} \implies 16.744 = \frac{12.0^2}{R} \implies R = \frac{144}{16.744} = 8.60\ \Omega$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q24">
+                <div class="q-meta"><span>Question 24</span><span>Synoptic Extension &bull; Circuit Transformation networks &bull; 4 Marks</span></div>
+                <div class="q-text">A complex parallel circuit network consists of three separate resistors connected in parallel ($R_1 = 10\ \Omega$, $R_2 = 20\ \Omega$, and $R_3 = 30\ \Omega$). This entire parallel assembly is connected in series with a fourth resistor, $R_4 = 5.45\ \Omega$. Calculate the total current drawn from a $12.0\text{ V}$ ideal battery connected across the system.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(24)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    <strong>Step 1: Calculate the equivalent resistance of the parallel branch block ($R_p$):</strong><br>
+                    $\frac{1}{R_p} = \frac{1}{10} + \frac{1}{20} + \frac{1}{30} = \frac{6 + 3 + 2}{60} = \frac{11}{60} \implies R_p = \frac{60}{11} \approx 5.454\ \Omega$<br><br>
+                    <strong>Step 2: Add the series resistor component ($R_4$) to find total resistance:</strong><br>
+                    $R_{\text{total}} = R_p + R_4 = 5.454\ \Omega + 5.45\ \Omega = 10.904\ \Omega$<br><br>
+                    <strong>Step 3: Apply Ohm's Law to find the total circuit current:</strong><br>
+                    $I = \frac{V}{R_{\text{total}}} = \frac{12.0\text{ V}}{10.904\ \Omega} = 1.10\text{ A}$.
+                </div>
+            </div>
+
+            <div class="saq-card" id="q25">
+                <div class="q-meta"><span>Question 25</span><span>Synoptic Extension &bull; Field Balance Mechanics &bull; 4 Marks</span></div>
+                <div class="q-text">A small sphere carrying a net positive charge of $q = +2.50 \times 10^{-6}\text{ C}$ and mass $m = 4.00 \times 10^{-3}\text{ kg}$ is suspended at rest between two large horizontal charged parallel plates. Determine the strength and direction of the electric field required to keep the sphere balanced in mid-air against gravity.</div>
+                <textarea class="working-space" placeholder="Draft mathematical layout and calculations..."></textarea>
+                <div class="control-row">
+                    <button class="btn-submit" onclick="revealSolution(25)">Submit & Reveal</button>
+                    <div class="marking-criteria-panel">
+                        <label>Assign Marks:</label>
+                        <select class="select-mark" onchange="updateTotalMarks()" data-max="4">
+                            <option value="0">0 / 4</option><option value="1">1 / 4</option><option value="2">2 / 4</option><option value="3">3 / 4</option><option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-title">Model Answer & Solutions:</div>
+                    For the sphere to remain suspended at rest, the upward electrostatic force must exactly balance the downward gravitational weight force:<br>
+                    $F_e = F_g \implies q E = m g$<br><br>
+                    Substitute the values and solve for electric field strength ($E$):<br>
+                    $(2.50 \times 10^{-6}) \cdot E = (4.00 \times 10^{-3}) \times 9.80$<br>
+                    $(2.50 \times 10^{-6}) \cdot E = 3.92 \times 10^{-2}$<br>
+                    $E = \frac{3.92 \times 10^{-2}}{2.50 \times 10^{-6}} = 15680\text{ N C}^{-1}$ (or $\text{V m}^{-1}$).<br><br>
+                    <strong>Direction:</strong> Because the charge is positive, the electrostatic force points in the same direction as the electric field. To counter gravity, the force must point upward, meaning the **electric field must point straight upward**.
+                </div>
+            </div>
+
+            <div class="footer-nav">
+                <a href="saq2.html" class="next-page-btn">Proceed to Short Answer Section 2 (SAQ2) &rarr;</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function revealSolution(qNum) {
+            const card = document.getElementById('q' + qNum);
+            const solBox = card.querySelector('.solution-box');
+            solBox.style.display = "block";
+            
+            if (window.MathJax) {
+                MathJax.typesetPromise([solBox]);
+            }
+        }
+
+        function updateTotalMarks() {
+            let total = 0;
+            const dropdowns = document.querySelectorAll('.select-mark');
+            dropdowns.forEach(dropdown => {
+                total += parseInt(dropdown.value) || 0;
+            });
+            document.getElementById('running-score').innerText = total;
+        }
+    </script>
+</body>
+</html>

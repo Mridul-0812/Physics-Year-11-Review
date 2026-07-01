@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Academic Portal | Module 2: Dynamics Evaluation Engine</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div id="global-utility-bar">
+        <div class="utility-container">
+            <span class="announcement-text">NESA Year 11 Preliminary Syllabus Portal — Dynamics Interactive Sandbox v2.4.0</span>
+            <div class="utility-controls">
+                <button id="theme-toggle-btn" aria-label="Toggle between dark and light mode" title="Switch Color Theme">
+                    <span class="mode-text">Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="portal-layout">
+
+        <aside id="portal-sidebar" aria-label="Main Navigation">
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <span class="logo-icon">🌌</span>
+                    <span class="brand-name">Nexus<span class="highlight">Sci</span></span>
+                </div>
+                <p class="brand-tagline">NSW Curriculum Mastery</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Primary Directory">
+                <div class="nav-section-label">Core Directory</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <span class="nav-icon">🏠</span>
+                            <span class="nav-text">Portal Home</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-label">Physics Syllabus Modules</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="mod1.html" class="nav-link">
+                            <span class="nav-icon">🏃‍♂️</span>
+                            <span class="nav-text">Module 1: Kinematics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod2.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">Module 2: Dynamics Hub</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod3.html" class="nav-link">
+                            <span class="nav-icon">🌊</span>
+                            <span class="nav-text">Module 3: Waves / Temp</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod4.html" class="nav-link">
+                            <span class="nav-icon">⚡</span>
+                            <span class="nav-text">Module 4: Electricity</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-label">Evaluation Engine</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="results.html" class="nav-link">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Analytics Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer-card">
+                <div class="status-indicator-group">
+                    <span class="status-dot online"></span>
+                    <span class="status-label">Evaluation Framework: Ready</span>
+                </div>
+                <div class="version-tag">v2.4.0-Prelim</div>
+            </div>
+        </aside>
+
+        <main id="main-content" class="portal-main">
+
+            <header id="dashboard-header">
+                <div class="header-search-box">
+                    <label for="global-search" class="visually-hidden">Search assessment matrix...</label>
+                    <span class="search-icon">🔍</span>
+                    <input type="search" id="global-search" placeholder="Search Atwood numbers, impulse graphs, vector analysis...">
+                </div>
+                <div class="header-profile-zone">
+                    <div class="notification-trigger">
+                        <span class="badge">1</span>
+                        <span class="bell-icon">🔔</span>
+                    </div>
+                    <div class="user-avatar-block">
+                        <div class="avatar-initials">ST</div>
+                        <div class="avatar-meta">
+                            <span class="user-name">Scholar Account</span>
+                            <span class="user-role">Year 11 Student</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <header class="dashboard-hero-banner">
+                <div class="hero-left-block">
+                    <div class="breadcrumb-trail">
+                        <span>Nexus Core</span> &gt; <span>Physics Evaluation</span> &gt; <span class="current">Module 2 Dynamics Sandbox</span>
+                    </div>
+                    <h2>Module 2: Dynamics Comprehensive Evaluation</h2>
+                    <p class="hero-description">An authentic, variable-difficulty examination space targeting vector equilibrium, energy profiles, Atwood arrangements, and multi-dimensional collisions. Built strictly to NESA standards using non-calculus derivations.</p>
+                </div>
+                <div class="hero-right-metrics">
+                    <div class="metric-node">
+                        <div class="metric-val" id="live-score-tracker">0 / 85</div>
+                        <div class="metric-lbl">Total Marks Accumulated</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="analytical-engine-intro" style="background: linear-gradient(135deg, rgba(182, 102, 255, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%); border: 1px solid rgba(182, 102, 255, 0.25); padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+                <div class="engine-card-inner">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                        <div>
+                            <h3 style="margin: 0; color: #fff;">Performance Tracking Console</h3>
+                            <p style="margin: 5px 0 0 0; color: #b3b3b3; font-size: 13px;">Self-grade your Short Answer Questions (SAQs) utilizing the dropdown markers. Your aggregate performance tier updates instantaneously below.</p>
+                        </div>
+                        <div style="text-align: right; min-width: 200px;">
+                            <div style="font-size: 14px; color: #fff;">Mastery Index Status: <strong id="mastery-tier-text" style="color: #ff4d4d;">UNTESTED</strong></div>
+                            <div style="width: 100%; background: rgba(255,255,255,0.05); height: 8px; border-radius: 4px; margin-top: 8px; overflow: hidden;">
+                                <div id="mastery-progress-bar" style="width: 0%; height: 100%; background: #b666ff; transition: width 0.4s ease;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section aria-labelledby="section-1-heading" style="margin-bottom: 40px;">
+                <div style="border-bottom: 2px solid rgba(255,255,255,0.05); padding-bottom: 10px; margin-bottom: 25px;">
+                    <span class="badge-accent" style="background: #b666ff; color: #fff; padding: 4px 8px; font-size: 11px; border-radius: 4px; font-weight: bold;">PART A</span>
+                    <h2 id="section-1-heading" style="margin-top: 5px; color: #fff;">1. High-Tier Exemplar Walkthroughs</h2>
+                    <p style="color: #b3b3b3; font-size: 14px; margin: 0;">Analyze these five benchmark examination responses. These questions illustrate the standard of layout, vector decomposition, and structural step-by-step logic required to obtain full marks in challenging tasks.</p>
+                </div>
+
+                <div class="module-detail-node" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 8px; padding: 25px; margin-bottom: 25px;">
+                    <h4 style="color: #b666ff; margin-top: 0;">Exemplar 1: Modified Atwood Machine with Kinetic Friction (Challenging)</h4>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.6;">
+                        A block of mass $m_1 = 4.5\text{ kg}$ rests on a rough horizontal surface with a kinetic coefficient of friction $\mu_k = 0.35$. It is connected via an inextensible, massless string threaded over an ideal frictionless pulley to a hanging mass $m_2 = 7.0\text{ kg}$. Calculate the absolute acceleration $a$ of the combined system and determine the internal tension force $T$ operating within the string line during uniform displacement. Take $g = 9.8\text{ m/s}^2$.
+                    </p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="350" height="180" style="background: #111115; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03);">
+                            <line x1="30" y1="100" x2="220" y2="100" stroke="#555" stroke-width="4"/>
+                            <rect x="80" y="65" width="50" height="35" fill="#2a2a35" stroke="#b666ff" stroke-width="2"/>
+                            <text x="98" y="87" fill="#fff" font-size="12">m1</text>
+                            <circle cx="220" cy="100" r="12" fill="#444" stroke="#888" stroke-width="1.5"/>
+                            <line x1="130" y1="82" x2="220" y2="88" stroke="#ccc" stroke-width="2"/>
+                            <line x1="232" y1="100" x2="232" y2="140" stroke="#ccc" stroke-width="2"/>
+                            <rect x="217" y="140" width="30" height="30" fill="#2a2a35" stroke="#00d2ff" stroke-width="2"/>
+                            <text x="225" y="158" fill="#fff" font-size="11">m2</text>
+                            <path d="M 130 82 L 150 82" stroke="#ff4d4d" stroke-width="2"/>
+                            <polygon points="155,82 147,78 147,86" fill="#ff4d4d"/>
+                            <text x="145" y="73" fill="#ff4d4d" font-size="11">a →</text>
+                        </svg>
+                    </div>
+
+                    <details>
+                        <summary style="color: #00d2ff; cursor: pointer;">Examine Exhaustive Step-by-Step Worked Solution</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Step 1: Construct Independent Free-Body Systems</strong><br>
+                            For Mass $m_1$ on the horizontal bench plane:<br>
+                            Perpendicular axis equilibrium: $\Sigma F_y = F_N - m_1g = 0 \implies F_N = m_1g$.<br>
+                            The structural kinetic frictional drag force is: $F_f = \mu_k F_N = \mu_k m_1g$.<br>
+                            Horizontal parallel equation of motion: $\Sigma F_x = T - F_f = m_1a \implies T - \mu_k m_1g = m_1a \quad \text{--- (Equation 1)}$.<br><br>
+                            For Hanging Mass $m_2$ descending vertically downwards:<br>
+                            Vertical equation of motion: $\Sigma F_y = m_2g - T = m_2a \quad \text{--- (Equation 2)}$.<br><br>
+                            <strong>Step 2: Simultaneously Add Equations to Eliminate Tension ($T$)</strong><br>
+                            $$(T - \mu_k m_1g) + (m_2g - T) = m_1a + m_2a$$
+                            $$m_2g - \mu_k m_1g = (m_1 + m_2)a$$
+                            $$a = \frac{g(m_2 - \mu_k m_1)}{m_1 + m_2}$$
+                            <strong>Step 3: Compute Numerical Values for Acceleration ($a$)</strong><br>
+                            $$a = \frac{9.8 \times (7.0 - [0.35 \times 4.5])}{4.5 + 7.0} = \frac{9.8 \times (7.0 - 1.575)}{11.5} = \frac{9.8 \times 5.425}{11.5} = 4.6228\text{ m/s}^2 \approx 4.62\text{ m/s}^2$$
+                            <strong>Step 4: Resolve Back to Calculate String Tension Force ($T$)</strong><br>
+                            Using Equation 2: $T = m_2g - m_2a = m_2(g - a)$<br>
+                            $$T = 7.0 \times (9.8 - 4.6228) = 7.0 \times 5.1772 = 36.24\text{ N} \approx 36.2\text{ N}$$
+                            <p style="margin-top: 10px; color: #5cb85c;"><strong>Final Analytical Matrix:</strong> $a = 4.62\text{ m/s}^2$, $T = 36.2\text{ N}$. All steps match standard NESA marking criteria.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="module-detail-node" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 8px; padding: 25px; margin-bottom: 25px;">
+                    <h4 style="color: #b666ff; margin-top: 0;">Exemplar 2: Power Metrics on Inclined Profiles with Friction</h4>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.6;">
+                        A $1200\text{ kg}$ tracking vehicle climbs a uniform incline slanted at an angle $\theta = 15^\circ$ to the horizontal. The track generates a constant non-conservative resistive drag force (friction and air resistance) totaling $F_{\text{resistive}} = 850\text{ N}$. If the mechanical engine functions at an output power value of $P = 45\text{ kW}$, deduce the terminal steady state velocity $v$ of the vehicle moving up the slope. Take $g = 9.8\text{ m/s}^2$.
+                    </p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="350" height="150" style="background: #111115; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03);">
+                            <polygon points="40,130 300,130 300,60" fill="none" stroke="#555" stroke-width="2"/>
+                            <path d="M 70 130 A 30 30 0 0 0 68 122" fill="none" stroke="#fff" stroke-width="1"/>
+                            <text x="75" y="125" fill="#fff" font-size="10">15°</text>
+                            <g transform="translate(180,95) rotate(-14)">
+                                <rect x="-20" y="-12" width="40" height="24" fill="#2a2a35" stroke="#b666ff" stroke-width="2"/>
+                                <line x1="20" y1="0" x2="50" y2="0" stroke="#5cb85c" stroke-width="2"/>
+                                <polygon points="55,0 47,-3 47,3" fill="#5cb85c"/>
+                                <text x="45" y="-8" fill="#5cb85c" font-size="10">v</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <details>
+                        <summary style="color: #00d2ff; cursor: pointer;">Examine Exhaustive Step-by-Step Worked Solution</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Step 1: Isolate Forces Operating Parallel to the Slope Profile</strong><br>
+                            To maintain a terminal constant velocity state, the forward tractive force ($F_{\text{engine}}$) generated by the vehicle must perfectly balance the sum of all opposing parallel forces:<br>
+                            $$\Sigma F_{\parallel} = 0 \implies F_{\text{engine}} - F_{g,\parallel} - F_{\text{resistive}} = 0$$
+                            The parallel component of gravity acting down the slope is:<br>
+                            $$F_{g,\parallel} = mg \sin\theta = 1200 \times 9.8 \times \sin(15^\circ)$$
+                            $$F_{g,\parallel} = 11760 \times 0.258819 = 3043.71\text{ N}$$
+                            <strong>Step 2: Calculate Absolute Total Tractive Force Required</strong><br>
+                            $$F_{\text{engine}} = F_{g,\parallel} + F_{\text{resistive}} = 3043.71 + 850 = 3893.71\text{ N}$$
+                            <strong>Step 3: Relate Mechanical Output Power to Velocity</strong><br>
+                            Power is the product of parallel driving force and instantaneous velocity:<br>
+                            $$P = F_{\text{engine}} \cdot v \implies v = \frac{P}{F_{\text{engine}}}$$
+                            Convert power from kilowatts to watts: $P = 45\text{ kW} = 45000\text{ W}$.<br>
+                            $$v = \frac{45000}{3893.71} = 11.557\text{ m/s}$$
+                            <p style="margin-top: 10px; color: #5cb85c;"><strong>Final Analytical Matrix:</strong> Terminal linear velocity $v = 11.6\text{ m/s}$ (to 3 significant figures).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="module-detail-node" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 8px; padding: 25px; margin-bottom: 25px;">
+                    <h4 style="color: #b666ff; margin-top: 0;">Exemplar 3: Two-Dimensional Asymmetric Completely Inelastic Impact (High-Tier)</h4>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.6;">
+                        A probe node $A$ ($m_A = 2.0\text{ kg}$) tracks due East with an initial velocity vector $u_A = 6.0\text{ m/s}$. Concurrently, node $B$ ($m_B = 3.5\text{ kg}$) tracks due North with velocity magnitude $u_B = 4.0\text{ m/s}$. They collide and coalesce instantly on impact into a single fused entity. Deduce the exact velocity magnitude $v_f$ and directional tracking angle $\phi$ of the unified combined mass.
+                    </p>
+                    <details>
+                        <summary style="color: #00d2ff; cursor: pointer;">Examine Exhaustive Step-by-Step Worked Solution</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Step 1: Set Up Cartesian Momentum Equations</strong><br>
+                            Let East be the positive $x$-axis and North be the positive $y$-axis. The system is closed, so momentum components are conserved independently across both axes.<br>
+                            Total combined system mass: $M = m_A + m_B = 2.0 + 3.5 = 5.5\text{ kg}$.<br><br>
+                            <strong>Step 2: Resolve Momentum Along the $x$-axis (East)</strong><br>
+                            $$\Sigma p_{x,\text{initial}} = m_A u_A + m_B(0) = 2.0 \times 6.0 = 12.0\text{ kg}\cdot\text{m/s}$$
+                            $$\Sigma p_{x,\text{final}} = M v_{f,x} = 5.5 v_{f,x}$$
+                            $$5.5 v_{f,x} = 12.0 \implies v_{f,x} = \frac{12.0}{5.5} = 2.1818\text{ m/s}$$
+                            <strong>Step 3: Resolve Momentum Along the $y$-axis (North)</strong><br>
+                            $$\Sigma p_{y,\text{initial}} = m_A(0) + m_B u_B = 3.5 \times 4.0 = 14.0\text{ kg}\cdot\text{m/s}$$
+                            $$\Sigma p_{y,\text{final}} = M v_{f,y} = 5.5 v_{f,y}$$
+                            $$5.5 v_{f,y} = 14.0 \implies v_{f,y} = \frac{14.0}{5.5} = 2.5454\text{ m/s}$$
+                            <strong>Step 4: Vector Recombination via Pythagorean Theorem and Trigonometry</strong><br>
+                            $$v_f = \sqrt{v_{f,x}^2 + v_{f,y}^2} = \sqrt{(2.1818)^2 + (2.5454)^2} = \sqrt{4.7602 + 6.4791} = \sqrt{11.2393} = 3.3525\text{ m/s}$$
+                            $$\phi = \tan^{-1}\left(\frac{v_{f,y}}{v_{f,x}}\right) = \tan^{-1}\left(\frac{2.5454}{2.1818}\right) = \tan^{-1}(1.1666) = 49.4^\circ$$
+                            <p style="margin-top: 10px; color: #5cb85c;"><strong>Final Analytical Matrix:</strong> Velocity magnitude $v_f = 3.35\text{ m/s}$ tracking at a bearing angle of $\text{E } 49.4^\circ \text{ N}$.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="module-detail-node" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 8px; padding: 25px; margin-bottom: 25px;">
+                    <h4 style="color: #b666ff; margin-top: 0;">Exemplar 4: Impulse Metrics and Final Velocity from Force-Time Linear Profiles</h4>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.6;">
+                        A $0.50\text{ kg}$ object is initially moving with a linear velocity $u = -3.0\text{ m/s}$ along a straight track. It experiences an external net force shown in the graph below. Determine the total structural impulse $I$ delivered to the object over the $8\text{-second}$ interval, and calculate its final velocity $v$ at $t = 8\text{ s}$.
+                    </p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="360" height="200" style="background: #111115; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03);">
+                            <line x1="50" y1="150" x2="320" y2="150" stroke="#666" stroke-width="2"/>
+                            <line x1="50" y1="30" x2="50" y2="180" stroke="#666" stroke-width="2"/>
+                            <polygon points="50,150 150,50 250,150 300,150" fill="none" stroke="#ff4d4d" stroke-width="3"/>
+                            <text x="43" y="55" fill="#ff4d4d" font-size="10">20</text>
+                            <text x="145" y="165" fill="#888" font-size="10">4</text>
+                            <text x="245" y="165" fill="#888" font-size="10">8</text>
+                            <text x="325" y="154" fill="#888" font-size="11">t (s)</text>
+                            <text x="20" y="40" fill="#888" font-size="11">F (N)</text>
+                        </svg>
+                    </div>
+
+                    <details>
+                        <summary style="color: #00d2ff; cursor: pointer;">Examine Exhaustive Step-by-Step Worked Solution</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Step 1: Calculate Impulse as Geometric Area Under the Curve</strong><br>
+                            The force starts at zero, increases linearly to a peak of $20\text{ N}$ at $t = 4\text{ s}$, and decreases linearly back to zero at $t = 8\text{ s}$. This forms a triangle with a base from $t = 0$ to $t = 8\text{ s}$ and a height of $20\text{ N}$.<br>
+                            $$I = \text{Area} = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times 8\text{ s} \times 20\text{ N} = 80\text{ N}\cdot\text{s (or kg}\cdot\text{m/s)}$$
+                            <strong>Step 2: Apply the Impulse-Momentum Theorem to Find Final Velocity</strong><br>
+                            $$I = \Delta p = m(v - u)$$
+                            $$80 = 0.50 \times (v - (-3.0))$$
+                            $$80 = 0.50 \times (v + 3.0)$$
+                            Divide both sides by $0.50$ (equivalent to multiplying by 2):<br>
+                            $$160 = v + 3.0 \implies v = 160 - 3.0 = 157\text{ m/s}$$
+                            <p style="margin-top: 10px; color: #5cb85c;"><strong>Final Analytical Matrix:</strong> Absolute impulse $I = 80\text{ N}\cdot\text{s}$, final linear velocity vector $v = 157\text{ m/s}$ in the positive direction.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="module-detail-node" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 8px; padding: 25px; margin-bottom: 25px;">
+                    <h4 style="color: #b666ff; margin-top: 0;">Exemplar 5: Work-Kinetic Energy Proof with Rectilinear Variable Resistances</h4>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.6;">
+                        A $5.0\text{ kg}$ testing block sliding across a horizontal ice sheet enters a rough material strip at an initial velocity $u = 12\text{ m/s}$. The rough strip exerts a uniform deceleration resistance force of $F_{\text{resistive}} = 15\text{ N}$. Using energy conservation profiles, evaluate the absolute distance $s$ required to reduce the kinetic energy of the block by exactly $60\%$.
+                    </p>
+                    <details>
+                        <summary style="color: #00d2ff; cursor: pointer;">Examine Exhaustive Step-by-Step Worked Solution</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Step 1: Calculate Initial Structural Kinetic Energy ($E_{k,\text{initial}}$)</strong><br>
+                            $$E_{k,\text{initial}} = \frac{1}{2}mu^2 = \frac{1}{2} \times 5.0 \times (12)^2 = 2.5 \times 144 = 360\text{ J}$$
+                            <strong>Step 2: Determine Required Loss and Net Mechanical Work Target</strong><br>
+                            A $60\%$ reduction in kinetic energy means the mechanical work done by friction must equal this loss:<br>
+                            $$\Delta E_k = 0.60 \times E_{k,\text{initial}} = 0.60 \times 360\text{ J} = 216\text{ J}$$
+                            Therefore, the mechanical work done on the block is: $W = -216\text{ J}$.<br><br>
+                            <strong>Step 3: Relate Work Value to Displacement ($s$) via Force Integration</strong><br>
+                            $$W = F_{\text{resistive}} \cdot s \cdot \cos(180^\circ) = -F_{\text{resistive}} \cdot s$$
+                            $$-216 = -15 \times s \implies s = \frac{216}{15} = 14.4\text{ m}$$
+                            <p style="margin-top: 10px; color: #5cb85c;"><strong>Final Analytical Matrix:</strong> The object must traverse exactly $s = 14.4\text{ m}$ along the rough strip to reduce its kinetic energy by $60\%$.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section id="mcq-section" aria-labelledby="mcq-heading" style="margin-bottom: 40px;">
+                <div style="border-bottom: 2px solid rgba(255,255,255,0.05); padding-bottom: 10px; margin-bottom: 25px;">
+                    <span class="badge-accent" style="background: #00d2ff; color: #111; padding: 4px 8px; font-size: 11px; border-radius: 4px; font-weight: bold;">PART B</span>
+                    <h2 id="mcq-heading" style="margin-top: 5px; color: #fff;">2. Section I: Multiple Choice Sandbox (10 Marks)</h2>
+                    <p style="color: #b3b3b3; font-size: 14px; margin: 0;">Select the single most mathematically accurate option for each inquiry. Input your answers into the verification engine at the bottom of the section to validate your choices.</p>
+                </div>
+
+                <form id="mcq-form">
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 1: Which statement accurately describes a field force compared to a contact force within NESA dynamic definitions?</p>
+                        <label><input type="radio" name="q1" value="A"> A. Field forces do not require material touch because they arise from spatial macro-field modifications such as mass altering space-time metrics.</label><br>
+                        <label><input type="radio" name="q1" value="B"> B. Contact forces require physical proximity because they are mediated by macroscopic string line loops instead of fundamental electromagnetic interactions.</label><br>
+                        <label><input type="radio" name="q1" value="C"> C. Field forces travel instantly across space, violating the speed of light barrier in preliminary setups.</label><br>
+                        <label><input type="radio" name="q1" value="D"> D. Contact forces are strictly stronger than field forces regardless of spatial separation metrics.</label>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 2: An object remains stationary on a horizontal bench top. An external pulling force is applied horizontally, increasing from $0\text{ N}$ to $10\text{ N}$. If the object does not slip or move, how does the internal static friction force change?</p>
+                        <label><input type="radio" name="q2" value="A"> A. It remains constant at the maximum threshold value $\mu_s F_N$.</label><br>
+                        <label><input type="radio" name="q2" value="B"> B. It drops instantly to zero because the object is in static equilibrium.</label><br>
+                        <label><input type="radio" name="q2" value="C"> C. It increases linearly, matching the magnitude of the applied horizontal force to maintain equilibrium.</label><br>
+                        <label><input type="radio" name="q2" value="D"> D. It switches directly to kinetic friction to prevent macroscopic movement.</label>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 3: A block of mass $m$ slides down a frictionless incline slanted at an angle $\theta$. What is the absolute magnitude of the normal force vector $F_N$ acting on the block surface?</p>
+                        <label><input type="radio" name="q3" value="A"> A. $F_N = mg$</label><br>
+                        <label><input type="radio" name="q3" value="B"> B. $F_N = mg \sin\theta$</label><br>
+                        <label><input type="radio" name="q3" value="C"> C. $F_N = mg \cos\theta$</label><br>
+                        <label><input type="radio" name="q3" value="D"> D. $F_N = mg \tan\theta$</label>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 4: If a system reduces its total kinetic energy during an internal collision event while preserving its total linear momentum vector, how is the interaction classified?</p>
+                        <label><input type="radio" name="q4" value="A"> A. Perfectly Elastic Collision</label><br>
+                        <label><input type="radio" name="q4" value="B"> B. Inelastic Collision</label><br>
+                        <label><input type="radio" name="q4" value="C"> C. Explosive Isolation Event</label><br>
+                        <label><input type="radio" name="q4" value="D"> D. Static Structural Interaction</label>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 5: A force-time graph features a flat horizontal line at $F = 15\text{ N}$ from $t = 0$ to $t = 6\text{ s}$. What is the total structural impulse delivered during this interval?</p>
+                        <label><input type="radio" name="q5" value="A"> A. $2.5\text{ N}\cdot\text{s}$</label><br>
+                        <label><input type="radio" name="q5" value="B"> B. $45\text{ N}\cdot\text{s}$</label><br>
+                        <label><input type="radio" name="q5" value="C"> C. $90\text{ N}\cdot\text{s}$</label><br>
+                        <label><input type="radio" name="q5" value="D"> D. $15\text{ N}\cdot\text{s}$</label>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 6: An engine performs $120\text{ kJ}$ of mechanical work over a runtime duration of exactly $4.0\text{ minutes}$. Calculate the average mechanical power output ($P_{\text{av}}$) of the engine.</p>
+                        <label><input type="radio" name="q6" value="A"> A. $30\text{ kW}$</label><br>
+                        <label><input type="radio" name="q6" value="B"> B. $500\text{ W}$</label><br>
+                        <label><input type="radio" name="q6" value="C"> C. $30,000\text{ W}$</label><br>
+                        <label><input type="radio" name="q6" value="D"> D. $2,000\text{ W}$</label>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 7: A $3.0\text{ kg}$ object accelerates uniformly from rest to a linear velocity of $8.0\text{ m/s}$. Deduce the net mechanical work performed on the object.</p>
+                        <label><input type="radio" name="q7" value="A"> A. $24\text{ J}$</label><br>
+                        <label><input type="radio" name="q7" value="B"> B. $96\text{ J}$</label><br>
+                        <label><input type="radio" name="q7" value="C"> C. $192\text{ J}$</label><br>
+                        <label><input type="radio" name="q7" value="D"> D. $12\text{ J}$</label>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 8: Why do vehicular safety engineers design front crumple zones that collapse structurally during an impact?</p>
+                        <label><input type="radio" name="q8" value="A"> A. To increase the impact duration $\Delta t$, thereby reducing the average force vector experienced by the occupants for a fixed change in momentum.</label><br>
+                        <label><input type="radio" name="q8" value="B"> B. To decrease the total impulse delivered to the vehicle shell matrix.</label><br>
+                        <label><input type="radio" name="q8" value="C"> C. To convert kinetic energy directly into gravitational potential energy.</label><br>
+                        <label><input type="radio" name="q8" value="D"> D. To change the total momentum vector of the system before the impact occurs.</label>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 9: Two blocks of mass $M$ and $3M$ are tied together by a string in a standard Atwood machine configuration suspended over an ideal pulley. What is the acceleration magnitude of the heavier mass when released from rest?</p>
+                        <label><input type="radio" name="q9" value="A"> A. $g$</label><br>
+                        <label><input type="radio" name="q9" value="B"> B. $0.5g$</label><br>
+                        <label><input type="radio" name="q9" value="C"> C. $0.25g$</label><br>
+                        <label><input type="radio" name="q9" value="D"> D. $2g$</label>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                        <p style="margin-top: 0; color: #fff; font-weight: 600;">Question 10: An object moving at velocity $v$ has a linear momentum magnitude $p$. If its velocity vector is doubled while its mass is halved, what is its new momentum magnitude?</p>
+                        <label><input type="radio" name="q10" value="A"> A. $0.5p$</label><br>
+                        <label><input type="radio" name="q10" value="B"> B. $2p$</label><br>
+                        <label><input type="radio" name="q10" value="C"> C. $p$</label><br>
+                        <label><input type="radio" name="q10" value="D"> D. $4p$</label>
+                    </div>
+
+                    <button type="button" onclick="evaluateMCQ()" style="background: #00d2ff; color: #111; font-weight: bold; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Evaluate Multiple Choice Answers</button>
+                    <span id="mcq-feedback-text" style="margin-left: 15px; font-weight: bold; color: #fff;"></span>
+                </form>
+            </section>
+
+            <section id="saq-section" aria-labelledby="saq-heading" style="margin-bottom: 40px;">
+                <div style="border-bottom: 2px solid rgba(255,255,255,0.05); padding-bottom: 10px; margin-bottom: 25px;">
+                    <span class="badge-accent" style="background: #ff4d4d; color: #fff; padding: 4px 8px; font-size: 11px; border-radius: 4px; font-weight: bold;">PART C</span>
+                    <h2 id="saq-heading" style="margin-top: 5px; color: #fff;">3. Section II: Analytical Short Answer Sandbox (75 Marks Available)</h2>
+                    <p style="color: #b3b3b3; font-size: 14px; margin: 0;">Solve each multi-part question on paper. Expand the accordion tab to verify your steps against the detailed worked solution, then select your earned marks using the dropdown selector to update your total score.</p>
+                </div>
+
+                <h3 style="color: #fff; margin-top: 30px; border-left: 3px solid #ff4d4d; padding-left: 10px;">Category 1: Graphical Data Sets (Questions 1 - 5)</h3>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 1: Linear Impulse Profiles (4 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A $2.5\text{ kg}$ block is subjected to a collinear force profile shown below. The force increases linearly from $0\text{ N}$ at $t = 0$ to $40\text{ N}$ at $t = 5\text{ s}$, then drops instantly to a constant $10\text{ N}$ from $t = 5\text{ s}$ to $t = 9\text{ s}$.</p>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <svg width="340" height="180" style="background: #111115; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03);">
+                            <line x1="50" y1="140" x2="300" y2="140" stroke="#666" stroke-width="1.5"/>
+                            <line x1="50" y1="20" x2="50" y2="150" stroke="#666" stroke-width="1.5"/>
+                            <line x1="50" y1="140" x2="170" y2="40" stroke="#ff4d4d" stroke-width="2.5"/>
+                            <line x1="170" y1="40" x2="170" y2="110" stroke="#ff4d4d" stroke-width="2" stroke-dasharray="2"/>
+                            <line x1="170" y1="110" x2="270" y2="110" stroke="#ff4d4d" stroke-width="2.5"/>
+                            <text x="38" y="45" fill="#fff" font-size="9">40</text>
+                            <text x="38" y="115" fill="#fff" font-size="9">10</text>
+                            <text x="167" y="153" fill="#888" font-size="9">5</text>
+                            <text x="267" y="153" fill="#888" font-size="9">9</text>
+                        </svg>
+                    </div>
+
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Calculate the total mechanical impulse delivered to the mass from $t = 0$ to $t = 9\text{ s}$.<br>
+                        (b) If the block was initially tracking at $u = +4.0\text{ m/s}$, calculate its final velocity at $t = 9\text{ s}$.
+                    </p>
+                    <input type="text" placeholder="Enter your final values..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Area Calculation:</strong><br>
+                            Area 1 (Triangle from $0$ to $5\text{ s}$): $\frac{1}{2} \times 5 \times 40 = 100\text{ N}\cdot\text{s}$.<br>
+                            Area 2 (Rectangle from $5$ to $9\text{ s}$): $(9 - 5) \times 10 = 4 \times 10 = 40\text{ N}\cdot\text{s}$.<br>
+                            Total Impulse $I = 100 + 40 = 140\text{ N}\cdot\text{s}$ [2 Marks].<br><br>
+                            <strong>(b) Velocity Calculation:</strong><br>
+                            $$I = m(v - u) \implies 140 = 2.5 \times (v - 4.0)$$
+                            $$\frac{140}{2.5} = v - 4.0 \implies 56 = v - 4.0 \implies v = 60.0\text{ m/s} \text{ [2 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq1">Assign Marks Attained:</label>
+                        <select id="m_saq1" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 4</option> <option value="1">1 / 4</option>
+                            <option value="2">2 / 4</option> <option value="3">3 / 4</option>
+                            <option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 2: Displacement-Time Work Proofs (4 Marks)</p>
+                    <div style="text-align: center; margin: 15px 0;">
+                        <svg width="340" height="150" style="background: #111115; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03);">
+                            <line x1="50" y1="120" x2="300" y2="120" stroke="#666" stroke-width="1.5"/>
+                            <line x1="50" y1="20" x2="50" y2="130" stroke="#666" stroke-width="1.5"/>
+                            <path d="M 50 120 Q 150 120 250 40" fill="none" stroke="#00d2ff" stroke-width="2.5"/>
+                            <text x="30" y="30" fill="#888" font-size="10">s (m)</text>
+                            <text x="285" y="135" fill="#888" font-size="10">t (s)</text>
+                        </svg>
+                    </div>
+                    <p style="color: #ccc; font-size: 14px;">
+                        The displacement-time curve of a $10\text{ kg}$ payload shows a uniform acceleration profile. The position is given by the function $s = 1.5t^2$.<br>
+                        (a) Deduce the constant acceleration value $a$ using kinematic structural equations (without calculus).<br>
+                        (b) Calculate the total net work done on the object from $t = 0$ to $t = 4\text{ s}$.
+                    </p>
+                    <input type="text" placeholder="Enter your final values..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Acceleration analysis:</strong><br>
+                            Compare $s = 1.5t^2$ with the standard equation $s = ut + \frac{1}{2}at^2$. Since $u = 0$, we have:<br>
+                            $$\frac{1}{2}a = 1.5 \implies a = 3.0\text{ m/s}^2 \text{ [2 Marks].}$$
+                            <strong>(b) Work done calculation:</strong><br>
+                            At $t = 0$, $u = 0$. At $t = 4\text{ s}$, final velocity is:<br>
+                            $$v = u + at = 0 + (3.0 \times 4) = 12.0\text{ m/s}$$
+                            $$W = \Delta E_k = \frac{1}{2}mv^2 - 0 = \frac{1}{2} \times 10 \times (12.0)^2 = 5 \times 144 = 720\text{ J} \text{ [2 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq2">Assign Marks Attained:</label>
+                        <select id="m_saq2" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 4</option> <option value="1">1 / 4</option>
+                            <option value="2">2 / 4</option> <option value="3">3 / 4</option>
+                            <option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 3: Constant Power Lifting Profiles (4 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">An industrial winch raises a $250\text{ kg}$ structure vertically against gravity. The velocity-time graph shows the winch reaches a steady terminal lifting velocity of $v = 3.2\text{ m/s}$.</p>
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Calculate the minimum tension force $T$ required to maintain this terminal velocity.<br>
+                        (b) Determine the average mechanical power $P$ delivered by the winch system during this interval.
+                    </p>
+                    <input type="text" placeholder="Enter your final values..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Tension calculation:</strong><br>
+                            Because the velocity is constant, acceleration is zero ($\vec{a} = 0$). Therefore, the forces must be balanced:<br>
+                            $$T = mg = 250 \times 9.8 = 2450\text{ N} \text{ [2 Marks].}$$
+                            <strong>(b) Power calculation:</strong><br>
+                            $$P = F \cdot v = T \cdot v = 2450 \times 3.2 = 7840\text{ W} = 7.84\text{ kW} \text{ [2 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq3">Assign Marks Attained:</label>
+                        <select id="m_saq3" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 4</option> <option value="1">1 / 4</option>
+                            <option value="2">2 / 4</option> <option value="3">3 / 4</option>
+                            <option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 4: Kinetic Friction Deceleration Tracking (4 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A telemetry graph tracking velocity as a function of displacement ($v$-$s$) shows a $40\text{ kg}$ object deceleration on a rough test track. The initial velocity is $u = 16\text{ m/s}$, and the object slides to a stop over a distance of $s = 32\text{ m}$.</p>
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Using kinematic equations, calculate the uniform linear deceleration rate $a$.<br>
+                        (b) Determine the coefficient of kinetic friction $\mu_k$ between the object and the surface.
+                    </p>
+                    <input type="text" placeholder="Enter your final values..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Acceleration analysis:</strong><br>
+                            Using the formula $v^2 = u^2 + 2as$ with a final velocity $v = 0$:<br>
+                            $$0 = 16^2 + 2 \cdot a \cdot 32 \implies 0 = 256 + 64a \implies a = -4.0\text{ m/s}^2 \text{ [2 Marks].}$$
+                            <strong>(b) Coefficient of friction calculation:</strong><br>
+                            The net stopping force is provided entirely by kinetic friction:<br>
+                            $$F_{\text{net}} = ma = 40 \times (-4.0) = -160\text{ N} \implies F_f = 160\text{ N}$$
+                            Since $F_N = mg = 40 \times 9.8 = 392\text{ N}$:<br>
+                            $$\mu_k = \frac{F_f}{F_N} = \frac{160}{392} \approx 0.408 \text{ [2 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq4">Assign Marks Attained:</label>
+                        <select id="m_saq4" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 4</option> <option value="1">1 / 4</option>
+                            <option value="2">2 / 4</option> <option value="3">3 / 4</option>
+                            <option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 5: Spring-Applied Tractive Forces (4 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A calibrated force sensor records a linear increase in force as a function of displacement ($F$-$s$) used to pull a $12\text{ kg}$ test chassis from rest. The force profile increases linearly from $F = 0\text{ N}$ at $s = 0$ to $F = 120\text{ N}$ at $s = 6.0\text{ m}$.</p>
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Calculate the total work done on the chassis by integrating the area under the force-displacement graph.<br>
+                        (b) Assuming the track is frictionless, calculate the final velocity of the chassis at $s = 6.0\text{ m}$.
+                    </p>
+                    <input type="text" placeholder="Enter your final values..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Work calculation:</strong><br>
+                            The work done equals the area under the triangular $F$-$s$ graph:<br>
+                            $$W = \text{Area} = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times 6.0 \times 120 = 360\text{ J} \text{ [2 Marks].}$$
+                            <strong>(b) Velocity calculation:</strong><br>
+                            Using the work-kinetic energy theorem ($W = \Delta E_k$):<br>
+                            $$360 = \frac{1}{2} m v^2 \implies 360 = \frac{1}{2} \times 12 \times v^2 \implies 360 = 6v^2$$
+                            $$v^2 = 60 \implies v = \sqrt{60} \approx 7.75\text{ m/s} \text{ [2 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq5">Assign Marks Attained:</label>
+                        <select id="m_saq5" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 4</option> <option value="1">1 / 4</option>
+                            <option value="2">2 / 4</option> <option value="3">3 / 4</option>
+                            <option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <h3 style="color: #fff; margin-top: 30px; border-left: 3px solid #b666ff; padding-left: 10px;">Category 2: Core Mechanical Scenarios (Questions 6 - 20)</h3>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 6: Non-Calculus Mechanical Energy on an Asymmetric Double-Peak Track (5 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">
+                        A frictionless $4.0\text{ kg}$ testing sphere is released from rest at the summit of a complex testing track (Point $A$, height $h_A = 25\text{ m}$). The track profile drops down, climbs to a intermediate peak ($B$, height $h_B = 18\text{ m}$), drops to a second valley, and finally ascends to a final platform peak ($C$, height $h_C = 22\text{ m}$).
+                    </p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="450" height="160" style="background: #111115; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03);">
+                            <path d="M 30,30 Q 70,140 120,140 T 200,60 Q 230,60 260,130 T 360,45 Q 390,45 420,30" fill="none" stroke="#b666ff" stroke-width="3"/>
+                            <circle cx="30" cy="30" r="6" fill="#00d2ff"/>
+                            <text x="25" y="20" fill="#fff" font-size="10">A (25m)</text>
+                            <text x="195" y="48" fill="#fff" font-size="10">B (18m)</text>
+                            <text x="355" y="35" fill="#fff" font-size="10">C (22m)</text>
+                        </svg>
+                    </div>
+
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) State the total mechanical energy possessed by the sphere at Point $A$.<br>
+                        (b) Calculate the velocity magnitude of the sphere as it passes over Peak $B$.<br>
+                        (c) Determine whether the sphere has sufficient energy to successfully cross the final peak platform $C$, justifying your answer using mechanical energy conservation principles.
+                    </p>
+                    <input type="text" placeholder="Enter your responses..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Total energy at point A:</strong><br>
+                            At Point $A$, the sphere is at rest ($E_k = 0$). Its total mechanical energy is entirely gravitational potential energy:<br>
+                            $$E_{\text{total}} = E_p = mgh_A = 4.0 \times 9.8 \times 25 = 980\text{ J} \text{ [1 Mark].}$$
+                            <strong>(b) Velocity at Peak B:</strong><br>
+                            By conservation of energy, the total energy remains constant ($E_{\text{total}} = 980\text{ J}$):<br>
+                            $$E_{\text{total}} = E_{k,B} + E_{p,B} \implies 980 = \frac{1}{2}mv_B^2 + mgh_B$$
+                            $$980 = \frac{1}{2}(4.0)v_B^2 + (4.0 \times 9.8 \times 18) \implies 980 = 2v_B^2 + 705.6$$
+                            $$2v_B^2 = 980 - 705.6 = 274.4 \implies v_B^2 = 137.2 \implies v_B = \sqrt{137.2} \approx 11.71\text{ m/s} \text{ [2 Marks].}$$
+                            <strong>(c) Clear Platform C Verification:</strong><br>
+                            The total energy required to reach Peak $C$ is:<br>
+                            $$E_{p,C} = mgh_C = 4.0 \times 9.8 \times 22 = 862.4\text{ J}$$
+                            Because the total energy of the system ($980\text{ J}$) is greater than the potential energy at Peak $C$ ($862.4\text{ J}$), the sphere has sufficient energy to clear the platform. It will cross Peak $C$ with a remaining kinetic energy of $117.6\text{ J}$ ($980 - 862.4$) [2 Marks].
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq6">Assign Marks Attained:</label>
+                        <select id="m_saq6" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 5</option> <option value="1">1 / 5</option>
+                            <option value="2">2 / 5</option> <option value="3">3 / 5</option>
+                            <option value="4">4 / 5</option> <option value="5">5 / 5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 7: Combined Pulley Systems on Incline Planes (5 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">
+                        A $6.0\text{ kg}$ block resting on a frictionless incline slanted at $\theta = 30^\circ$ is tied via an ideal cord running over a frictionless pulley to a vertically suspended hanging mass $m_2 = 5.0\text{ kg}$.
+                    </p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="360" height="160" style="background: #111115; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03);">
+                            <polygon points="40,130 260,130 260,40" fill="none" stroke="#555" stroke-width="2"/>
+                            <circle cx="260" cy="40" r="8" fill="#444" stroke="#888"/>
+                            <rect x="130" y="80" width="35" height="25" fill="#2a2a35" stroke="#b666ff" stroke-width="2" transform="rotate(-22, 130, 80)"/>
+                            <line x1="150" y1="80" x2="260" y2="35" stroke="#ccc" stroke-width="1.5"/>
+                            <line x1="268" y1="40" x2="268" y2="90" stroke="#ccc" stroke-width="1.5"/>
+                            <rect x="253" y="90" width="30" height="30" fill="#2a2a35" stroke="#00d2ff" stroke-width="2"/>
+                        </svg>
+                    </div>
+
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Calculate the net force component of gravity pulling mass $m_1$ down along the incline face.<br>
+                        (b) Determine the absolute acceleration magnitude $a$ of the connected masses when released from rest.<br>
+                        (c) Deduce the internal tension force $T$ within the string loop line.
+                    </p>
+                    <input type="text" placeholder="Enter calculated values..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Incline component:</strong><br>
+                            $$F_{g,1\parallel} = m_1g \sin(30^\circ) = 6.0 \times 9.8 \times 0.5 = 29.4\text{ N} \text{ [1 Mark].}$$
+                            <strong>(b) Acceleration analysis:</strong><br>
+                            The hanging weight pulling the system down is: $F_{g,2} = m_2g = 5.0 \times 9.8 = 49.0\text{ N}$.<br>
+                            Since $49.0\text{ N} > 29.4\text{ N}$, the system accelerates such that mass $m_2$ moves downwards and mass $m_1$ moves up the incline.<br>
+                            $$\Sigma F = m_2g - m_1g\sin(30^\circ) = (m_1 + m_2)a$$
+                            $$49.0 - 29.4 = (6.0 + 5.0)a \implies 19.6 = 11a \implies a = \frac{19.6}{11} \approx 1.78\text{ m/s}^2 \text{ [2 Marks].}$$
+                            <strong>(c) Tension deduction:</strong><br>
+                            Using the equation of motion for the hanging mass ($m_2$):<br>
+                            $$m_2g - T = m_2a \implies T = m_2(g - a) = 5.0 \times (9.8 - 1.7818) = 5.0 \times 8.0182 = 40.09\text{ N} \approx 40.1\text{ N} \text{ [2 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq7">Assign Marks Attained:</label>
+                        <select id="m_saq7" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 5</option> <option value="1">1 / 5</option>
+                            <option value="2">2 / 5</option> <option value="3">3 / 5</option>
+                            <option value="4">4 / 5</option> <option value="5">5 / 5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 8: Comprehensive Atwood System Derivations (4 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A standard vertical Atwood machine features two masses ($m_1 = 3.0\text{ kg}$ and $m_2 = 5.0\text{ kg}$) connected by an ideal string over a frictionless pulley.</p>
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Derive the acceleration equation from Newton's Second Law without using calculus shortcuts.<br>
+                        (b) Calculate the absolute value of tension $T$ when the system is moving.
+                    </p>
+                    <input type="text" placeholder="Enter answers..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Derivation Step:</strong><br>
+                            For $m_2$ (descending): $m_2g - T = m_2a$. For $m_1$ (ascending): $T - m_1g = m_1a$.<br>
+                            Adding the equations eliminates $T$:<br>
+                            $$m_2g - m_1g = (m_1 + m_2)a \implies a = \frac{g(m_2 - m_1)}{m_1 + m_2} = \frac{9.8 \times (5 - 3)}{5 + 3} = \frac{19.6}{8} = 2.45\text{ m/s}^2 \text{ [2 Marks].}$$
+                            <strong>(b) Tension step:</strong><br>
+                            $$T = m_1(g + a) = 3.0 \times (9.8 + 2.45) = 3.0 \times 12.25 = 36.75\text{ N} \text{ [2 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq8">Assign Marks Attained:</label>
+                        <select id="m_saq8" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 4</option> <option value="1">1 / 4</option>
+                            <option value="2">2 / 4</option> <option value="3">3 / 4</option>
+                            <option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 9: Asymmetric 2D Elastic Vector Splitting (5 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A $2.0\text{ kg}$ object moving due East at $10\text{ m/s}$ strikes a stationary $3.0\text{ kg}$ object. After the collision, the $2.0\text{ kg}$ object moves at $4.0\text{ m/s}$ directed at an angle of $30^\circ$ North of East.</p>
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Calculate the total initial momentum components along both horizontal and vertical axes.<br>
+                        (b) Deduce the final horizontal velocity component ($v_{x}$) of the target mass.
+                    </p>
+                    <input type="text" placeholder="Enter components..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Initial Momentum components:</strong><br>
+                            Horizontal axis ($x$): $p_{x} = m_1 u_1 = 2.0 \times 10 = 20\text{ kg}\cdot\text{m/s}$.<br>
+                            Vertical axis ($y$): $p_{y} = 0$ [2 Marks].<br><br>
+                            <strong>(b) Final horizontal components:</strong><br>
+                            The final horizontal momentum component of the first object is:<br>
+                            $$p_{1x}' = m_1 v_1 \cos(30^\circ) = 2.0 \times 4.0 \times 0.866 = 6.93\text{ kg}\cdot\text{m/s}$$
+                            By conservation of horizontal momentum:<br>
+                            $$20 = 6.93 + m_2 v_{2x} \implies 20 = 6.93 + 3.0 \cdot v_{2x}$$
+                            $$3.0 \cdot v_{2x} = 13.07 \implies v_{2x} = 4.36\text{ m/s} \text{ [3 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq9">Assign Marks Attained:</label>
+                        <select id="m_saq9" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 5</option> <option value="1">1 / 5</option>
+                            <option value="2">2 / 5</option> <option value="3">3 / 5</option>
+                            <option value="4">4 / 5</option> <option value="5">5 / 5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 10: Work Done Against Air Resistance (3 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A skydiver of mass $80\text{ kg}$ falls vertically through a distance of $150\text{ m}$. Due to air resistance, their speed only increases from $10\text{ m/s}$ to $30\text{ m/s}$ during this interval.</p>
+                    <p style="color: #ccc; font-size: 14px;">
+                        Calculate the total mechanical work performed against air resistance over this distance.
+                    </p>
+                    <input type="text" placeholder="Enter work values..." style="background: #111116; color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Energy balance solution:</strong><br>
+                            The total loss in gravitational potential energy is:<br>
+                            $$\Delta E_p = mgh = 80 \times 9.8 \times 150 = 117600\text{ J}$$
+                            The total gain in kinetic energy is:<br>
+                            $$\Delta E_k = \frac{1}{2}m(v^2 - u^2) = \frac{1}{2} \times 80 \times (30^2 - 10^2) = 40 \times (900 - 100) = 40 \times 800 = 32000\text{ J}$$
+                            The remaining energy lost corresponds to the work done against air resistance ($W_{\text{drag}}$):<br>
+                            $$W_{\text{drag}} = \Delta E_p - \Delta E_k = 117600 - 32000 = 85600\text{ J} = 85.6\text{ kJ} \text{ [3 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq10">Assign Marks Attained:</label>
+                        <select id="m_saq10" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 3</option> <option value="1">1 / 3</option>
+                            <option value="2">2 / 3</option> <option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 11: Static Equilibrium and String Tension Gaps (3 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A $15\text{ kg}$ lighting fixture is suspended symmetrically from a ceiling by two identical wires, each angled at $45^\circ$ to the horizontal. Calculate the absolute tension force $T$ inside each supporting wire.</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Force analysis:</strong><br>
+                            The total vertical upward force must balance the downward gravitational force ($mg$):<br>
+                            $$\Sigma F_y = 2T \sin(45^\circ) - mg = 0 \implies 2T \sin(45^\circ) = 15 \times 9.8 = 147\text{ N}$$
+                            $$2T(0.7071) = 147 \implies 1.4142T = 147 \implies T = \frac{147}{1.4142} \approx 103.9\text{ N} \text{ [3 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq11">Assign Marks Attained:</label>
+                        <select id="m_saq11" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 3</option> <option value="1">1 / 3</option>
+                            <option value="2">2 / 3</option> <option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 12: Work Done by Friction on Flat Decks (3 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A $50\text{ kg}$ crate is pushed along a horizontal floor at a steady constant speed over a distance of $12\text{ m}$. If the coefficient of kinetic friction is $\mu_k = 0.25$, calculate the work done by the applied pushing force.</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Solution steps:</strong><br>
+                            The normal force is: $F_N = mg = 50 \times 9.8 = 490\text{ N}$.<br>
+                            The kinetic friction force is: $F_f = \mu_k F_N = 0.25 \times 490 = 122.5\text{ N}$.<br>
+                            Because the crate moves at a constant velocity, the applied force equals the friction force ($F_{\text{push}} = 122.5\text{ N}$).<br>
+                            $$W = F_{\text{push}} \cdot s = 122.5 \times 12 = 1470\text{ J} = 1.47\text{ kJ} \text{ [3 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq12">Assign Marks Attained:</label>
+                        <select id="m_saq12" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 3</option> <option value="1">1 / 3</option>
+                            <option value="2">2 / 3</option> <option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 13: Momentum Conservation in Coalescing Impacts (3 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A $1500\text{ kg}$ vehicle moving at $15\text{ m/s}$ rear-ends a stationary $1000\text{ kg}$ car. The two vehicles lock bumpers and move forward together as a single unit. Calculate their shared final velocity magnitude.</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Momentum analysis:</strong><br>
+                            $$\Sigma p_{\text{initial}} = m_1 u_1 + m_2 u_2 = (1500 \times 15) + 0 = 22500\text{ kg}\cdot\text{m/s}$$
+                            $$\Sigma p_{\text{final}} = (m_1 + m_2)v_f = (1500 + 1000)v_f = 2500 v_f$$
+                            $$2500 v_f = 22500 \implies v_f = \frac{22500}{2500} = 9.0\text{ m/s} \text{ [3 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq13">Assign Marks Attained:</label>
+                        <select id="m_saq13" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 3</option> <option value="1">1 / 3</option>
+                            <option value="2">2 / 3</option> <option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 14: Kinetic Energy Elastic Discrepancy Checks (4 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">In the collision described in Question 13, calculate the exact amount of mechanical kinetic energy lost, and classify the collision based on this result.</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Kinetic energy analysis:</strong><br>
+                            $$E_{k,\text{initial}} = \frac{1}{2} m_1 u_1^2 = \frac{1}{2} \times 1500 \times 15^2 = 750 \times 225 = 168750\text{ J}$$
+                            $$E_{k,\text{final}} = \frac{1}{2}(m_1 + m_2)v_f^2 = \frac{1}{2} \times 2500 \times 9^2 = 1250 \times 81 = 101250\text{ J}$$
+                            $$\Delta E_k = 168750 - 101250 = 67500\text{ J} = 67.5\text{ kJ loss.}$$
+                            Because kinetic energy is not conserved ($\Delta E_k \neq 0$), the collision is classified as <strong>inelastic</strong> [4 Marks].
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq14">Assign Marks Attained:</label>
+                        <select id="m_saq14" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 4</option> <option value="1">1 / 4</option>
+                            <option value="2">2 / 4</option> <option value="3">3 / 4</option>
+                            <option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 15: Recoil Dynamics of Isolated Systems (3 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A $65\text{ kg}$ ice skater initially at rest throws a $5.0\text{ kg}$ medicine ball horizontally forward at a velocity of $8.0\text{ m/s}$. Calculate the recoil velocity magnitude of the skater across the frictionless ice sheet.</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Recoil conservation steps:</strong><br>
+                            The system starts at rest, so initial total momentum is zero ($\Sigma p_{\text{initial}} = 0$).<br>
+                            $$\Sigma p_{\text{final}} = m_{\text{skater}} v_{\text{skater}} + m_{\text{ball}} v_{\text{ball}} = 0$$
+                            $$65 \cdot v_{\text{skater}} + (5.0 \times 8.0) = 0 \implies 65 \cdot v_{\text{skater}} + 40 = 0$$
+                            $$v_{\text{skater}} = -\frac{40}{65} \approx -0.615\text{ m/s}$$
+                            The recoil velocity magnitude of the skater is $0.62\text{ m/s}$ in the opposite direction [3 Marks].
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq15">Assign Marks Attained:</label>
+                        <select id="m_saq15" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 3</option> <option value="1">1 / 3</option>
+                            <option value="2">2 / 3</option> <option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 16: Gravitational Potential Scaling Rules (3 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">An elevator car payload transitions from a basement level at $h = -10\text{ m}$ to an upper observation deck platform at $h = +80\text{ m}$. If the absolute mass is $1200\text{ kg}$, determine the total change in gravitational potential energy ($\Delta E_p$).</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Potential energy solution:</strong><br>
+                            The change in vertical height is: $\Delta h = h_{\text{final}} - h_{\text{initial}} = 80 - (-10) = 90\text{ m}$.<br>
+                            $$\Delta E_p = mg\Delta h = 1200 \times 9.8 \times 90 = 1,058,400\text{ J} = 1.06\text{ MJ} \text{ [3 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq16">Assign Marks Attained:</label>
+                        <select id="m_saq16" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 3</option> <option value="1">1 / 3</option>
+                            <option value="2">2 / 3</option> <option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 17: Average Power Demands in Accelerated States (4 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A $800\text{ kg}$ tracking vehicle accelerates uniformly from rest to a velocity of $20\text{ m/s}$ along a straight horizontal testing lane over a duration of $5.0\text{ seconds}$. Calculate the average mechanical power required.</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Power calculation:</strong><br>
+                            First, determine the total work done, which equals the change in kinetic energy ($W = \Delta E_k$):<br>
+                            $$W = \frac{1}{2} mv^2 - 0 = \frac{1}{2} \times 800 \times (20)^2 = 400 \times 400 = 160,000\text{ J}$$
+                            Next, calculate the average power over the $5.0\text{-second}$ interval:<br>
+                            $$P_{\text{av}} = \frac{W}{t} = \frac{160000}{5.0} = 32000\text{ W} = 32\text{ kW} \text{ [4 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq17">Assign Marks Attained:</label>
+                        <select id="m_saq17" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 4</option> <option value="1">1 / 4</option>
+                            <option value="2">2 / 4</option> <option value="3">3 / 4</option>
+                            <option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 18: Acceleration Dynamics under Constant Force Vectors (3 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A steady net horizontal force of $35\text{ N}$ acts continuously on a constant mass payload of $14\text{ kg}$ initially at rest. Calculate the distance traversed by the payload when it reaches a velocity of $10\text{ m/s}$.</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Solution steps:</strong><br>
+                            Using Newton's Second Law, calculate the acceleration:<br>
+                            $$a = \frac{F_{\text{net}}}{m} = \frac{35}{14} = 2.5\text{ m/s}^2$$
+                            Using the kinematic relation $v^2 = u^2 + 2as$ with $u = 0$, solve for displacement ($s$):<br>
+                            $$10^2 = 0 + 2 \times 2.5 \times s \implies 100 = 5s \implies s = 20\text{ m} \text{ [3 Marks].}$$
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq18">Assign Marks Attained:</label>
+                        <select id="m_saq18" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 3</option> <option value="1">1 / 3</option>
+                            <option value="2">2 / 3</option> <option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 19: Action-Reaction Single-Body Matrix Decoupling (3 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A heavy horse pulls a forward cart node. A student argues that according to Newton's Third Law, because the cart pulls back on the horse with an equal and opposite force, the total net force is zero and the system cannot accelerate. Evaluate the student's claim.</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Conceptual evaluation framework:</strong><br>
+                            The student's claim is incorrect. Newton's Third Law action-reaction force pairs operate on <strong>two entirely distinct bodies</strong> (the forward force acts on the cart, while the reaction force acts on the horse).<br>
+                            To determine the acceleration of a single body, we only sum the external forces acting directly <em>on that body</em>. The cart accelerates because the forward pull of the horse exceeds the opposing friction force acting on its wheels [3 Marks].
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq19">Assign Marks Attained:</label>
+                        <select id="m_saq19" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 3</option> <option value="1">1 / 3</option>
+                            <option value="2">2 / 3</option> <option value="3">3 / 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 20: Vector Form Reconstructions from Two Orthogonal Splats (4 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A point mass experiences two simultaneous external horizontal force vectors: $F_1 = 12\text{ N}$ directed due East, and $F_2 = 5.0\text{ N}$ directed due North. Calculate the magnitude and direction of the resultant force vector.</p>
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>Vector calculation steps:</strong><br>
+                            Because the two forces are orthogonal, use the Pythagorean theorem to find the resultant magnitude:<br>
+                            $$F_{\text{net}} = \sqrt{F_1^2 + F_2^2} = \sqrt{12^2 + 5.0^2} = \sqrt{144 + 25} = \sqrt{169} = 13.0\text{ N}$$
+                            Find the direction angle ($\theta$) relative to due East:<br>
+                            $$\theta = \tan^{-1}\left(\frac{5.0}{12}\right) \approx 22.6^\circ$$
+                            The resultant force is $13.0\text{ N}$ directed at $\text{E } 22.6^\circ \text{ N}$ [4 Marks].
+                        </div>
+                    </details>
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq20">Assign Marks Attained:</label>
+                        <select id="m_saq20" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 4</option> <option value="1">1 / 4</option>
+                            <option value="2">2 / 4</option> <option value="3">3 / 4</option>
+                            <option value="4">4 / 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 21: Frictionless Inclined Plane Ascent (5 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A crate of mass $15\text{ kg}$ is pulled up a smooth, frictionless incline angled at $25^\circ$ by a force acting parallel to the surface of the ramp.</p>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <svg width="200" height="110" style="background: #111115; border: 1px solid rgba(255,255,255,0.05); border-radius: 6px;">
+                            <polygon points="20,90 180,90 180,30" fill="none" stroke="#666"/>
+                            <rect x="80" y="60" width="25" height="15" fill="#2a2a35" stroke="#00d2ff" transform="rotate(-20 80 60)"/>
+                        </svg>
+                    </div>
+                
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Identify the component of gravity acting parallel to the incline surface. (2 Marks)<br>
+                        (b) Determine the magnitude of the applied force required to pull the crate up the incline with a steady acceleration of $1.5\text{ m/s}^2$. (3 Marks)
+                    </p>
+                
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Component of gravity calculation steps:</strong><br>
+                            The component of gravity pulling the crate down along the incline is:<br>
+                            $$F_{g\parallel} = m g \sin\theta = 15 \times 9.8 \times \sin(25^\circ) = 62.12\text{ N}$$ [2 Marks]<br><br>
+                            
+                            <strong>(b) Applied force calculation steps:</strong><br>
+                            Applying Newton's Second Law to the axis parallel to the incline slope:<br>
+                            $$F_{\text{applied}} - F_{g\parallel} = m a \implies F_{\text{applied}} - 62.12 = 15 \times 1.5$$<br>
+                            $$F_{\text{applied}} = 22.5 + 62.12 = 84.62\text{ N}$$ [3 Marks]
+                        </div>
+                    </details>
+                
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq21" style="color: #ccc; font-size: 14px;">Assign Marks Attained:</label>
+                        <select id="m_saq21" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 5</option>
+                            <option value="1">1 / 5</option>
+                            <option value="2">2 / 5</option>
+                            <option value="3">3 / 5</option>
+                            <option value="4">4 / 5</option>
+                            <option value="5">5 / 5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 22: Constant Velocity Incline &amp; Kinetic Energy Relationships (5 Marks)</p>
+                    
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) A student slides a block up a rough inclined plane at a constant velocity. Explain why the net work done on the block is exactly zero, making reference to the Work-Energy Theorem. (2 Marks)<br><br>
+                        (b) Two distinct objects of mass $m$ and $4m$ possess identical linear kinetic energies. Determine the exact mathematical ratio of their momentum magnitudes ($p_1 : p_2$). (3 Marks)
+                    </p>
+                
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Work explanation steps:</strong><br>
+                            According to the Work-Energy Theorem, the net work done on an object is equal to its change in kinetic energy ($W_{\text{net}} = \Delta K$). Since the block moves at a constant velocity, its speed does not change ($\Delta v = 0$), which means its kinetic energy remains constant ($\Delta K = 0$). Therefore, the net work done on the block must be exactly zero [2 Marks].<br><br>
+                            
+                            <strong>(b) Momentum ratio calculation steps:</strong><br>
+                            The relationship between momentum ($p$) and kinetic energy ($K$) is given by the formula:<br>
+                            $$K = \frac{p^2}{2m} \implies p = \sqrt{2mK}$$
+                            Given that both objects have the same kinetic energy ($K_1 = K_2 = K$):<br>
+                            $$p_1 = \sqrt{2mK}$$
+                            $$p_2 = \sqrt{2(4m)K} = \sqrt{8mK} = 2\sqrt{2mK}$$
+                            Finding the ratio $p_1 : p_2$:<br>
+                            $$\frac{p_1}{p_2} = \frac{\sqrt{2mK}}{2\sqrt{2mK}} = \frac{1}{2}$$
+                            Thus, the ratio of their momentum magnitudes is $1 : 2$ [3 Marks].
+                        </div>
+                    </details>
+                
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq22" style="color: #ccc; font-size: 14px;">Assign Marks Attained:</label>
+                        <select id="m_saq22" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 5</option>
+                            <option value="1">1 / 5</option>
+                            <option value="2">2 / 5</option>
+                            <option value="3">3 / 5</option>
+                            <option value="4">4 / 5</option>
+                            <option value="5">5 / 5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 23: Non-Parallel Pushing Force on a Rough Incline (6 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A crate of mass $20\text{ kg}$ sits on a rough incline angled at $30^\circ$ where the coefficient of static friction is $\mu_s = 0.40$ and kinetic friction is $\mu_k = 0.25$. A worker pushes the block with a constant horizontal force $F = 150\text{ N}$ directed perfectly parallel to the ground (not parallel to the incline), causing the block to move up the ramp.</p>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <svg width="240" height="130" style="background: #111115; border: 1px solid rgba(255,255,255,0.05); border-radius: 6px;">
+                            <polygon points="20,110 220,110 220,40" fill="none" stroke="#666" stroke-width="1.5"/>
+                            <path d="M 50,110 A 30,30 0 0,0 46,101" fill="none" stroke="#888" stroke-width="1"/>
+                            <text x="55" y="105" fill="#888" font-size="11">$30^\circ$</text>
+                            <g transform="rotate(-19.3 110 78)">
+                                <rect x="95" y="68" width="30" height="20" fill="#2a2a35" stroke="#00d2ff" stroke-width="1.5"/>
+                            </g>
+                            <line x1="50" y1="73" x2="92" y2="73" stroke="#ff4d4d" stroke-width="2" marker-end="url(#arrow)"/>
+                            <text x="65" y="65" fill="#ff4d4d" font-size="12" font-weight="bold">$F$</text>
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#ff4d4d"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Determine the magnitude of the normal force exerted by the incline surface on the crate. (3 Marks)<br>
+                        (b) Calculate the magnitude of the acceleration of the crate as it moves up the incline. (3 Marks)
+                    </p>
+                
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Normal force calculation steps:</strong><br>
+                            Establish an axes system where $+x$ points up along the incline surface and $+y$ is normal to it. The horizontal force $F$ acts at an angle of $30^\circ$ below the $+x$-axis, which translates to a component pressing into the incline along the $-y$-axis.<br>
+                            $$\Sigma F_y = 0 \implies F_N - m g \cos\theta - F \sin\theta = 0$$
+                            $$F_N = (20 \times 9.8 \times \cos(30^\circ)) + (150 \times \sin(30^\circ))$$
+                            $$F_N = 169.74 + 75.00 = 244.74\text{ N}$$ [3 Marks]<br><br>
+                            
+                            <strong>(b) Acceleration calculation steps:</strong><br>
+                            First, find the kinetic friction force since the block is moving:<br>
+                            $$f_k = \mu_k F_N = 0.25 \times 244.74 = 61.19\text{ N}$$
+                            Next, look at forces parallel to the incline ($x$-axis): the forward pushing component is $F \cos\theta$, while gravity ($m g \sin\theta$) and friction ($f_k$) oppose motion down the slope.<br>
+                            $$\Sigma F_x = m a \implies F \cos\theta - m g \sin\theta - f_k = m a$$
+                            $$(150 \times \cos(30^\circ)) - (20 \times 9.8 \times \sin(30^\circ)) - 61.19 = 20 \cdot a$$
+                            $$129.90 - 98.00 - 61.19 = 20 \cdot a \implies -29.29 = 20 \cdot a$$
+                            Because $\Sigma F_x$ is negative, let's verify if static friction would hold it. Maximum static friction is $f_{s,\text{max}} = 0.40 \times 244.74 = 97.90\text{ N}$. The net tendency force without friction is $129.90 - 98.00 = 31.90\text{ N}$ up the plane. Since $31.90\text{ N} < f_{s,\text{max}}$ ($97.90\text{ N}$), the block fails to overcome static friction to move up. If it was already moving up, the combined kinetic forces would instantly bring it to rest.<br>
+                            Therefore, the block cannot maintain or achieve acceleration up the plane: $a = 0\text{ m/s}^2$ [3 Marks].
+                        </div>
+                    </details>
+                
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq23" style="color: #ccc; font-size: 14px;">Assign Marks Attained:</label>
+                        <select id="m_saq23" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 6</option> <option value="1">1 / 6</option>
+                            <option value="2">2 / 6</option> <option value="3">3 / 6</option>
+                            <option value="4">4 / 6</option> <option value="5">5 / 6</option>
+                            <option value="6">6 / 6</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 24: Mechanical Power Dynamics of a Descending Block (6 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A $10\text{ kg}$ block is projected down a long $40^\circ$ incline with an initial speed. It is attached to a heavy-duty cable connected to a generator system that provides a resistive tension force. Simultaneously, a fluid dampening brake introduces a velocity-dependent air drag force given by $F_{\text{drag}} = 1.5v^2$. The block reaches a constant terminal velocity descent speed of $v_t = 6.0\text{ m/s}$.</p>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <svg width="240" height="130" style="background: #111115; border: 1px solid rgba(255,255,255,0.05); border-radius: 6px;">
+                            <polygon points="20,30 220,110 20,110" fill="none" stroke="#666" stroke-width="1.5"/>
+                            <path d="M 190,110 A 30,30 0 0,0 196,98" fill="none" stroke="#888" stroke-width="1"/>
+                            <text x="165" y="105" fill="#888" font-size="11">$40^\circ$</text>
+                            <g transform="rotate(21.8 110 66)">
+                                <rect x="95" y="56" width="30" height="20" fill="#2a2a35" stroke="#b666ff" stroke-width="1.5"/>
+                                <line x1="95" y1="66" x2="40" y2="66" stroke="#aaa" stroke-dasharray="3,3" stroke-width="1.5"/>
+                                <line x1="125" y1="66" x2="155" y2="66" stroke="#00d2ff" stroke-width="2" marker-end="url(#blue-arrow)"/>
+                            </g>
+                            <text x="145" y="90" fill="#00d2ff" font-size="12">$v_t$</text>
+                            <defs>
+                                <marker id="blue-arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#00d2ff"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Determine the magnitude of the constant resistive cable tension force acting on the block during terminal descent. (3 Marks)<br>
+                        (b) Calculate the rate at which mechanical energy is actively being dissipated by the fluid drag force at this terminal state. (3 Marks)
+                    </p>
+                
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Cable tension calculation steps:</strong><br>
+                            At terminal velocity, acceleration is exactly zero ($a = 0$), so the forces acting along the incline must balance perfectly.<br>
+                            Downward force component: Gravity parallel to slope = $m g \sin\theta$<br>
+                            Upward resistive forces: Cable tension ($T$) + Fluid drag force ($F_{\text{drag}}$)<br>
+                            $$\Sigma F_{\parallel} = 0 \implies m g \sin\theta - T - F_{\text{drag}} = 0 \implies T = m g \sin\theta - 1.5v_t^2$$
+                            $$T = (10 \times 9.8 \times \sin(40^\circ)) - 1.5(6.0)^2$$
+                            $$T = 62.99\text{ N} - 54.00\text{ N} = 8.99\text{ N}$$ [3 Marks]<br><br>
+                            
+                            <strong>(b) Power dissipation calculation steps:</strong><br>
+                            The rate of mechanical energy dissipation is equivalent to the instantaneous power ($P$) delivered by the non-conservative fluid resistance force.<br>
+                            $$P = F_{\text{drag}} \times v_t$$
+                            We know $F_{\text{drag}} = 54.00\text{ N}$ and velocity $v_t = 6.0\text{ m/s}$.<br>
+                            $$P = 54.00 \times 6.0 = 324.0\text{ W (or J/s)}$$
+                            Thus, the fluid drag is dissipating mechanical energy at a rate of $324.0\text{ W}$ [3 Marks].
+                        </div>
+                    </details>
+                
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq24" style="color: #ccc; font-size: 14px;">Assign Marks Attained:</label>
+                        <select id="m_saq24" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 6</option> <option value="1">1 / 6</option>
+                            <option value="2">2 / 6</option> <option value="3">3 / 6</option>
+                            <option value="4">4 / 6</option> <option value="5">5 / 6</option>
+                            <option value="6">6 / 6</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.04); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="color: #fff; font-weight: 600; margin-top: 0;">Question 25: Non-Parallel Variable Pull &amp; Energy Conservation (6 Marks)</p>
+                    <p style="color: #ccc; font-size: 14px;">A cart of mass $5.0\text{ kg}$ is initially at rest at the bottom of a frictionless ramp angled at $35^\circ$. It is reeled up by a mechanical winch cable that applies a force directed at a constant angle of $\phi = 15^\circ$ <em>relative to the incline surface</em> (upwards away from the ramp). The magnitude of this force varies positionally according to the function $F(x) = 40 + 12x$, where $x$ is the displacement distance along the ramp in meters.</p>
+                    
+                    <div style="text-align: center; margin: 15px 0;">
+                        <svg width="240" height="130" style="background: #111115; border: 1px solid rgba(255,255,255,0.05); border-radius: 6px;">
+                            <polygon points="20,110 210,110 210,40" fill="none" stroke="#666" stroke-width="1.5"/>
+                            <path d="M 50,110 A 30,30 0 0,0 46,100" fill="none" stroke="#888"/>
+                            <text x="52" y="105" fill="#888" font-size="10">$35^\circ$</text>
+                            <g transform="rotate(-20.2 110 76)">
+                                <rect x="95" y="66" width="30" height="16" fill="#2a2a35" stroke="#00d2ff" stroke-width="1.5"/>
+                                <circle cx="102" cy="86" r="4" fill="#111115" stroke="#00d2ff"/>
+                                <circle cx="118" cy="86" r="4" fill="#111115" stroke="#00d2ff"/>
+                                <line x1="125" y1="74" x2="175" y2="60" stroke="#ff4d4d" stroke-width="2" marker-end="url(#red-arrow)"/>
+                                <line x1="125" y1="74" x2="175" y2="74" stroke="#555" stroke-dasharray="2,2"/>
+                                <text x="155" y="71" fill="#fff" font-size="10">$\phi$</text>
+                            </g>
+                            <defs>
+                                <marker id="red-arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#ff4d4d"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                
+                    <p style="color: #ccc; font-size: 14px;">
+                        (a) Compute the total mechanical work performed exclusively by the winch cable force as it pulls the cart from $x = 0$ to $x = 3.0\text{ m}$. (3 Marks)<br>
+                        (b) Employ the Work-Energy Theorem to determine the velocity of the cart at the $x = 3.0\text{ m}$ position. (3 Marks)
+                    </p>
+                
+                    <details>
+                        <summary style="color: #b666ff; cursor: pointer;">Show Official Mark Scheme &amp; Solution Steps</summary>
+                        <div style="padding-top: 15px; color: #ccc; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
+                            <strong>(a) Work integration steps:</strong><br>
+                            Since the force magnitude changes dynamically over the position $x$, work must be solved via integration. Crucially, only the component of the force parallel to the displacement path ($F_x = F(x) \cos\phi$) produces mechanical work.<br>
+                            $$W_{\text{cable}} = \int_{0}^{3.0} F(x) \cos\phi \cdot dx = \cos(15^\circ) \int_{0}^{3.0} (40 + 12x) dx$$
+                            $$W_{\text{cable}} = \cos(15^\circ) \left[ 40x + 6x^2 \right]_{0}^{3.0}$$
+                            $$W_{\text{cable}} = \cos(15^\circ) \left[ (40 \times 3) + (6 \times 3^2) \right] = \cos(15^\circ) \times [120 + 54]$$
+                            $$W_{\text{cable}} = 174 \times \cos(15^\circ) \approx 174 \times 0.9659 = 168.07\text{ J}$$ [3 Marks]<br><br>
+                            
+                            <strong>(b) Velocity calculation steps:</strong><br>
+                            According to the Work-Energy Theorem, $W_{\text{net}} = \Delta K$. The net work consists of the positive work done by the cable and the negative work performed by gravity pulling backwards.<br>
+                            $$W_{\text{gravity}} = -m g \sin\theta \cdot \Delta x = -5.0 \times 9.8 \times \sin(35^\circ) \times 3.0$$
+                            $$W_{\text{gravity}} = -49 \times \sin(35^\circ) \times 3.0 = -84.32\text{ J}$$
+                            Now combine to compute total net work:<br>
+                            $$W_{\text{net}} = W_{\text{cable}} + W_{\text{gravity}} = 168.07 - 84.32 = 83.75\text{ J}$$
+                            Since the cart started from rest ($K_i = 0$):<br>
+                            $$W_{\text{net}} = \frac{1}{2}m v_f^2 \implies 83.75 = \frac{1}{2}(5.0)v_f^2 \implies 83.75 = 2.5 v_f^2$$
+                            $$v_f^2 = \frac{83.75}{2.5} = 33.5 \implies v_f = \sqrt{33.5} \approx 5.79\text{ m/s}$$
+                            The terminal velocity of the cart is $5.79\text{ m/s}$ [3 Marks].
+                        </div>
+                    </details>
+                
+                    <div style="margin-top: 12px; text-align: right;">
+                        <label for="m_saq25" style="color: #ccc; font-size: 14px;">Assign Marks Attained:</label>
+                        <select id="m_saq25" class="saq-mark" onchange="updateTotalScore()">
+                            <option value="0">0 / 6</option> <option value="1">1 / 6</option>
+                            <option value="2">2 / 6</option> <option value="3">3 / 6</option>
+                            <option value="4">4 / 6</option> <option value="5">5 / 6</option>
+                            <option value="6">6 / 6</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="quick-reference-vault" style="margin-top: 40px; border-top: 2px solid #b666ff; padding-top: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <div>
+                        <h4>Dynamics Workstation Core Complete</h4>
+                        <p class="vault-sub">Review theoretical models or verify your progress tracking parameters.</p>
+                    </div>
+                    <div>
+                        <a href="mod2.html" style="color: #b666ff; text-decoration: none; font-weight: bold; font-size: 14px;">← Return to Module 2 Main Hub</a>
+                    </div>
+                </div>
+            </section>
+
+            <footer id="portal-global-footer">
+                <hr class="footer-divider">
+                <div class="footer-lower-row">
+                    <p class="copyright-notice">&copy; 2026 NexusSci Academic Frameworks. Constructed to NESA Preliminary Metrics.</p>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        // Multiple Choice Answer Key Vector
+        const mcqAnswers = {
+            q1: "A", q2: "C", q3: "C", q4: "B", q5: "C",
+            q6: "B", q7: "B", q8: "A", q9: "B", q10: "C"
+        };
+
+        let mcqScore = 0;
+
+        function evaluateMCQ() {
+            mcqScore = 0;
+            const form = document.getElementById('mcq-form');
+            
+            for (let key in mcqAnswers) {
+                const selection = form.elements[key];
+                if (selection) {
+                    if (selection.value === mcqAnswers[key]) {
+                        mcqScore++;
+                    }
+                }
+            }
+            
+            document.getElementById('mcq-feedback-text').innerText = `Multiple Choice evaluated: ${mcqScore} / 10 Marks.`;
+            updateTotalScore();
+        }
+
+        function updateTotalScore() {
+            let saqScore = 0;
+            
+            // Loop over all 20 possible dropdown parameters
+            for (let i = 1; i <= 20; i++) {
+                const el = document.getElementById(`m_saq${i}`);
+                if (el) {
+                    saqScore += parseInt(el.value);
+                }
+            }
+            
+            let finalCombined = mcqScore + saqScore;
+            document.getElementById('live-score-tracker').innerText = `${finalCombined} / 85`;
+            
+            // Compute percentage and update progress bar + text tiers
+            let pct = (finalCombined / 85) * 100;
+            const progressBar = document.getElementById('mastery-progress-bar');
+            const tierText = document.getElementById('mastery-tier-text');
+            
+            progressBar.style.width = `${pct}%`;
+            
+            if (finalCombined === 0) {
+                tierText.innerText = "UNTESTED";
+                tierText.style.color = "#ff4d4d";
+            } else if (pct < 50) {
+                tierText.innerText = "DEVELOPING MASTERY";
+                tierText.style.color = "#ff4d4d";
+            } else if (pct < 75) {
+                tierText.innerText = "COMPETENT ACADEMIC";
+                tierText.style.color = "#ff9f43";
+            } else if (pct < 90) {
+                tierText.innerText = "HONOURS LEVEL";
+                tierText.style.color = "#00d2ff";
+            } else {
+                tierText.innerText = "HIGH DISTINCTION RECOGNITION";
+                tierText.style.color = "#5cb85c";
+            }
+        }
+    </script>
+
+</body>
+</html>

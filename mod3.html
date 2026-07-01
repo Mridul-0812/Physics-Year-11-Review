@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Waves and Thermodynamics | Nexus Academic Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body class="tex2jax_process">
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div id="global-utility-bar">
+        <div class="utility-container">
+            <span class="announcement-text">NESA Year 11 Preliminary Syllabus Portal — Academic Session 2026</span>
+            <div class="utility-controls">
+                <button id="theme-toggle-btn" aria-label="Toggle between dark and light mode" title="Switch Color Theme">
+                    <span class="mode-text">Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="portal-layout">
+
+        <aside id="portal-sidebar" aria-label="Main Navigation">
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <span class="logo-icon">🌌</span>
+                    <span class="brand-name">Nexus<span class="highlight">Sci</span></span>
+                </div>
+                <p class="brand-tagline">NSW Curriculum Mastery</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Primary Directory">
+                <div class="nav-section-label">Core Directory</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <span class="nav-icon">🏠</span>
+                            <span class="nav-text">Portal Home</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-label">Physics Syllabus Modules</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="mod1.html" class="nav-link">
+                            <span class="nav-icon">🏃‍♂️</span>
+                            <span class="nav-text">Module 1: Kinematics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod2.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">Module 2: Dynamics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod3.html" class="nav-link active" aria-current="page">
+                            <span class="nav-icon">🌊</span>
+                            <span class="nav-text">Module 3: Waves / Temp</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mod4.html" class="nav-link">
+                            <span class="nav-icon">⚡</span>
+                            <span class="nav-text">Module 4: Electricity</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-label">Evaluation Engine</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="results.html" class="nav-link">
+                            <span class="nav-icon">🏆</span>
+                            <span class="nav-text">Analytics & Results</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer-card">
+                <div class="status-indicator-group">
+                    <span class="status-dot online"></span>
+                    <span class="status-label">Syllabus Engine: Active</span>
+                </div>
+                <div class="version-tag">v2.4.0-Prelim</div>
+            </div>
+        </aside>
+
+        <main id="main-content" class="portal-main">
+
+            <header id="dashboard-header">
+                <div class="header-search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="search" id="global-search" placeholder="Search wave parameters, Snell's law derivations, latent heat constants...">
+                </div>
+                <div class="header-profile-zone">
+                    <div class="notification-trigger">
+                        <span class="badge">1</span>
+                        <span class="bell-icon">🔔</span>
+                    </div>
+                    <div class="user-avatar-block">
+                        <div class="avatar-initials">ST</div>
+                        <div class="avatar-meta">
+                            <span class="user-name">Scholar Account</span>
+                            <span class="user-role">Year 11 Student</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <header class="dashboard-hero-banner">
+                <div class="hero-left-block">
+                    <div class="breadcrumb-trail">
+                        <span>Nexus Core</span> &gt; <span>Science Directory</span> &gt; <span class="current">Module 3: Waves &amp; Thermodynamics</span>
+                    </div>
+                    <h2>Module 3: Waves and Thermodynamics</h2>
+                    <p class="hero-description">An elite analytical examination of energy transport phenomena across non-matter propagation matrices, acoustic mechanics, optical geometry, and kinetic energy particle distributions.</p>
+                </div>
+                <div class="hero-right-metrics">
+                    <div class="metric-node">
+                        <div class="metric-val">100%</div>
+                        <div class="metric-lbl">Syllabus Coverage Depth</div>
+                    </div>
+                    <div class="metric-node">
+                        <div class="metric-val">NESA</div>
+                        <div class="metric-lbl">Stage 6 Physics Compliance</div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="syllabus-card-section">
+                <div class="section-badge">Inquiry Question 1</div>
+                <h3>What are the properties of all waves and wave motion?</h3>
+                <hr class="separator-line">
+
+                <h4>1.1 Mechanical Waves vs Electromagnetic Waves</h4>
+                <p>A <strong>wave</strong> is an engineered disturbance that facilitates the systematic transfer of energy from one spatial coordinate to another without causing the permanent or net translation of physical matter. The operational propagation of energy operates via two distinct classifications:</p>
+
+                <h5>Mechanical Waves</h5>
+                <p>Mechanical waves strictly require a substantial macroscopic material <strong>medium</strong> (such as solid lattices, fluid columns, or molecular gas fields) to propagate. The transfer of mechanical energy relies on the physical elastic properties and inertial masses of adjacent atoms or molecules within the medium. Energy is passed onward via local elastic collisions and restoring molecular forces. Mechanical waves are incapable of traversing an absolute vacuum matrix ($P = 0\text{ Pa}$). Examples include acoustic perturbations, seismic shock profiles ($P$ and $S$ variations), and string tensions.</p>
+
+                <h5>Electromagnetic Waves</h5>
+                <p>Electromagnetic (EM) waves require no physical matter or material medium for their propagation. They are self-propagating, mutually inducing oscillations of time-varying electric fields ($\vec{E}$) and magnetic fields ($\vec{B}$). These fields are oriented perpendicular to each other and perpendicular to the vector path of wave energy propagation. They travel unhindered through a spatial vacuum at the fundamental speed constant:</p>
+                $$c = \frac{1}{\sqrt{\mu_0 \varepsilon_0}} \approx 2.998 \times 10^8 \text{ m/s}$$
+                <p>Where $\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}$ is the vacuum magnetic permeability and $\varepsilon_0 = 8.854 \times 10^{-12}\text{ F/m}$ is the vacuum electric permittivity.</p>
+
+                <table class="data-summary-table">
+                    <thead>
+                        <tr>
+                            <th>Characteristic Property</th>
+                            <th>Mechanical Wave Framework</th>
+                            <th>Electromagnetic Wave Framework</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Medium Obligation</strong></td>
+                            <td>Mandatory requirement (solid, liquid, gas)</td>
+                            <td>None (propagates in perfect vacuums)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Underlying Mechanism</strong></td>
+                            <td>Mechanical collisions &amp; atomic restoring forces</td>
+                            <td>Oscillatory mutual induction of $\vec{E}$ and $\vec{B}$ fields</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maximum Speed Standard</strong></td>
+                            <td>Slower (e.g., $\approx 343\text{ m/s}$ in air at $20^\circ\text{C}$)</td>
+                            <td>Fixed at $c = 3.00 \times 10^8\text{ m/s}$ in vacuum</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wave Variants Profile</strong></td>
+                            <td>Can exist as either Transverse or Longitudinal</td>
+                            <td>Strictly Transverse in modern classical treatment</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>1.2 Transverse vs Longitudinal Displacements</h4>
+                <h5>Transverse Waves</h5>
+                <p>In a transverse wave, the constituent particles of the medium oscillate along a directional plane that is perfectly <strong>perpendicular (at right angles)</strong> to the vector path of wave energy propagation. The spatial geometry shows alternating local maxima called <strong>crests</strong> and local minima called <strong>troughs</strong>.</p>
+
+                <h5>Longitudinal Waves</h5>
+                <p>In a longitudinal wave, the constituent particles of the medium undergo periodic oscillations along a translational line that is perfectly <strong>parallel (collinear)</strong> to the vector path of wave energy propagation. The resulting structural density variations display alternating zones of high particle packing density known as <strong>compressions</strong>, and zones of reduced particle packing density known as <strong>rarefactions</strong>.</p>
+
+                <h4>1.3 Mathematical Characterisation &amp; Graphical Profiles</h4>
+                <p>To evaluate a wave system, we construct two separate graphical views to capture how the wave varies across time and space.</p>
+
+                <h5>1. Displacement-Position Graph (Spatial View)</h5>
+                <p>This graph charts a snapshot of the wave's displacement across space at one fixed, frozen instant in time ($t = t_{\text{fixed}}$). It tracks the true spatial layout of the wave train.</p>
+
+                <div class="vector-graphic-container">
+                    <svg viewBox="0 0 500 180" class="html-svg-diagram">
+                        <line x1="50" y1="30" x2="450" y2="30" stroke="#222" stroke-dasharray="3,3"/>
+                        <line x1="50" y1="150" x2="450" y2="150" stroke="#222" stroke-dasharray="3,3"/>
+                        <line x1="150" y1="10" x2="150" y2="170" stroke="#222" stroke-dasharray="3,3"/>
+                        <line x1="350" y1="10" x2="350" y2="170" stroke="#222" stroke-dasharray="3,3"/>
+                        <line x1="40" y1="90" x2="470" y2="90" stroke="#aaa" stroke-width="1.5"/>
+                        <line x1="50" y1="10" x2="50" y2="170" stroke="#aaa" stroke-width="1.5"/>
+                        <path d="M 50 90 Q 100 10 150 90 T 250 90 T 350 90 T 450 90" fill="none" stroke="#00d2ff" stroke-width="2.5"/>
+                        <line x1="150" y1="90" x2="350" y2="90" stroke="#ff4d4d" stroke-width="1.5"/>
+                        <circle cx="150" cy="90" r="3" fill="#ff4d4d"/>
+                        <circle cx="350" cy="90" r="3" fill="#ff4d4d"/>
+                        <line x1="100" y1="90" x2="100" y2="10" stroke="#b666ff" stroke-width="1.5"/>
+                        <polygon points="100,10 97,16 103,16" fill="#b666ff"/>
+                        <text x="35" y="20" fill="#aaa" font-size="11" font-weight="bold">y (Displacement)</text>
+                        <text x="430" y="105" fill="#aaa" font-size="11" font-weight="bold">x (Position)</text>
+                        <text x="210" y="85" fill="#ff4d4d" font-size="12" font-weight="bold">Wavelength (λ)</text>
+                        <text x="106" y="35" fill="#b666ff" font-size="12" font-weight="bold">Amplitude (A)</text>
+                    </svg>
+                    <p class="image-caption">Figure 1.1: Displacement-Position profile tracking the spatial wavelength ($\lambda$) property.</p>
+                </div>
+
+                <h5>2. Displacement-Time Graph (Temporal View)</h5>
+                <p>This graph tracks a single, specific particle at one fixed position ($x = x_{\text{fixed}}$) over time, showing its harmonic oscillation history.</p>
+
+                <div class="vector-graphic-container">
+                    <svg viewBox="0 0 500 180" class="html-svg-diagram">
+                        <line x1="50" y1="30" x2="450" y2="30" stroke="#222" stroke-dasharray="3,3"/>
+                        <line x1="50" y1="150" x2="450" y2="150" stroke="#222" stroke-dasharray="3,3"/>
+                        <line x1="40" y1="90" x2="470" y2="90" stroke="#aaa" stroke-width="1.5"/>
+                        <line x1="50" y1="10" x2="50" y2="170" stroke="#aaa" stroke-width="1.5"/>
+                        <path d="M 50 30 Q 100 90 150 150 T 250 30 T 350 150 T 450 30" fill="none" stroke="#00e676" stroke-width="2.5"/>
+                        <line x1="50" y1="30" x2="250" y2="30" stroke="#ffb300" stroke-width="1.5"/>
+                        <circle cx="50" cy="30" r="3" fill="#ffb300"/>
+                        <circle cx="250" cy="30" r="3" fill="#ffb300"/>
+                        <text x="35" y="20" fill="#aaa" font-size="11" font-weight="bold">y (Displacement)</text>
+                        <text x="440" y="105" fill="#aaa" font-size="11" font-weight="bold">t (Time)</text>
+                        <text x="130" y="25" fill="#ffb300" font-size="12" font-weight="bold">Period (T)</text>
+                    </svg>
+                    <p class="image-caption">Figure 1.2: Displacement-Time profile tracking the periodic duration ($T$) property.</p>
+                </div>
+
+                <h5>Core Parametric Definitions</h5>
+                <ul>
+                    <li><strong>Displacement ($y$):</strong> The instantaneous directed vector distance of a specific medium particle from its equilibrium position.</li>
+                    <li><strong>Amplitude ($A$):</strong> The maximum magnitude of displacement attained by any particle away from its central equilibrium baseline.</li>
+                    <li><strong>Wavelength ($\lambda$):</strong> The spatial distance between two successive in-phase points on a wave train at a fixed instant.</li>
+                    <li><strong>Period ($T$):</strong> The time required for a single full wave cycle to pass a fixed spatial position.</li>
+                    <li><strong>Frequency ($f$):</strong> The number of complete wave cycles that pass a fixed coordinate per unit time. Unit: Hertz ($\text{Hz} = \text{s}^{-1}$).</li>
+                    <li><strong>Wave Number ($k$):</strong> The spatial frequency of a wave, tracking the number of radians of wave phase per unit distance.</li>
+                </ul>
+
+                <h5>Algebraic Synthesis and Direct Derivation</h5>
+                <p>The relationship between period and frequency follows directly from their reciprocal definitions:</p>
+                $$f = \frac{1}{T}$$
+                <p>Wave velocity ($v$) represents the ratio of spatial distance traveled to time elapsed. Since a wave travels exactly one wavelength ($\lambda$) during one full temporal period ($T$), we can derive the wave equation:</p>
+                $$v = \frac{\text{Distance}}{\text{Time}} = \frac{\lambda}{T}$$
+                <p>Substituting the frequency relationship $f = \frac{1}{T}$ into this expression gives the wave equation:</p>
+                $$v = f\lambda$$
+                <p>The spatial wave number ($k$) maps the phase accumulation rate per unit distance. A full $2\pi$ radian phase shift occurs across one wavelength ($\lambda$), yielding the standard wave number formula:</p>
+                $$k = \frac{2\pi}{\lambda}$$
+            </section>
+
+            <section class="syllabus-card-section">
+                <div class="section-badge">Inquiry Question 2</div>
+                <h3>How do waves behave?</h3>
+                <hr class="separator-line">
+
+                <h4>2.1 Reflection, Refraction, Diffraction, and Superposition</h4>
+                <h5>Reflection</h5>
+                <p>Reflection occurs when an incoming wavefront strikes a boundary interface separating two distinct physical media, causing the wave energy to bounce back into its original medium. The behavior is governed by the <strong>Law of Reflection</strong>: the angle of incidence ($\theta_i$) is exactly equal to the angle of reflection ($\theta_r$) relative to the surface normal line ($\theta_i = \theta_r$). There is no change in wave speed ($v$), frequency ($f$), or wavelength ($\lambda$).</p>
+
+                <h5>Refraction</h5>
+                <p>Refraction is the change in direction of a wave as it crosses a boundary into a medium with a different propagation speed. This change in velocity forces the wavefronts to bend unless they strike the boundary at a normal angle ($90^\circ$). The frequency ($f$) remains constant throughout the transition because it is fixed by the wave source. Therefore, the wavelength must scale proportionally with the wave speed ($v \propto \lambda$).</p>
+
+                <h5>Diffraction</h5>
+                <p>Diffraction describes the bending, spreading, or flaring out of wavefronts as they pass through an opening or past the edge of an obstacle. The degree of diffraction depends on the ratio of the wave's wavelength to the width of the opening ($w$):</p>
+                <ul>
+                    <li>When $\lambda \ll w$, the wave passes straight through with minimal bending, creating a sharp shadow zone.</li>
+                    <li>When $\lambda \approx w$ or $\lambda > w$, extensive circular spreading occurs, and the wave bends noticeably into the geometric shadow zone.</li>
+                </ul>
+
+                <h5>Superposition Principle</h5>
+                <p>The principle of linear superposition states that when two or more waves travel through the same medium and overlap at a specific coordinate, the net instantaneous displacement of the medium is equal to the vector sum of the individual wave displacements:</p>
+                $$y_{\text{net}} = y_1 + y_2 + y_3 + \dots + y_n$$
+                <ul>
+                    <li><strong>Constructive Interference:</strong> Occurs when overlapping waves have displacements in the same direction, combining to produce a larger net amplitude.</li>
+                    <li><strong>Destructive Interference:</strong> Occurs when overlapping waves have opposite displacements, combining to reduce or cancel out the net amplitude.</li>
+                </ul>
+
+                <h4>2.2 Progressive Waves vs Standing Wave Systems</h4>
+                <p>A <strong>progressive wave</strong> is a moving wave train that continuously transfers mechanical or electromagnetic energy outward away from its source through a medium. In contrast, a <strong>standing wave</strong> (or stationary wave) is a stable, oscillating pattern locked in space. It is formed by the continuous superposition of two progressive wave trains that share identical amplitudes, frequencies, and wavelengths, but travel in opposite directions (often due to reflections off boundary walls).</p>
+
+                <div class="vector-graphic-container">
+                    <svg viewBox="0 0 500 150" class="html-svg-diagram">
+                        <path d="M 50 75 Q 150 -5 250 75 T 450 75" fill="none" stroke="#b666ff" stroke-width="2" stroke-dasharray="2,2"/>
+                        <path d="M 50 75 Q 150 155 250 75 T 450 75" fill="none" stroke="#b666ff" stroke-width="2" stroke-dasharray="2,2"/>
+                        <path d="M 50 75 L 450 75" stroke="#444" stroke-width="1"/>
+                        <circle cx="50" cy="75" r="4" fill="#ff4d4d"/>
+                        <circle cx="250" cy="75" r="4" fill="#ff4d4d"/>
+                        <circle cx="450" cy="75" r="4" fill="#ff4d4d"/>
+                        <circle cx="150" cy="75" r="4" fill="#00d2ff"/>
+                        <circle cx="350" cy="75" r="4" fill="#00d2ff"/>
+                        <line x1="150" y1="10" x2="150" y2="140" stroke="#00d2ff" stroke-width="1" stroke-dasharray="4,4"/>
+                        <line x1="350" y1="10" x2="350" y2="140" stroke="#00d2ff" stroke-width="1" stroke-dasharray="4,4"/>
+                        <text x="45" y="65" fill="#ff4d4d" font-size="11" font-weight="bold">Node (N)</text>
+                        <text x="245" y="65" fill="#ff4d4d" font-size="11" font-weight="bold">Node (N)</text>
+                        <text x="130" y="150" fill="#00d2ff" font-size="11" font-weight="bold">Antinode (A)</text>
+                    </svg>
+                    <p class="image-caption">Figure 2.1: Stable standing wave system showing fixed structural nodes (zero amplitude) and antinodes (maximum amplitude).</p>
+                </div>
+
+                <h4>2.3 Mechanical Resonance and Oscillatory Dynamics</h4>
+                <p>Every physical mechanical system possesses a native <strong>natural frequency</strong> ($f_0$) at which it will oscillate if disturbed and left to move freely. This natural frequency is determined by the system's structural distribution of mass and internal restoring elastic forces.</p>
+                <p>When an external periodic force acts on the system with a specific <strong>driving frequency</strong> ($f_{\text{drive}}$), energy is transferred into the system over time. <strong>Resonance</strong> occurs when the external driving frequency matches the system's natural frequency:</p>
+                $$f_{\text{drive}} = f_0$$
+                <p>At resonance, the driving force acts in phase with the system's natural velocity. This optimization maximizes the efficiency of energy transfer into the system, causing the structural amplitude of motion to increase to a maximum value. Uncontrolled resonance can cause structural failure if the stored energy exceeds the physical limits of the material.</p>
+            </section>
+
+            <section class="syllabus-card-section">
+                <div class="section-badge">Inquiry Question 3</div>
+                <h3>What evidence suggests that sound is a mechanical wave?</h3>
+                <hr class="separator-line">
+
+                <h4>3.1 Acoustic Mechanics: Pressure Fields and Air Displacement</h4>
+                <p>Sound behaves as a <strong>longitudinal mechanical wave</strong> that requires a physical medium to travel. It propagates through air via alternating micro-displacements of gas molecules along its path. This behavior creates alternating variations in the local air density and pressure:</p>
+                <ul>
+                    <li><strong>Compressions (High Pressure Zones):</strong> Formed where air molecules are displaced inward toward each other, maximizing the local density ($\rho > \rho_0$) and pressure ($P > P_0$).</li>
+                    <li><strong>Rarefactions (Low Pressure Zones):</strong> Formed where air molecules are displaced away from each other, minimizing the local density ($\rho < \rho_0$) and pressure ($P < P_0$).</li>
+                </ul>
+                <p>Crucially, the acoustic displacement wave and the acoustic pressure wave are exactly <strong>$90^\circ$ ($\frac{\pi}{2}\text{ radians}$) out of phase</strong> with each other. At coordinates where molecular displacement is zero (a displacement node), the accumulation of molecules is at its highest or lowest, creating a pressure change maximum (a pressure antinode).</p>
+
+                <h4>3.2 Sensory Perception: Pitch and Loudness</h4>
+                <p>The human physiological perception of sound maps directly to physical properties of the acoustic wave:</p>
+                <ul>
+                    <li><strong>Pitch:</strong> The human perception of how "high" or "low" a sound is. This maps directly to the wave's fundamental <strong>frequency</strong> ($f$). High frequencies produce high-pitched sounds.</li>
+                    <li><strong>Loudness:</strong> The perceived volume of a sound. This maps directly to the physical <strong>amplitude</strong> ($A$) of the wave's pressure variations. A larger pressure variance delivers more energy per unit area, resulting in a louder sound.</li>
+                </ul>
+
+                <h4>3.3 The Inverse Square Law of Acoustic Intensity</h4>
+                <p>Sound energy spreads radially outward from an idealized point source as a expanding spherical wavefront. The total acoustic power ($P$) remains constant as the wave travels away from the source. This power is distributed over the growing surface area of a sphere ($A_{\text{sphere}} = 4\pi r^2$). Acoustic intensity ($I$), which represents power per unit area, is defined as:</p>
+                $$I = \frac{\text{Power}}{\text{Area}} = \frac{P}{4\pi r^2}$$
+                <p>Since $P$ and $4\pi$ are constants for a given source, the acoustic intensity varies inversely with the square of the radial distance from the source ($I \propto \frac{1}{r^2}$):</p>
+                $$\frac{I_1}{I_2} = \left(\frac{r_2}{r_1}\right)^2 \implies I_1 r_1^2 = I_2 r_2^2$$
+
+                <h4>3.4 Standing Wave Boundary Quantisation: Strings and Pipes</h4>
+                <p>When standing waves form within bounded physical systems, the geometry of the boundaries dictates the allowed wavelengths and frequencies. This behavior creates a series of discrete resonant modes called <strong>harmonics</strong>.</p>
+
+                <h5>1. Taut Strings (Fixed at Both Boundary Ends)</h5>
+                <p>Since both ends are securely anchored, the string is locked in place, forcing a displacement <strong>Node (N)</strong> at each end ($x = 0$ and $x = L$). The simplest resonant pattern that satisfies these boundary conditions features a single antinode in the middle, making the length of the string exactly equal to half a wavelength ($L = \frac{\lambda_1}{2}$). The full family of allowed resonant wavelengths follows the geometric sequence:</p>
+                $$\lambda_n = \frac{2L}{n} \quad \text{where } n = 1, 2, 3, 4, \dots$$
+                <p>The speed of a transverse wave on a taut string depends on its physical properties:</p>
+                $$v_{\text{string}} = \sqrt{\frac{T}{\mu}}$$
+                <p>Where $T$ is the tension force in Newtons and $\mu = \frac{\text{mass}}{\text{length}}$ is the linear mass density of the string. Substituting this velocity profile into the wave equation ($v = f\lambda$) gives the allowed resonant frequencies:</p>
+                $$f_n = \frac{v}{\lambda_n} = \frac{n v_{\text{string}}}{2L} = \frac{n}{2L}\sqrt{\frac{T}{\mu}}$$
+                <ul>
+                    <li>$n = 1$: The <strong>Fundamental Frequency</strong> or First Harmonic.</li>
+                    <li>$n = 2$: The Second Harmonic (also known as the First Overtone).</li>
+                    <li>$n = 3$: The Third Harmonic (Second Overtone).</li>
+                </ul>
+
+                <h5>2. Open Acoustic Pipes (Open at Both Ends)</h5>
+                <p>Air molecules at an open end of a pipe are free to move into the surrounding atmosphere, creating a displacement <strong>Antinode (A)</strong> at both boundaries. For the fundamental mode, the pipe contains an antinode at each open end and a single node in the center. This geometry makes the length of the pipe exactly equal to half a wavelength ($L = \frac{\lambda_1}{2}$). This system shares the same resonant formulas as a taut string:</p>
+                $$\lambda_n = \frac{2L}{n} \implies f_n = \frac{n v_{\text{sound}}}{2L} \quad \text{where } n = 1, 2, 3, \dots$$
+                <p>Open pipes produce all integer multiples of the fundamental frequency ($f_1, 2f_1, 3f_1, 4f_1, \dots$).</p>
+
+                <h5>3. Closed Acoustic Pipes (Closed at One End, Open at One End)</h5>
+                <p>The closed boundary blocks air movement, forcing a displacement <strong>Node (N)</strong> at that end. The open boundary remains free to move, creating an <strong>Antinode (A)</strong>. For the fundamental mode, the shortest pattern that fits a node at one end and an antinode at the other requires the pipe length to equal one-quarter of a wavelength ($L = \frac{\lambda_1}{4}$). The boundary geometry restricts the system to <strong>odd integer harmonics only</strong>:</p>
+                $$\lambda_n = \frac{4L}{n} \implies f_n = \frac{n v_{\text{sound}}}{4L} \quad \text{where } n = 1, 3, 5, 7, \dots$$
+                <p>Closed pipes can only produce odd harmonics ($f_1, 3f_1, 5f_1, 7f_1, \dots$). Even multiples ($2f_1, 4f_1, \dots$) cannot form because they cannot satisfy the node-antinode boundary conditions simultaneously.</p>
+
+                <h4>3.5 Interference Phenomena: Acoustic Beats and the Doppler Effect</h4>
+                <h5>Acoustic Beats</h5>
+                <p>Beats are periodic fluctuations in sound volume heard at a specific location when two sound sources with slightly different frequencies ($f_1 \approx f_2$) sound together. The overlapping sound waves continuously shift in and out of phase with each other over time. This shifts the net interaction between constructive and destructive interference, creating an alternating pattern of loud and soft volume. The frequency of this volume variation, known as the <strong>beat frequency</strong> ($f_{\text{beat}}$), is equal to the absolute difference between the two source frequencies:</p>
+                $$f_{\text{beat}} = |f_2 - f_1|$$
+
+                <h5>The Doppler Effect</h5>
+                <p>The Doppler effect is the shift in perceived wave frequency that occurs when there is relative motion between a wave source and an observer. This relative motion alters how quickly successive wavefronts are encountered:</p>
+                <ul>
+                    <li>When the source and observer move <strong>closer together</strong>, the observer intersects wavefronts more frequently, causing a shift to a <strong>higher perceived frequency</strong> ($f' > f$).</li>
+                    <li>When they move <strong>further apart</strong>, the wavefronts arrive less frequently, causing a shift to a <strong>lower perceived frequency</strong> ($f' < f$).</li>
+                </ul>
+                <p>The general equation combining both source and observer motion along a straight line is:</p>
+                $$f' = f \left( \frac{v_{\text{wave}} \pm v_{\text{observer}}}{v_{\text{wave}} \mp v_{\text{source}}} \right)$$
+                <p>Where:</p>
+                <ul>
+                    <li>$f'$ is the perceived frequency shifted by the Doppler effect.</li>
+                    <li>$f$ is the true intrinsic frequency produced by the source.</li>
+                    <li>$v_{\text{wave}}$ is the speed of sound waves in the background medium.</li>
+                    <li>$v_{\text{observer}}$ is the speed of the observer relative to the medium.</li>
+                    <li>$v_{\text{source}}$ is the speed of the source relative to the medium.</li>
+                </ul>
+                <p>To choose the correct operational signs ($\pm, \mp$), apply this physical rule: relative motion moving the source and observer <strong>closer together</strong> must always increase the numerator or decrease the denominator to raise the frequency ($f'$). Relative motion moving them <strong>apart</strong> must lower the numerator or raise the denominator to decrease the frequency ($f'$).</p>
+            </section>
+
+            <section class="syllabus-card-section">
+                <div class="section-badge">Inquiry Question 4</div>
+                <h3>What properties can be demonstrated when using the ray model of light?</h3>
+                <hr class="separator-line">
+
+                <h4>4.1 Refractive Index and Snell's Law Architecture</h4>
+                <p>The absolute <strong>refractive index</strong> ($n$) of a given transparent material is a dimensionless ratio that measures how much the speed of light is reduced when it passes through that material compared to its speed in a vacuum:</p>
+                $$n_x = \frac{c}{v_x}$$
+                <p>Where $c = 3.00 \times 10^8\text{ m/s}$ is the speed of light in a vacuum, and $v_x$ is the speed of light within the specific material. Because light cannot travel faster than $c$ in a vacuum, $n \ge 1$ for all materials ($n_{\text{vacuum}} = 1.000$, $n_{\text{air}} \approx 1.0003$, $n_{\text{water}} \approx 1.333$, $n_{\text{glass}} \approx 1.500$).</p>
+                <p>When light crosses an oblique interface between two media with different refractive indices ($n_1 \ne n_2$), it bends according to <strong>Snell's Law</strong>:</p>
+                $$n_1 \sin\theta_1 = n_2 \sin\theta_2$$
+                <p>Where $\theta_1$ and $\theta_2$ are the angles of the light ray relative to the surface normal line in each medium, respectively.</p>
+
+                <h4>4.2 Total Internal Reflection and the Critical Angle Criterion</h4>
+                <p>When light travels from an optically denser medium into a less dense medium ($n_1 > n_2$, such as from glass into air), the light ray bends <strong>away from the normal line</strong>, making the angle of refraction greater than the angle of incidence ($\theta_2 > \theta_1$).</p>
+                <p>As the angle of incidence ($\theta_1$) increases, the angle of refraction ($\theta_2$) approaches $90^\circ$, where the refracted ray travels parallel to the boundary surface. The specific angle of incidence where this occurs is called the <strong>critical angle</strong> ($\theta_c$). We derive its value by substituting $\theta_2 = 90^\circ$ into Snell's Law:</p>
+                $$n_1 \sin\theta_c = n_2 \sin(90^\circ) \implies n_1 \sin\theta_c = n_2 (1) \implies \theta_c = \sin^{-1}\left(\frac{n_2}{n_1}\right)$$
+                <p><strong>Total Internal Reflection (TIR)</strong> occurs when both of the following physical criteria are met:</p>
+                <ol>
+                    <li>The light ray must be traveling within an optically denser medium toward a boundary with a less dense medium ($n_1 > n_2$).</li>
+                    <li>The angle of incidence must exceed the critical angle ($\theta_1 > \theta_c$).</li>
+                </ol>
+                <p>Under these conditions, no light refracts across the boundary into the second medium; $100\%$ of the incident light energy reflects back into the first medium, following the standard law of reflection.</p>
+
+                <h4>4.3 Optical Dispersion: Chromatic Aberration Dynamics</h4>
+                <p>The true refractive index ($n$) of a material is not fixed; it varies slightly depending on the frequency or wavelength of the light passing through it. This phenomenon is called <strong>dispersion</strong>. In typical optical media, higher-frequency light (shorter wavelengths, like violet light) encounters a slightly higher refractive index than lower-frequency light (longer wavelengths, like red light):</p>
+                $$n_{\text{violet}} > n_{\text{red}}$$
+                <p>When white light enters a glass prism at an angle, each constituent color slows down by a slightly different amount and bends at a slightly different angle. Violet light bends the most, while red light bends the least, separating the white light into its component colors.</p>
+
+                <h4>4.4 Comprehensive Mirror and Lens Geometric Ray Diagrams</h4>
+                <p>To analyze image formation using the ray model of light, we trace principal light rays through optical systems using the following sign conventions and ray definitions:</p>
+                
+                <h5>Principal Tracing Rays:</h5>
+                <ul>
+                    <li><strong>Ray 1 (Parallel Ray):</strong> Travels parallel to the principal axis, then reflects through the focal point ($F$) for mirrors, or refracts through the focal point ($F$) for lenses.</li>
+                    <li><strong>Ray 2 (Focal Ray):</strong> Passes through the focal point ($F$), then reflects or refracts parallel to the principal axis.</li>
+                    <li><strong>Ray 3 (Central Ray):</strong> Passes through the center of curvature ($C$) for mirrors, reflecting back along its original path, or passes straight through the optical center ($O$) of a lens without bending.</li>
+                </ul>
+
+                <h5>Image Attributes Breakdown Matrix:</h5>
+                <p>Every generated image must be comprehensively categorised across four fundamental physical parameters:</p>
+                <ol>
+                    <li><strong>Orientation:</strong> <em>Upright</em> (oriented in the same direction as the object) or <em>Inverted</em> (flipped upside down).</li>
+                    <li><strong>Location:</strong> The exact position of the image relative to the optical element, measured along the principal axis (e.g., $v < F$, or positioned between $F$ and $2F$).</li>
+                    <li><strong>Size/Magnitude:</strong> <em>Magnified</em> (larger than the object, magnification $|M| > 1$), <em>Diminished</em> (smaller than the object, $|M| < 1$), or <em>Same Size</em> ($|M| = 1$).</li>
+                    <li><strong>Real or Virtual:</strong> 
+                        <ul>
+                            <li><strong>Real Image:</strong> Formed by the physical intersection of real, converging light rays. Real images can be projected onto a screen and form on the same side of a mirror as the object, or on the opposite side of a lens.</li>
+                            <li><strong>Virtual Image:</strong> Formed where diverging light rays appear to originate when traced backward. Virtual images cannot be projected onto a screen and form behind a mirror, or on the same side of a lens as the object.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <hr class="separator-line">
+                <h4>1. CONCAVE MIRROR IMAGING SUITE (6 SCENARIOS)</h4>
+                <p>A concave mirror is a converging system with a positive focal length ($f > 0$). It produces a variety of real or virtual images depending on where the object is placed relative to the focal point ($F$) and center of curvature ($C$).</p>
+
+                <div class="ray-case-block">
+                    <h5>Case 1.1: Object Located at Infinity ($\infty$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="80" x2="480" y2="80" stroke="#555" stroke-width="1.5"/> <path d="M 400 20 Q 420 80 400 140" fill="none" stroke="#00d2ff" stroke-width="3"/>
+                            <circle cx="200" cy="80" r="3" fill="#fff"/><text x="195" y="95" fill="#fff">C</text>
+                            <circle cx="300" cy="80" r="3" fill="#fff"/><text x="295" y="95" fill="#fff">F</text>
+                            <line x1="20" y1="30" x2="408" y2="30" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="3,3"/>
+                            <line x1="20" y1="130" x2="408" y2="130" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="3,3"/>
+                            <line x1="408" y1="30" x2="300" y2="80" stroke="#00e676" stroke-width="2"/>
+                            <line x1="408" y1="130" x2="300" y2="80" stroke="#00e676" stroke-width="2"/>
+                            <polygon points="210,30 216,27 216,33" fill="#ff4d4d"/>
+                            <polygon points="354,55 350,50 357,51" fill="#00e676"/>
+                            <line x1="300" y1="80" x2="300" y2="100" stroke="#ffb300" stroke-width="2"/>
+                            <polygon points="300,80 297,88 303,88" fill="#ffb300"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Inverted</li>
+                        <li><strong>Location:</strong> Positioned precisely at the Focal Point ($F$)</li>
+                        <li><strong>Size:</strong> Diminished to a highly concentrated point</li>
+                        <li><strong>Real/Virtual:</strong> Real Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 1.2: Object Placed Beyond the Center of Curvature ($u > 2F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="100" x2="480" y2="100" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 400 20 Q 420 100 400 150" fill="none" stroke="#00d2ff" stroke-width="3"/>
+                            <circle cx="160" cy="100" r="3" fill="#fff"/><text x="155" y="115" fill="#fff">C</text>
+                            <circle cx="280" cy="100" r="3" fill="#fff"/><text x="275" y="115" fill="#fff">F</text>
+                            <line x1="80" y1="100" x2="80" y2="40" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="80,40 76,48 84,48" fill="#ffb300"/><text x="70" y="35" fill="#ffb300">Object</text>
+                            <line x1="80" y1="40" x2="411" y2="40" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="411" y1="40" x2="220" y2="140" stroke="#00e676" stroke-width="2"/>
+                            <line x1="80" y1="40" x2="280" y2="100" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="280" y1="100" x2="411" y2="139" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="411" y1="139" x2="200" y2="139" stroke="#00e676" stroke-width="2"/>
+                            <line x1="220" y1="100" x2="220" y2="140" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="220,140 216,132 224,132" fill="#ffb300"/><text x="225" y="130" fill="#ffb300">Image</text>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Inverted</li>
+                        <li><strong>Location:</strong> Positioned intermediate between $C$ and $F$ ($F < v < 2F$)</li>
+                        <li><strong>Size:</strong> Diminished</li>
+                        <li><strong>Real/Virtual:</strong> Real Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 1.3: Object Placed Exactly at the Center of Curvature ($u = 2F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="80" x2="480" y2="80" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 400 15 Q 420 80 400 145" fill="none" stroke="#00d2ff" stroke-width="3"/>
+                            <circle cx="160" cy="80" r="3" fill="#fff"/><text x="155" y="95" fill="#fff">C</text>
+                            <circle cx="280" cy="80" r="3" fill="#fff"/><text x="275" y="95" fill="#fff">F</text>
+                            <line x1="160" y1="80" x2="160" y2="30" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="160,30 156,38 164,38" fill="#ffb300"/>
+                            <line x1="160" y1="30" x2="409" y2="30" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="409" y1="30" x2="160" y2="130" stroke="#00e676" stroke-width="2"/>
+                            <line x1="160" y1="30" x2="280" y2="80" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="280" y1="80" x2="409" y2="130" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="409" y1="130" x2="160" y2="130" stroke="#00e676" stroke-width="2"/>
+                            <line x1="160" y1="80" x2="160" y2="130" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="160,130 156,122 164,122" fill="#ffb300"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Inverted</li>
+                        <li><strong>Location:</strong> Positioned exactly back at the Center of Curvature ($C$) ($v = 2F$)</li>
+                        <li><strong>Size:</strong> Same size ($|M| = 1.0$)</li>
+                        <li><strong>Real/Virtual:</strong> Real Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 1.4: Object Placed Between Center of Curvature and Focal Point ($F < u < 2F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="90" x2="480" y2="90" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 400 15 Q 420 90 400 145" fill="none" stroke="#00d2ff" stroke-width="3"/>
+                            <circle cx="180" cy="90" r="3" fill="#fff"/><text x="175" y="105" fill="#fff">C</text>
+                            <circle cx="290" cy="90" r="3" fill="#fff"/><text x="285" y="105" fill="#fff">F</text>
+                            <line x1="230" y1="90" x2="230" y2="55" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="230,55 226,63 234,63" fill="#ffb300"/>
+                            <line x1="230" y1="55" x2="408" y2="55" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="408" y1="55" x2="90" y2="145" stroke="#00e676" stroke-width="2"/>
+                            <line x1="90" y1="90" x2="90" y2="145" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="90,145 86,137 94,137" fill="#ffb300"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Inverted</li>
+                        <li><strong>Location:</strong> Positioned further out beyond the Center of Curvature ($v > 2F$)</li>
+                        <li><strong>Size:</strong> Magnified</li>
+                        <li><strong>Real/Virtual:</strong> Real Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 1.5: Object Placed Exactly at the Focal Point ($u = F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="100" x2="480" y2="100" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 400 15 Q 420 100 400 145" fill="none" stroke="#00d2ff" stroke-width="3"/>
+                            <circle cx="180" cy="100" r="3" fill="#fff"/><text x="175" y="115" fill="#fff">C</text>
+                            <circle cx="290" cy="100" r="3" fill="#fff"/><text x="285" y="115" fill="#fff">F</text>
+                            <line x1="290" y1="100" x2="290" y2="50" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="290,50 286,58 294,58" fill="#ffb300"/>
+                            <line x1="290" y1="50" x2="408" y2="50" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="408" y1="50" x2="290" y2="100" stroke="#00e676" stroke-width="2"/>
+                            <line x1="290" y1="50" x2="410" y2="110" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="410" y1="110" x2="180" y2="215" stroke="#00e676" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Undefined (rays travel completely parallel)</li>
+                        <li><strong>Location:</strong> Positioned at Infinity ($\infty$)</li>
+                        <li><strong>Size:</strong> Infinitely Magnified</li>
+                        <li><strong>Real/Virtual:</strong> Real Image (at infinite limit)</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 1.6: Object Placed Inside the Focal Length ($u < F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="100" x2="480" y2="100" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 350 15 Q 370 100 350 145" fill="none" stroke="#00d2ff" stroke-width="3"/>
+                            <circle cx="130" cy="100" r="3" fill="#fff"/><text x="125" y="115" fill="#fff">C</text>
+                            <circle cx="240" cy="100" r="3" fill="#fff"/><text x="235" y="115" fill="#fff">F</text>
+                            <line x1="290" y1="100" x2="290" y2="60" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="290,60 286,68 294,68" fill="#ffb300"/>
+                            <line x1="290" y1="60" x2="359" y2="60" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="359" y1="60" x2="240" y2="100" stroke="#00e676" stroke-width="2"/>
+                            <line x1="359" y1="60" x2="450" y2="30" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/> <line x1="130" y1="100" x2="360" y2="135" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="2,2"/>
+                            <line x1="360" y1="135" x2="450" y2="148" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="430" y1="100" x2="430" y2="35" stroke="#b666ff" stroke-width="2.5" stroke-dasharray="2,2"/>
+                            <polygon points="430,35 426,43 434,43" fill="#b666ff"/><text x="420" y="25" fill="#b666ff">Image</text>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Upright</li>
+                        <li><strong>Location:</strong> Positioned deep behind the mirror wall</li>
+                        <li><strong>Size:</strong> Magnified</li>
+                        <li><strong>Real/Virtual:</strong> Virtual Image</li>
+                    </ul>
+                </div>
+
+                <hr class="separator-line">
+                <h4>2. CONVEX MIRROR IMAGING SUITE (2 SCENARIOS)</h4>
+                <p>A convex mirror is a diverging optical element with a negative focal length ($f < 0$). It has virtual focal points ($F$) and centers of curvature ($C$) located behind the reflecting surface. It strictly forms diminished, upright, virtual images for all real object positions.</p>
+
+                <div class="ray-case-block">
+                    <h5>Case 2.1: Object Located at Infinity ($\infty$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="80" x2="480" y2="80" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 150 140 Q 130 80 150 20" fill="none" stroke="#00d2ff" stroke-width="3"/> <circle cx="250" cy="80" r="3" fill="#fff"/><text x="245" y="95" fill="#fff">F</text>
+                            <circle cx="350" cy="80" r="3" fill="#fff"/><text x="345" y="95" fill="#fff">C</text>
+                            <line x1="20" y1="35" x2="139" y2="35" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="20" y1="125" x2="139" y2="125" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="139" y1="35" x2="40" y2="5" stroke="#00e676" stroke-width="2"/>
+                            <line x1="139" y1="125" x2="40" y2="155" stroke="#00e676" stroke-width="2"/>
+                            <line x1="139" y1="35" x2="250" y2="80" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="3,3"/>
+                            <line x1="139" y1="125" x2="250" y2="80" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="3,3"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Upright (point concentration)</li>
+                        <li><strong>Location:</strong> Positioned behind the surface at the Virtual Focal Point ($F$)</li>
+                        <li><strong>Size:</strong> Diminished to a microscopic point</li>
+                        <li><strong>Real/Virtual:</strong> Virtual Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 2.2: Object Positioned at a Finite Distance ($u$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="100" x2="480" y2="100" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 250 145 Q 230 100 250 15" fill="none" stroke="#00d2ff" stroke-width="3"/>
+                            <circle cx="340" cy="100" r="3" fill="#fff"/><text x="335" y="115" fill="#fff">F</text>
+                            <circle cx="430" cy="100" r="3" fill="#fff"/><text x="425" y="115" fill="#fff">C</text>
+                            <line x1="70" y1="100" x2="70" y2="40" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="70,40 66,48 74,48" fill="#ffb300"/>
+                            <line x1="70" y1="40" x2="236" y2="40" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="236" y1="40" x2="130" y2="10" stroke="#00e676" stroke-width="2"/>
+                            <line x1="236" y1="40" x2="340" y2="100" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="2,2"/>
+                            <line x1="70" y1="40" x2="242" y2="76" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="242" y1="76" x2="430" y2="100" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="2,2"/>
+                            <line x1="285" y1="100" x2="285" y2="69" stroke="#b666ff" stroke-width="2"/>
+                            <polygon points="285,69 282,75 288,75" fill="#b666ff"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Upright</li>
+                        <li><strong>Location:</strong> Positioned behind the mirror, inside the virtual focal length ($|v| < F$)</li>
+                        <li><strong>Size:</strong> Diminished</li>
+                        <li><strong>Real/Virtual:</strong> Virtual Image</li>
+                    </ul>
+                </div>
+
+                <hr class="separator-line">
+                <h4>3. CONVERGING CONVEX LENS IMAGING SUITE (6 SCENARIOS)</h4>
+                <p>A convex lens uses refraction through a curved medium to converge light rays. It has a positive focal length ($f > 0$) and can produce both real and virtual images depending on the object's position relative to the focal thresholds ($F$ and $2F$).</p>
+
+                <div class="ray-case-block">
+                    <h5>Case 3.1: Object Located at Infinity ($\infty$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="80" x2="480" y2="80" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 245 20 Q 255 80 245 140 Q 235 80 245 20" fill="rgba(0,210,255,0.2)" stroke="#00d2ff" stroke-width="1.5"/>
+                            <circle cx="130" cy="80" r="3" fill="#fff"/><text x="125" y="95" fill="#fff">2F</text>
+                            <circle cx="190" cy="80" r="3" fill="#fff"/><text x="185" y="95" fill="#fff">F</text>
+                            <circle cx="300" cy="80" r="3" fill="#fff"/><text x="295" y="95" fill="#fff">F'</text>
+                            <circle cx="360" cy="80" r="3" fill="#fff"/><text x="355" y="95" fill="#fff">2F'</text>
+                            <line x1="20" y1="30" x2="245" y2="30" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="20" y1="130" x2="245" y2="130" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="245" y1="30" x2="300" y2="80" stroke="#00e676" stroke-width="2"/>
+                            <line x1="245" y1="130" x2="300" y2="80" stroke="#00e676" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Inverted</li>
+                        <li><strong>Location:</strong> Positioned at the focus line on the opposite side ($v = F$)</li>
+                        <li><strong>Size:</strong> Diminished to a concentrated focal point</li>
+                        <li><strong>Real/Virtual:</strong> Real Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 3.2: Object Placed Beyond Twice the Focal Length ($u > 2F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="100" x2="480" y2="100" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 250 15 Q 258 100 250 145 Q 242 100 250 15" fill="rgba(0,210,255,0.2)" stroke="#00d2ff" stroke-width="1.5"/>
+                            <circle cx="170" cy="100" r="3" fill="#fff"/><text x="165" y="115" fill="#fff">2F</text>
+                            <circle cx="210" cy="100" r="3" fill="#fff"/><text x="205" y="115" fill="#fff">F</text>
+                            <circle cx="290" cy="100" r="3" fill="#fff"/><text x="285" y="115" fill="#fff">F'</text>
+                            <circle cx="330" cy="100" r="3" fill="#fff"/><text x="325" y="115" fill="#fff">2F'</text>
+                            <line x1="110" y1="100" x2="110" y2="40" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="110,40 106,48 114,48" fill="#ffb300"/>
+                            <line x1="110" y1="40" x2="250" y2="40" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="250" y1="40" x2="310" y2="130" stroke="#00e676" stroke-width="2"/>
+                            <line x1="110" y1="40" x2="250" y2="100" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="250" y1="100" x2="310" y2="130" stroke="#00e676" stroke-width="2"/>
+                            <line x1="310" y1="100" x2="310" y2="130" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="310,130 306,122 314,122" fill="#ffb300"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Inverted</li>
+                        <li><strong>Location:</strong> Positioned on the opposite side between $F'$ and $2F'$ ($F < v < 2F$)</li>
+                        <li><strong>Size:</strong> Diminished</li>
+                        <li><strong>Real/Virtual:</strong> Real Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 3.3: Object Placed Exactly at Twice the Focal Length ($u = 2F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="90" x2="480" y2="90" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 250 15 Q 258 90 250 145 Q 242 90 250 15" fill="rgba(0,210,255,0.2)" stroke="#00d2ff" stroke-width="1.5"/>
+                            <circle cx="150" cy="90" r="3" fill="#fff"/><text x="145" y="105" fill="#fff">2F</text>
+                            <circle cx="200" cy="90" r="3" fill="#fff"/><text x="195" y="105" fill="#fff">F</text>
+                            <circle cx="300" cy="90" r="3" fill="#fff"/><text x="295" y="105" fill="#fff">F'</text>
+                            <circle cx="350" cy="90" r="3" fill="#fff"/><text x="345" y="105" fill="#fff">2F'</text>
+                            <line x1="150" y1="90" x2="150" y2="40" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="150,40 146,48 154,48" fill="#ffb300"/>
+                            <line x1="150" y1="40" x2="250" y2="40" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="250" y1="40" x2="350" y2="140" stroke="#00e676" stroke-width="2"/>
+                            <line x1="150" y1="40" x2="250" y2="90" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="250" y1="90" x2="350" y2="140" stroke="#00e676" stroke-width="2"/>
+                            <line x1="350" y1="90" x2="350" y2="140" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="350,140 346,132 354,132" fill="#ffb300"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Inverted</li>
+                        <li><strong>Location:</strong> Positioned exactly at $2F'$ on the opposite side ($v = 2F$)</li>
+                        <li><strong>Size:</strong> Same size ($|M| = 1.0$)</li>
+                        <li><strong>Real/Virtual:</strong> Real Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 3.4: Object Placed Between $2F$ and the Focal Point ($F < u < 2F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="90" x2="480" y2="90" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 230 15 Q 238 90 230 145 Q 222 90 230 15" fill="rgba(0,210,255,0.2)" stroke="#00d2ff" stroke-width="1.5"/>
+                            <circle cx="110" cy="90" r="3" fill="#fff"/><text x="105" y="105" fill="#fff">2F</text>
+                            <circle cx="170" cy="90" r="3" fill="#fff"/><text x="165" y="105" fill="#fff">F</text>
+                            <circle cx="290" cy="90" r="3" fill="#fff"/><text x="285" y="105" fill="#fff">F'</text>
+                            <circle cx="350" cy="90" r="3" fill="#fff"/><text x="345" y="105" fill="#fff">2F'</text>
+                            <line x1="140" y1="90" x2="140" y2="50" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="140,50 136,58 144,58" fill="#ffb300"/>
+                            <line x1="140" y1="50" x2="230" y2="50" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="230" y1="50" x2="410" y2="140" stroke="#00e676" stroke-width="2"/>
+                            <line x1="140" y1="50" x2="230" y2="90" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="230" y1="90" x2="410" y2="140" stroke="#00e676" stroke-width="2"/>
+                            <line x1="410" y1="90" x2="410" y2="140" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="410,140 406,132 414,132" fill="#ffb300"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Inverted</li>
+                        <li><strong>Location:</strong> Positioned deep beyond $2F'$ on the opposite side ($v > 2F$)</li>
+                        <li><strong>Size:</strong> Magnified</li>
+                        <li><strong>Real/Virtual:</strong> Real Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 3.5: Object Placed Exactly at the Focal Length ($u = F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="100" x2="480" y2="100" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 250 15 Q 258 100 250 145 Q 242 100 250 15" fill="rgba(0,210,255,0.2)" stroke="#00d2ff" stroke-width="1.5"/>
+                            <circle cx="190" cy="100" r="3" fill="#fff"/><text x="185" y="115" fill="#fff">F</text>
+                            <circle cx="310" cy="100" r="3" fill="#fff"/><text x="305" y="115" fill="#fff">F'</text>
+                            <line x1="190" y1="100" x2="190" y2="50" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="190,50 186,58 194,58" fill="#ffb300"/>
+                            <line x1="190" y1="50" x2="250" y2="50" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="250" y1="50" x2="370" y2="150" stroke="#00e676" stroke-width="2"/>
+                            <line x1="190" y1="50" x2="250" y2="100" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="250" y1="100" x2="370" y2="200" stroke="#00e676" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Undefined</li>
+                        <li><strong>Location:</strong> Positioned at Infinity ($\infty$)</li>
+                        <li><strong>Size:</strong> Infinitely Magnified</li>
+                        <li><strong>Real/Virtual:</strong> Real Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 3.6: Object Placed Inside the Focal Length ($u < F$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="100" x2="480" y2="100" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 280 15 Q 288 100 280 145 Q 272 100 280 15" fill="rgba(0,210,255,0.2)" stroke="#00d2ff" stroke-width="1.5"/>
+                            <circle cx="180" cy="100" r="3" fill="#fff"/><text x="175" y="115" fill="#fff">F</text>
+                            <circle cx="380" cy="100" r="3" fill="#fff"/><text x="375" y="115" fill="#fff">F'</text>
+                            <line x1="230" y1="100" x2="230" y2="60" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="230,60 226,68 234,68" fill="#ffb300"/>
+                            <line x1="230" y1="60" x2="280" y2="60" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="280" y1="60" x2="380" y2="100" stroke="#00e676" stroke-width="2"/>
+                            <line x1="280" y1="60" x2="130" y2="40" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="2,2"/> <line x1="230" y1="60" x2="280" y2="100" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="280" y1="100" x2="330" y2="140" stroke="#00e676" stroke-width="2"/>
+                            <line x1="280" y1="100" x2="130" y2="-20" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="2,2"/>
+                            <line x1="130" y1="100" x2="130" y2="40" stroke="#b666ff" stroke-width="2.5" stroke-dasharray="2,2"/>
+                            <polygon points="130,40 126,48 134,48" fill="#b666ff"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Upright</li>
+                        <li><strong>Location:</strong> Positioned on the same side as the object, further back ($|v| > u$)</li>
+                        <li><strong>Size:</strong> Magnified</li>
+                        <li><strong>Real/Virtual:</strong> Virtual Image</li>
+                    </ul>
+                </div>
+
+                <hr class="separator-line">
+                <h4>4. CONCAVE LENS IMAGING SUITE (2 SCENARIOS)</h4>
+                <p>A concave lens is a diverging optical system with a negative focal length ($f < 0$). It refracts incident rays outward away from its principal axis, meaning it can only produce virtual, upright, diminished images for all real object locations.</p>
+
+                <div class="ray-case-block">
+                    <h5>Case 4.1: Object Located at Infinity ($\infty$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="80" x2="480" y2="80" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 240 20 L 260 20 Q 252 80 260 140 L 240 140 Q 248 80 240 20" fill="rgba(0,210,255,0.2)" stroke="#00d2ff" stroke-width="1.5"/>
+                            <circle cx="170" cy="80" r="3" fill="#fff"/><text x="165" y="95" fill="#fff">F</text>
+                            <circle cx="330" cy="80" r="3" fill="#fff"/><text x="325" y="95" fill="#fff">F'</text>
+                            <line x1="20" y1="35" x2="250" y2="35" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="20" y1="125" x2="250" y2="125" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="250" y1="35" x2="350" y2="5" stroke="#00e676" stroke-width="2"/>
+                            <line x1="250" y1="125" x2="350" y2="155" stroke="#00e676" stroke-width="2"/>
+                            <line x1="250" y1="35" x2="170" y2="80" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="3,3"/>
+                            <line x1="250" y1="125" x2="170" y2="80" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="3,3"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Upright</li>
+                        <li><strong>Location:</strong> Positioned at the internal virtual focal point ($F$)</li>
+                        <li><strong>Size:</strong> Diminished to a tiny virtual point</li>
+                        <li><strong>Real/Virtual:</strong> Virtual Image</li>
+                    </ul>
+                </div>
+
+                <div class="ray-case-block">
+                    <h5>Case 4.2: Object Positioned at a Finite Distance ($u$)</h5>
+                    <div class="vector-graphic-container">
+                        <svg viewBox="0 0 500 160" class="html-svg-diagram">
+                            <line x1="20" y1="100" x2="480" y2="100" stroke="#555" stroke-width="1.5"/>
+                            <path d="M 260 15 L 275 15 Q 268 100 275 145 L 260 145 Q 267 100 260 15" fill="rgba(0,210,255,0.2)" stroke="#00d2ff" stroke-width="1.5"/>
+                            <circle cx="160" cy="100" r="3" fill="#fff"/><text x="155" y="115" fill="#fff">F</text>
+                            <circle cx="370" cy="100" r="3" fill="#fff"/><text x="365" y="115" fill="#fff">F'</text>
+                            <line x1="80" y1="100" x2="80" y2="40" stroke="#ffb300" stroke-width="2.5"/>
+                            <polygon points="80,40 76,48 84,48" fill="#ffb300"/>
+                            <line x1="80" y1="40" x2="267" y2="40" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="267" y1="40" x2="350" y2="10" stroke="#00e676" stroke-width="2"/>
+                            <line x1="267" y1="40" x2="160" y2="100" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="2,2"/> <line x1="80" y1="40" x2="268" y2="100" stroke="#ff4d4d" stroke-width="1.5" stroke-dasharray="2,2"/>
+                            <line x1="268" y1="100" x2="360" y2="130" stroke="#00e676" stroke-width="2"/>
+                            <line x1="135" y1="100" x2="135" y2="72" stroke="#b666ff" stroke-width="2"/>
+                            <polygon points="135,72 132,78 138,78" fill="#b666ff"/>
+                        </svg>
+                    </div>
+                    <ul class="image-attributes-list">
+                        <li><strong>Orientation:</strong> Upright</li>
+                        <li><strong>Location:</strong> Positioned on the same side as the object, inside the virtual focus ($|v| < |f|$)</li>
+                        <li><strong>Size:</strong> Diminished</li>
+                        <li><strong>Real/Virtual:</strong> Virtual Image</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="syllabus-card-section">
+                <div class="section-badge">Inquiry Question 5</div>
+                <h3>How are temperature, thermal energy and particle motion related?</h3>
+                <hr class="separator-line">
+
+                <h4>5.1 Kinetic Theory of Matter and Temperature Frameworks</h4>
+                <p>The <strong>Kinetic Theory of Matter</strong> states that all physical matter is composed of a vast ensemble of microscopic particles (atoms or molecules) that are locked in a continuous state of random motion. The mechanical energy of these constituent particles determines the thermal state of a system:</p>
+                <ul>
+                    <li>In solid elements, this motion is restricted to localized vibrations within a fixed structural lattice.</li>
+                    <li>In fluid structures, particles can slide, rotate, and translate past one another.</li>
+                    <li>In gaseous matrices, particles move freely in straight-line paths, undergoing random elastic collisions.</li>
+                </ul>
+                <p><strong>Temperature</strong> is a macroscopic scalar measurement that tracks the <strong>average kinetic energy</strong> ($\overline{K}_k$) of the particles within a substance. It does not depend on the total mass of the object. Absolute zero ($0\text{ K} = -273.15^\circ\text{C}$) represents the fundamental thermodynamic limit where all classical kinetic translational motion stops.</p>
+                <p><strong>Thermal Energy</strong> represents the <em>total</em> internal energy ($U$) contained within a system. This includes both the total sum of all microscopic kinetic energies and the chemical potential energies associated with internal molecular bonds and intermolecular forces.</p>
+
+                <h4>5.2 Thermal Equilibrium and the Zeroth Law</h4>
+                <p>When two separate physical systems with different initial temperatures are brought into direct thermal contact, thermal energy transfers from the higher-temperature system (where particles have a higher average kinetic energy) to the lower-temperature system. This transfer occurs via microscopic collisions at the boundary interface.</p>
+                <p>This net energy transfer continues until the two systems reach identical temperatures, a state known as <strong>thermal equilibrium</strong>. At this point, the net rate of heat exchange between the two systems drops to zero ($\Delta Q_{\text{net}} = 0$). This behavior is formalized by the <strong>Zeroth Law of Thermodynamics</strong>:</p>
+                <blockquote>If System A is in thermal equilibrium with System B, and System B is independently in thermal equilibrium with System C, then System A is in thermal equilibrium with System C. This law provides the physical basis for temperature measurement and calibration.</blockquote>
+
+                <h4>5.3 Specific Heat Capacity Specifics</h4>
+                <p>The <strong>Specific Heat Capacity</strong> ($c$) of a substance measures the quantity of thermal energy required to change the temperature of exactly one kilogram ($1\text{ kg}$) of that substance by one Kelvin ($1\text{ K}$ or $1^\circ\text{C}$). The relationship governing this temperature change is:</p>
+                $$\Delta Q = mc\Delta T$$
+                <p>Where:</p>
+                <ul>
+                    <li>$\Delta Q$ is the quantity of thermal energy transferred into or out of the system in Joules ($\text{J}$).</li>
+                    <li>$m$ is the total inertial mass of the substance in kilograms ($\text{kg}$).</li>
+                    <li>$c$ is the material's specific heat capacity in Joules per kilogram per Kelvin ($\text{J}\cdot\text{kg}^{-1}\cdot\text{K}^{-1}$).</li>
+                    <li>$\Delta T = T_{\text{final}} - T_{\text{initial}}$ is the net change in system temperature.</li>
+                </ul>
+
+                <h4>5.4 Latent Heat Energy Transitions</h4>
+                <p>When a substance undergoes a phase change (such as melting or vaporizing), its temperature remains completely constant ($\Delta T = 0$) despite a continuous input or output of thermal energy. The energy transferred during this transition is called <strong>latent heat</strong>:</p>
+                $$\Delta Q = mL$$
+                <p>Where $L$ is the specific latent heat constant of the material ($\text{J/kg}$).</p>
+                <ul>
+                    <li><strong>Specific Latent Heat of Fusion ($L_f$):</strong> The energy required per unit mass to transition a substance from a solid lattice to a fluid structure at its melting point. This energy is used to break the fixed intermolecular bonds holding particles in the solid structure.</li>
+                    <li><strong>Specific Latent Heat of Vaporisation ($L_v$):</strong> The energy required per unit mass to transition a substance from a fluid structure into a gas phase at its boiling point. This energy is used to completely overcome the remaining intermolecular forces separating the particles.</li>
+                </ul>
+
+                <div class="vector-graphic-container">
+                    <svg viewBox="0 0 500 200" class="html-svg-diagram">
+                        <line x1="40" y1="170" x2="480" y2="170" stroke="#aaa" stroke-width="1.5"/>
+                        <line x1="50" y1="20" x2="50" y2="180" stroke="#aaa" stroke-width="1.5"/>
+                        <line x1="50" y1="160" x2="110" y2="120" stroke="#00d2ff" stroke-width="2.5"/>
+                        <line x1="110" y1="120" x2="190" y2="120" stroke="#ffb300" stroke-width="2.5"/>
+                        <line x1="190" y1="120" x2="270" y2="50" stroke="#00d2ff" stroke-width="2.5"/>
+                        <line x1="270" y1="50" x2="410" y2="50" stroke="#ff4d4d" stroke-width="2.5"/>
+                        <line x1="410" y1="50" x2="460" y2="15" stroke="#00d2ff" stroke-width="2.5"/>
+                        <text x="55" y="115" fill="#aaa" font-size="9">Solid Heating</text>
+                        <text x="120" y="135" fill="#ffb300" font-size="10" font-weight="bold">Melting (Plateau)</text>
+                        <text x="200" y="45" fill="#aaa" font-size="9">Liquid Heating</text>
+                        <text x="290" y="40" fill="#ff4d4d" font-size="10" font-weight="bold">Boiling (Plateau)</text>
+                        <text x="25" y="15" fill="#aaa" font-size="11" font-weight="bold">Temp (T)</text>
+                        <text x="410" y="185" fill="#aaa" font-size="11" font-weight="bold">Thermal Energy Added (Q)</text>
+                    </svg>
+                    <p class="image-caption">Figure 5.1: Phase change heating curve. Temperature rises during single-phase states ($\Delta Q = mc\Delta T$) and remains constant during phase changes ($\Delta Q = mL$).</p>
+                </div>
+
+                <h4>5.5 Heat Transfer Mechanisms</h4>
+                <h5>Conduction</h5>
+                <p>Conduction is the transfer of thermal energy through a material without any bulk movement of the matter itself. It occurs via localized microscopic particle interactions. When one region of a solid is heated, the local particles vibrate more rapidly, colliding with neighboring particles and transferring kinetic energy onward. In metallic structures, this process is enhanced by the movement of highly mobile free electrons, which rapidly transport kinetic energy through the material lattice.</p>
+
+                <h5>Convection</h5>
+                <p>Convection is the transfer of thermal energy within a fluid (liquid or gas) via the bulk movement of the fluid particles. When a fluid region is heated, its constituent particles gain kinetic energy and spread further apart, causing that region to expand and decrease in density. Buoyancy forces then cause this warmer, less dense fluid to rise, while cooler, denser fluid sinks to replace it. This motion creates continuous loop patterns called <strong>convection currents</strong>.</p>
+
+                <h5>Radiation</h5>
+                <p>Radiation is the transfer of thermal energy via the emission of electromagnetic waves, primarily in the infrared spectrum. Unlike conduction and convection, radiation requires no physical matter or material medium and can travel through a vacuum. All physical objects with a temperature above absolute zero ($T > 0\text{ K}$) continuously emit electromagnetic radiation due to the thermal oscillations of charged particles within their atoms.</p>
+
+                <h4>5.6 Quantitative Fourier Thermal Conductivity Analysis</h4>
+                <p>The rate at which thermal energy conducts through a solid material depends on its physical dimensions and properties. This behavior is modeled by <strong>Fourier's Law of Thermal Conduction</strong>:</p>
+                $$\frac{\Delta Q}{t} = \frac{k A \Delta T}{d}$$
+                <p>Where:</p>
+                <ul>
+                    <li>$\frac{\Delta Q}{t}$ is the rate of heat energy transfer over time in Watts ($\text{W} = \text{J/s}$).</li>
+                    <li>$k$ is the material's <strong>thermal conductivity</strong> constant ($\text{W}\cdot\text{m}^{-1}\cdot\text{K}^{-1}$). Materials with high conductivity values (like copper, $k \approx 401$) are thermal conductors; materials with low values (like fiberglass, $k \approx 0.04$) serve as thermal insulators.</li>
+                    <li>$A$ is the cross-sectional surface area perpendicular to the path of heat flow in square meters ($\text{m}^2$).</li>
+                    <li>$\Delta T = T_{\text{hot}} - T_{\text{cold}}$ is the temperature difference across the material layer.</li>
+                    <li>$d$ is the thickness of the material layer along the path of heat flow in meters ($\text{m}$).</li>
+                </ul>
+            </section>
+
+            <div class="analytical-engine-intro" style="margin-top: 30px;">
+                <div class="engine-card-inner" style="border-left: 4px solid #00d2ff;">
+                    <div class="badge-accent" style="background: rgba(0,210,255,0.1); color: #00d2ff;">Assessment Active Gateway</div>
+                    <h3>Verify Module 3 Mastery Objectives</h3>
+                    <p>Having completed the conceptual deep-dives for Waves and Thermodynamics, proceed to the dedicated evaluation terminal to test your quantitative problem-solving skills against advanced NESA examination items.</p>
+                    <div class="engine-cta-block">
+                        <a href="mod3_1.html" class="btn-link-action" style="background: linear-gradient(135deg, #00d2ff 0%, #00e676 100%); color: #000;">Open Module Evaluation Workstation →</a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
